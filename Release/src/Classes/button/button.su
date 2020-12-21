@@ -1,0 +1,7 @@
+button.h:108:14:bool CButton::isKeyDown()	8	static
+button.cpp:11:1:CButton::CButton()	0	static
+button.cpp:17:6:void CButton::init(GPIO_TypeDef*, uint16_t, bool)	48	static
+button.cpp:34:6:void CButton::update()	8	static
+button.cpp:137:6:void CButton::loopStartRegister()	0	static
+button.cpp:168:6:bool CButton::getImpulse(bool)	0	static
+button.cpp:185:6:bool CButton::getKeyPressed()	0	static

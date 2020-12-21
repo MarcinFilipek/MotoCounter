@@ -1,0 +1,3 @@
+Alarm.cpp:10:6:void Alarm::init(GPIO_TypeDef*, uint16_t)	48	static
+Alarm.cpp:24:6:void Alarm::on()	16	static
+Alarm.cpp:28:6:void Alarm::off()	16	static
