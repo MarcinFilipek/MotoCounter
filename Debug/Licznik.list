@@ -5,39 +5,39 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   000000c0  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00002fa4  080000c0  080000c0  000100c0  2**2
+  1 .text         00002ed4  080000c0  080000c0  000100c0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000074  08003064  08003064  00013064  2**2
+  2 .rodata       00000074  08002f94  08002f94  00012f94  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .init_array   00000008  080030d8  080030d8  000130d8  2**2
+  3 .init_array   00000008  08003008  08003008  00013008  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  4 .fini_array   00000004  080030e0  080030e0  000130e0  2**2
+  4 .fini_array   00000004  08003010  08003010  00013010  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  5 .data         0000006c  20000000  080030e4  00020000  2**2
+  5 .data         0000006c  20000000  08003014  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .bss          0000006c  2000006c  08003150  0002006c  2**2
+  6 .bss          0000006c  2000006c  08003080  0002006c  2**2
                   ALLOC
-  7 ._user_heap_stack 00000080  200000d8  08003150  000200d8  2**0
+  7 ._user_heap_stack 00000080  200000d8  08003080  000200d8  2**0
                   ALLOC
   8 .ARM.attributes 00000028  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY
-  9 .debug_info   0000bb37  00000000  00000000  00020094  2**0
+  9 .debug_info   00009bac  00000000  00000000  00020094  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00002e05  00000000  00000000  0002bbcb  2**0
+ 10 .debug_abbrev 0000292e  00000000  00000000  00029c40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000958  00000000  00000000  0002e9d0  2**3
+ 11 .debug_aranges 00000920  00000000  00000000  0002c570  2**3
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000810  00000000  00000000  0002f328  2**3
+ 12 .debug_ranges 000007e8  00000000  00000000  0002ce90  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00004784  00000000  00000000  0002fb38  2**0
+ 13 .debug_line   0000409c  00000000  00000000  0002d678  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00003786  00000000  00000000  000342bc  2**0
+ 14 .debug_str    000034de  00000000  00000000  00031714  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      0000007c  00000000  00000000  00037a42  2**0
+ 15 .comment      0000007c  00000000  00000000  00034bf2  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  00001f68  00000000  00000000  00037ac0  2**2
+ 16 .debug_frame  00001ed8  00000000  00000000  00034c70  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .stabstr      0000003f  00000000  00000000  00039a28  2**0
+ 17 .stabstr      0000003f  00000000  00000000  00036b48  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -59,7 +59,7 @@ Disassembly of section .text:
  80000da:	bd10      	pop	{r4, pc}
  80000dc:	2000006c 	.word	0x2000006c
  80000e0:	00000000 	.word	0x00000000
- 80000e4:	0800304c 	.word	0x0800304c
+ 80000e4:	08002f7c 	.word	0x08002f7c
 
 080000e8 <frame_dummy>:
  80000e8:	4b04      	ldr	r3, [pc, #16]	; (80000fc <frame_dummy+0x14>)
@@ -74,7 +74,7 @@ Disassembly of section .text:
  80000fa:	46c0      	nop			; (mov r8, r8)
  80000fc:	00000000 	.word	0x00000000
  8000100:	20000070 	.word	0x20000070
- 8000104:	0800304c 	.word	0x0800304c
+ 8000104:	08002f7c 	.word	0x08002f7c
 
 08000108 <__udivsi3>:
  8000108:	2200      	movs	r2, #0
@@ -3205,7 +3205,7 @@ HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)
  8001208:	fffeffff 	.word	0xfffeffff
  800120c:	fffbffff 	.word	0xfffbffff
  8001210:	ffffe0ff 	.word	0xffffe0ff
- 8001214:	08003098 	.word	0x08003098
+ 8001214:	08002fc8 	.word	0x08002fc8
  8001218:	20000004 	.word	0x20000004
  800121c:	ffff1fff 	.word	0xffff1fff
       }
@@ -4412,7 +4412,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8001870:	00001388 	.word	0x00001388
  8001874:	fffff8ff 	.word	0xfffff8ff
  8001878:	ffffc7ff 	.word	0xffffc7ff
- 800187c:	08003098 	.word	0x08003098
+ 800187c:	08002fc8 	.word	0x08002fc8
  8001880:	20000004 	.word	0x20000004
 
 08001884 <HAL_RCC_GetSysClockFreq>:
@@ -4587,7 +4587,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8001958:	003d0900 	.word	0x003d0900
  800195c:	00f42400 	.word	0x00f42400
  8001960:	007a1200 	.word	0x007a1200
- 8001964:	080030a8 	.word	0x080030a8
+ 8001964:	08002fd8 	.word	0x08002fd8
 
 08001968 <HAL_RCCEx_PeriphCLKConfig>:
   * @retval HAL status
@@ -5531,7 +5531,7 @@ uint8_t Digit::getSegmentValue() {
  8001e62:	b002      	add	sp, #8
  8001e64:	bd80      	pop	{r7, pc}
  8001e66:	46c0      	nop			; (mov r8, r8)
- 8001e68:	08003064 	.word	0x08003064
+ 8001e68:	08002f94 	.word	0x08002f94
 
 08001e6c <_ZN5Digit5getD1Ev>:
 public:
@@ -5575,60 +5575,60 @@ void Lcd::init(){
  8001e96:	b082      	sub	sp, #8
  8001e98:	af00      	add	r7, sp, #0
  8001e9a:	6078      	str	r0, [r7, #4]
-	dig[0].init(9, 16);
+	dig[0].init(19, 18);
  8001e9c:	687b      	ldr	r3, [r7, #4]
  8001e9e:	333c      	adds	r3, #60	; 0x3c
- 8001ea0:	2210      	movs	r2, #16
- 8001ea2:	2109      	movs	r1, #9
+ 8001ea0:	2212      	movs	r2, #18
+ 8001ea2:	2113      	movs	r1, #19
  8001ea4:	0018      	movs	r0, r3
  8001ea6:	f7ff ffaa 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[1].init(7, 8);
+	dig[1].init(21, 20);
  8001eaa:	687b      	ldr	r3, [r7, #4]
  8001eac:	333f      	adds	r3, #63	; 0x3f
- 8001eae:	2208      	movs	r2, #8
- 8001eb0:	2107      	movs	r1, #7
+ 8001eae:	2214      	movs	r2, #20
+ 8001eb0:	2115      	movs	r1, #21
  8001eb2:	0018      	movs	r0, r3
  8001eb4:	f7ff ffa3 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[2].init(27, 17);
+	dig[2].init(1, 0);
  8001eb8:	687b      	ldr	r3, [r7, #4]
  8001eba:	3342      	adds	r3, #66	; 0x42
- 8001ebc:	2211      	movs	r2, #17
- 8001ebe:	211b      	movs	r1, #27
+ 8001ebc:	2200      	movs	r2, #0
+ 8001ebe:	2101      	movs	r1, #1
  8001ec0:	0018      	movs	r0, r3
  8001ec2:	f7ff ff9c 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[3].init(25, 26);
+	dig[3].init(6, 2);
  8001ec6:	687b      	ldr	r3, [r7, #4]
  8001ec8:	3345      	adds	r3, #69	; 0x45
- 8001eca:	221a      	movs	r2, #26
- 8001ecc:	2119      	movs	r1, #25
+ 8001eca:	2202      	movs	r2, #2
+ 8001ecc:	2106      	movs	r1, #6
  8001ece:	0018      	movs	r0, r3
  8001ed0:	f7ff ff95 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[4].init(23, 22);
+	dig[4].init(26, 27);
  8001ed4:	687b      	ldr	r3, [r7, #4]
  8001ed6:	3348      	adds	r3, #72	; 0x48
- 8001ed8:	2216      	movs	r2, #22
- 8001eda:	2117      	movs	r1, #23
+ 8001ed8:	221b      	movs	r2, #27
+ 8001eda:	211a      	movs	r1, #26
  8001edc:	0018      	movs	r0, r3
  8001ede:	f7ff ff8e 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[5].init(11, 10);
+	dig[5].init(24, 25);
  8001ee2:	687b      	ldr	r3, [r7, #4]
  8001ee4:	334b      	adds	r3, #75	; 0x4b
- 8001ee6:	220a      	movs	r2, #10
- 8001ee8:	210b      	movs	r1, #11
+ 8001ee6:	2219      	movs	r2, #25
+ 8001ee8:	2118      	movs	r1, #24
  8001eea:	0018      	movs	r0, r3
  8001eec:	f7ff ff87 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[6].init(14, 13);
+	dig[6].init(14, 15);
  8001ef0:	687b      	ldr	r3, [r7, #4]
  8001ef2:	334e      	adds	r3, #78	; 0x4e
- 8001ef4:	220d      	movs	r2, #13
+ 8001ef4:	220f      	movs	r2, #15
  8001ef6:	210e      	movs	r1, #14
  8001ef8:	0018      	movs	r0, r3
  8001efa:	f7ff ff80 	bl	8001dfe <_ZN5Digit4initEhh>
-	dig[7].init(24, 15);
+	dig[7].init(11, 13);
  8001efe:	687b      	ldr	r3, [r7, #4]
  8001f00:	3351      	adds	r3, #81	; 0x51
- 8001f02:	220f      	movs	r2, #15
- 8001f04:	2118      	movs	r1, #24
+ 8001f02:	220d      	movs	r2, #13
+ 8001f04:	210b      	movs	r1, #11
  8001f06:	0018      	movs	r0, r3
  8001f08:	f7ff ff79 	bl	8001dfe <_ZN5Digit4initEhh>
 
@@ -5755,7 +5755,7 @@ void Lcd::pinInit() {
 	HAL_GPIO_Init(LCD_VLCD1_PORT, &GPIO_InitStruct);
  8001fc4:	230c      	movs	r3, #12
  8001fc6:	18fb      	adds	r3, r7, r3
- 8001fc8:	4a8e      	ldr	r2, [pc, #568]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8001fc8:	4a8d      	ldr	r2, [pc, #564]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
  8001fca:	0019      	movs	r1, r3
  8001fcc:	0010      	movs	r0, r2
  8001fce:	f7fe fbdf 	bl	8000790 <HAL_GPIO_Init>
@@ -5769,7 +5769,7 @@ void Lcd::pinInit() {
 	HAL_GPIO_Init(LCD_VLCD2_PORT, &GPIO_InitStruct);
  8001fdc:	230c      	movs	r3, #12
  8001fde:	18fb      	adds	r3, r7, r3
- 8001fe0:	4a88      	ldr	r2, [pc, #544]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8001fe0:	4a87      	ldr	r2, [pc, #540]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
  8001fe2:	0019      	movs	r1, r3
  8001fe4:	0010      	movs	r0, r2
  8001fe6:	f7fe fbd3 	bl	8000790 <HAL_GPIO_Init>
@@ -5782,7 +5782,7 @@ void Lcd::pinInit() {
 	HAL_GPIO_Init(LCD_VLCD3_PORT, &GPIO_InitStruct);
  8001ff2:	230c      	movs	r3, #12
  8001ff4:	18fb      	adds	r3, r7, r3
- 8001ff6:	4a83      	ldr	r2, [pc, #524]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8001ff6:	4a82      	ldr	r2, [pc, #520]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
  8001ff8:	0019      	movs	r1, r3
  8001ffa:	0010      	movs	r0, r2
  8001ffc:	f7fe fbc8 	bl	8000790 <HAL_GPIO_Init>
@@ -5862,2523 +5862,2397 @@ void Lcd::pinInit() {
 	HAL_GPIO_Init(LCD_COM3_PORT, &GPIO_InitStruct);
  8002078:	230c      	movs	r3, #12
  800207a:	18fb      	adds	r3, r7, r3
- 800207c:	4a61      	ldr	r2, [pc, #388]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 800207c:	4a60      	ldr	r2, [pc, #384]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
  800207e:	0019      	movs	r1, r3
  8002080:	0010      	movs	r0, r2
  8002082:	f7fe fb85 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG7_PIN;
+	GPIO_InitStruct.Pin = LCD_SEG0_PIN;
  8002086:	230c      	movs	r3, #12
  8002088:	18fb      	adds	r3, r7, r3
- 800208a:	2208      	movs	r2, #8
+ 800208a:	2202      	movs	r2, #2
  800208c:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG7_PORT, &GPIO_InitStruct);
+	HAL_GPIO_Init(LCD_SEG0_PORT, &GPIO_InitStruct);
  800208e:	230c      	movs	r3, #12
- 8002090:	18fb      	adds	r3, r7, r3
- 8002092:	4a5c      	ldr	r2, [pc, #368]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 8002094:	0019      	movs	r1, r3
- 8002096:	0010      	movs	r0, r2
- 8002098:	f7fe fb7a 	bl	8000790 <HAL_GPIO_Init>
+ 8002090:	18fa      	adds	r2, r7, r3
+ 8002092:	23a0      	movs	r3, #160	; 0xa0
+ 8002094:	05db      	lsls	r3, r3, #23
+ 8002096:	0011      	movs	r1, r2
+ 8002098:	0018      	movs	r0, r3
+ 800209a:	f7fe fb79 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG8_PIN;
- 800209c:	230c      	movs	r3, #12
- 800209e:	18fb      	adds	r3, r7, r3
- 80020a0:	2210      	movs	r2, #16
- 80020a2:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG8_PORT, &GPIO_InitStruct);
- 80020a4:	230c      	movs	r3, #12
- 80020a6:	18fb      	adds	r3, r7, r3
- 80020a8:	4a56      	ldr	r2, [pc, #344]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 80020aa:	0019      	movs	r1, r3
- 80020ac:	0010      	movs	r0, r2
- 80020ae:	f7fe fb6f 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG1_PIN;
+ 800209e:	230c      	movs	r3, #12
+ 80020a0:	18fb      	adds	r3, r7, r3
+ 80020a2:	2204      	movs	r2, #4
+ 80020a4:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG1_PORT, &GPIO_InitStruct);
+ 80020a6:	230c      	movs	r3, #12
+ 80020a8:	18fa      	adds	r2, r7, r3
+ 80020aa:	23a0      	movs	r3, #160	; 0xa0
+ 80020ac:	05db      	lsls	r3, r3, #23
+ 80020ae:	0011      	movs	r1, r2
+ 80020b0:	0018      	movs	r0, r3
+ 80020b2:	f7fe fb6d 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG9_PIN;
- 80020b2:	230c      	movs	r3, #12
- 80020b4:	18fb      	adds	r3, r7, r3
- 80020b6:	2220      	movs	r2, #32
- 80020b8:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG9_PORT, &GPIO_InitStruct);
- 80020ba:	230c      	movs	r3, #12
- 80020bc:	18fb      	adds	r3, r7, r3
- 80020be:	4a51      	ldr	r2, [pc, #324]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 80020c0:	0019      	movs	r1, r3
- 80020c2:	0010      	movs	r0, r2
- 80020c4:	f7fe fb64 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG2_PIN;
+ 80020b6:	230c      	movs	r3, #12
+ 80020b8:	18fb      	adds	r3, r7, r3
+ 80020ba:	2208      	movs	r2, #8
+ 80020bc:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG2_PORT, &GPIO_InitStruct);
+ 80020be:	230c      	movs	r3, #12
+ 80020c0:	18fa      	adds	r2, r7, r3
+ 80020c2:	23a0      	movs	r3, #160	; 0xa0
+ 80020c4:	05db      	lsls	r3, r3, #23
+ 80020c6:	0011      	movs	r1, r2
+ 80020c8:	0018      	movs	r0, r3
+ 80020ca:	f7fe fb61 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG10_PIN;
- 80020c8:	230c      	movs	r3, #12
- 80020ca:	18fb      	adds	r3, r7, r3
- 80020cc:	2280      	movs	r2, #128	; 0x80
- 80020ce:	00d2      	lsls	r2, r2, #3
- 80020d0:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG10_PORT, &GPIO_InitStruct);
- 80020d2:	230c      	movs	r3, #12
- 80020d4:	18fb      	adds	r3, r7, r3
- 80020d6:	4a4b      	ldr	r2, [pc, #300]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 80020d8:	0019      	movs	r1, r3
- 80020da:	0010      	movs	r0, r2
- 80020dc:	f7fe fb58 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG6_PIN;
+ 80020ce:	230c      	movs	r3, #12
+ 80020d0:	18fb      	adds	r3, r7, r3
+ 80020d2:	2202      	movs	r2, #2
+ 80020d4:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG6_PORT, &GPIO_InitStruct);
+ 80020d6:	230c      	movs	r3, #12
+ 80020d8:	18fb      	adds	r3, r7, r3
+ 80020da:	4a49      	ldr	r2, [pc, #292]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
+ 80020dc:	0019      	movs	r1, r3
+ 80020de:	0010      	movs	r0, r2
+ 80020e0:	f7fe fb56 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG11_PIN;
- 80020e0:	230c      	movs	r3, #12
- 80020e2:	18fb      	adds	r3, r7, r3
- 80020e4:	2280      	movs	r2, #128	; 0x80
- 80020e6:	0112      	lsls	r2, r2, #4
- 80020e8:	601a      	str	r2, [r3, #0]
+ 80020e4:	230c      	movs	r3, #12
+ 80020e6:	18fb      	adds	r3, r7, r3
+ 80020e8:	2280      	movs	r2, #128	; 0x80
+ 80020ea:	0112      	lsls	r2, r2, #4
+ 80020ec:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG11_PORT, &GPIO_InitStruct);
- 80020ea:	230c      	movs	r3, #12
- 80020ec:	18fb      	adds	r3, r7, r3
- 80020ee:	4a45      	ldr	r2, [pc, #276]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 80020f0:	0019      	movs	r1, r3
- 80020f2:	0010      	movs	r0, r2
- 80020f4:	f7fe fb4c 	bl	8000790 <HAL_GPIO_Init>
+ 80020ee:	230c      	movs	r3, #12
+ 80020f0:	18fb      	adds	r3, r7, r3
+ 80020f2:	4a43      	ldr	r2, [pc, #268]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
+ 80020f4:	0019      	movs	r1, r3
+ 80020f6:	0010      	movs	r0, r2
+ 80020f8:	f7fe fb4a 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG13_PIN;
- 80020f8:	230c      	movs	r3, #12
- 80020fa:	18fb      	adds	r3, r7, r3
- 80020fc:	2280      	movs	r2, #128	; 0x80
- 80020fe:	0192      	lsls	r2, r2, #6
- 8002100:	601a      	str	r2, [r3, #0]
+ 80020fc:	230c      	movs	r3, #12
+ 80020fe:	18fb      	adds	r3, r7, r3
+ 8002100:	2280      	movs	r2, #128	; 0x80
+ 8002102:	0192      	lsls	r2, r2, #6
+ 8002104:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG13_PORT, &GPIO_InitStruct);
- 8002102:	230c      	movs	r3, #12
- 8002104:	18fb      	adds	r3, r7, r3
- 8002106:	4a3f      	ldr	r2, [pc, #252]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 8002108:	0019      	movs	r1, r3
- 800210a:	0010      	movs	r0, r2
- 800210c:	f7fe fb40 	bl	8000790 <HAL_GPIO_Init>
+ 8002106:	230c      	movs	r3, #12
+ 8002108:	18fb      	adds	r3, r7, r3
+ 800210a:	4a3d      	ldr	r2, [pc, #244]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
+ 800210c:	0019      	movs	r1, r3
+ 800210e:	0010      	movs	r0, r2
+ 8002110:	f7fe fb3e 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG14_PIN;
- 8002110:	230c      	movs	r3, #12
- 8002112:	18fb      	adds	r3, r7, r3
- 8002114:	2280      	movs	r2, #128	; 0x80
- 8002116:	01d2      	lsls	r2, r2, #7
- 8002118:	601a      	str	r2, [r3, #0]
+ 8002114:	230c      	movs	r3, #12
+ 8002116:	18fb      	adds	r3, r7, r3
+ 8002118:	2280      	movs	r2, #128	; 0x80
+ 800211a:	01d2      	lsls	r2, r2, #7
+ 800211c:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG14_PORT, &GPIO_InitStruct);
- 800211a:	230c      	movs	r3, #12
- 800211c:	18fb      	adds	r3, r7, r3
- 800211e:	4a39      	ldr	r2, [pc, #228]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 8002120:	0019      	movs	r1, r3
- 8002122:	0010      	movs	r0, r2
- 8002124:	f7fe fb34 	bl	8000790 <HAL_GPIO_Init>
+ 800211e:	230c      	movs	r3, #12
+ 8002120:	18fb      	adds	r3, r7, r3
+ 8002122:	4a37      	ldr	r2, [pc, #220]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
+ 8002124:	0019      	movs	r1, r3
+ 8002126:	0010      	movs	r0, r2
+ 8002128:	f7fe fb32 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG15_PIN;
- 8002128:	230c      	movs	r3, #12
- 800212a:	18fb      	adds	r3, r7, r3
- 800212c:	2280      	movs	r2, #128	; 0x80
- 800212e:	0212      	lsls	r2, r2, #8
- 8002130:	601a      	str	r2, [r3, #0]
+ 800212c:	230c      	movs	r3, #12
+ 800212e:	18fb      	adds	r3, r7, r3
+ 8002130:	2280      	movs	r2, #128	; 0x80
+ 8002132:	0212      	lsls	r2, r2, #8
+ 8002134:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG15_PORT, &GPIO_InitStruct);
- 8002132:	230c      	movs	r3, #12
- 8002134:	18fb      	adds	r3, r7, r3
- 8002136:	4a33      	ldr	r2, [pc, #204]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 8002138:	0019      	movs	r1, r3
- 800213a:	0010      	movs	r0, r2
- 800213c:	f7fe fb28 	bl	8000790 <HAL_GPIO_Init>
+ 8002136:	230c      	movs	r3, #12
+ 8002138:	18fb      	adds	r3, r7, r3
+ 800213a:	4a31      	ldr	r2, [pc, #196]	; (8002200 <_ZN3Lcd7pinInitEv+0x264>)
+ 800213c:	0019      	movs	r1, r3
+ 800213e:	0010      	movs	r0, r2
+ 8002140:	f7fe fb26 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG16_PIN;
- 8002140:	230c      	movs	r3, #12
- 8002142:	18fb      	adds	r3, r7, r3
- 8002144:	2280      	movs	r2, #128	; 0x80
- 8002146:	0052      	lsls	r2, r2, #1
- 8002148:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG16_PORT, &GPIO_InitStruct);
- 800214a:	230c      	movs	r3, #12
- 800214c:	18fb      	adds	r3, r7, r3
- 800214e:	4a2d      	ldr	r2, [pc, #180]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
- 8002150:	0019      	movs	r1, r3
- 8002152:	0010      	movs	r0, r2
- 8002154:	f7fe fb1c 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG18_PIN;
+ 8002144:	230c      	movs	r3, #12
+ 8002146:	18fb      	adds	r3, r7, r3
+ 8002148:	2201      	movs	r2, #1
+ 800214a:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG18_PORT, &GPIO_InitStruct);
+ 800214c:	230c      	movs	r3, #12
+ 800214e:	18fb      	adds	r3, r7, r3
+ 8002150:	4a2c      	ldr	r2, [pc, #176]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8002152:	0019      	movs	r1, r3
+ 8002154:	0010      	movs	r0, r2
+ 8002156:	f7fe fb1b 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG17_PIN;
- 8002158:	230c      	movs	r3, #12
- 800215a:	18fb      	adds	r3, r7, r3
- 800215c:	2280      	movs	r2, #128	; 0x80
- 800215e:	0212      	lsls	r2, r2, #8
+	GPIO_InitStruct.Pin = LCD_SEG19_PIN;
+ 800215a:	230c      	movs	r3, #12
+ 800215c:	18fb      	adds	r3, r7, r3
+ 800215e:	2202      	movs	r2, #2
  8002160:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG17_PORT, &GPIO_InitStruct);
+	HAL_GPIO_Init(LCD_SEG19_PORT, &GPIO_InitStruct);
  8002162:	230c      	movs	r3, #12
- 8002164:	18fa      	adds	r2, r7, r3
- 8002166:	23a0      	movs	r3, #160	; 0xa0
- 8002168:	05db      	lsls	r3, r3, #23
- 800216a:	0011      	movs	r1, r2
- 800216c:	0018      	movs	r0, r3
- 800216e:	f7fe fb0f 	bl	8000790 <HAL_GPIO_Init>
+ 8002164:	18fb      	adds	r3, r7, r3
+ 8002166:	4a27      	ldr	r2, [pc, #156]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8002168:	0019      	movs	r1, r3
+ 800216a:	0010      	movs	r0, r2
+ 800216c:	f7fe fb10 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG22_PIN;
- 8002172:	230c      	movs	r3, #12
- 8002174:	18fb      	adds	r3, r7, r3
- 8002176:	2210      	movs	r2, #16
- 8002178:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG22_PORT, &GPIO_InitStruct);
- 800217a:	230c      	movs	r3, #12
- 800217c:	18fb      	adds	r3, r7, r3
- 800217e:	4a22      	ldr	r2, [pc, #136]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 8002180:	0019      	movs	r1, r3
- 8002182:	0010      	movs	r0, r2
- 8002184:	f7fe fb04 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG20_PIN;
+ 8002170:	230c      	movs	r3, #12
+ 8002172:	18fb      	adds	r3, r7, r3
+ 8002174:	2204      	movs	r2, #4
+ 8002176:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG20_PORT, &GPIO_InitStruct);
+ 8002178:	230c      	movs	r3, #12
+ 800217a:	18fb      	adds	r3, r7, r3
+ 800217c:	4a21      	ldr	r2, [pc, #132]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 800217e:	0019      	movs	r1, r3
+ 8002180:	0010      	movs	r0, r2
+ 8002182:	f7fe fb05 	bl	8000790 <HAL_GPIO_Init>
 
-	GPIO_InitStruct.Pin = LCD_SEG23_PIN;
- 8002188:	230c      	movs	r3, #12
- 800218a:	18fb      	adds	r3, r7, r3
- 800218c:	2220      	movs	r2, #32
- 800218e:	601a      	str	r2, [r3, #0]
-	HAL_GPIO_Init(LCD_SEG23_PORT, &GPIO_InitStruct);
- 8002190:	230c      	movs	r3, #12
- 8002192:	18fb      	adds	r3, r7, r3
- 8002194:	4a1c      	ldr	r2, [pc, #112]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 8002196:	0019      	movs	r1, r3
- 8002198:	0010      	movs	r0, r2
- 800219a:	f7fe faf9 	bl	8000790 <HAL_GPIO_Init>
+	GPIO_InitStruct.Pin = LCD_SEG21_PIN;
+ 8002186:	230c      	movs	r3, #12
+ 8002188:	18fb      	adds	r3, r7, r3
+ 800218a:	2208      	movs	r2, #8
+ 800218c:	601a      	str	r2, [r3, #0]
+	HAL_GPIO_Init(LCD_SEG21_PORT, &GPIO_InitStruct);
+ 800218e:	230c      	movs	r3, #12
+ 8002190:	18fb      	adds	r3, r7, r3
+ 8002192:	4a1c      	ldr	r2, [pc, #112]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 8002194:	0019      	movs	r1, r3
+ 8002196:	0010      	movs	r0, r2
+ 8002198:	f7fe fafa 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG24_PIN;
- 800219e:	230c      	movs	r3, #12
- 80021a0:	18fb      	adds	r3, r7, r3
- 80021a2:	2240      	movs	r2, #64	; 0x40
- 80021a4:	601a      	str	r2, [r3, #0]
+ 800219c:	230c      	movs	r3, #12
+ 800219e:	18fb      	adds	r3, r7, r3
+ 80021a0:	2240      	movs	r2, #64	; 0x40
+ 80021a2:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG24_PORT, &GPIO_InitStruct);
- 80021a6:	230c      	movs	r3, #12
- 80021a8:	18fb      	adds	r3, r7, r3
- 80021aa:	4a17      	ldr	r2, [pc, #92]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 80021ac:	0019      	movs	r1, r3
- 80021ae:	0010      	movs	r0, r2
- 80021b0:	f7fe faee 	bl	8000790 <HAL_GPIO_Init>
+ 80021a4:	230c      	movs	r3, #12
+ 80021a6:	18fb      	adds	r3, r7, r3
+ 80021a8:	4a16      	ldr	r2, [pc, #88]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 80021aa:	0019      	movs	r1, r3
+ 80021ac:	0010      	movs	r0, r2
+ 80021ae:	f7fe faef 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG25_PIN;
- 80021b4:	230c      	movs	r3, #12
- 80021b6:	18fb      	adds	r3, r7, r3
- 80021b8:	2280      	movs	r2, #128	; 0x80
- 80021ba:	601a      	str	r2, [r3, #0]
+ 80021b2:	230c      	movs	r3, #12
+ 80021b4:	18fb      	adds	r3, r7, r3
+ 80021b6:	2280      	movs	r2, #128	; 0x80
+ 80021b8:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG25_PORT, &GPIO_InitStruct);
- 80021bc:	230c      	movs	r3, #12
- 80021be:	18fb      	adds	r3, r7, r3
- 80021c0:	4a11      	ldr	r2, [pc, #68]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 80021c2:	0019      	movs	r1, r3
- 80021c4:	0010      	movs	r0, r2
- 80021c6:	f7fe fae3 	bl	8000790 <HAL_GPIO_Init>
+ 80021ba:	230c      	movs	r3, #12
+ 80021bc:	18fb      	adds	r3, r7, r3
+ 80021be:	4a11      	ldr	r2, [pc, #68]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 80021c0:	0019      	movs	r1, r3
+ 80021c2:	0010      	movs	r0, r2
+ 80021c4:	f7fe fae4 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG26_PIN;
- 80021ca:	230c      	movs	r3, #12
- 80021cc:	18fb      	adds	r3, r7, r3
- 80021ce:	2280      	movs	r2, #128	; 0x80
- 80021d0:	0052      	lsls	r2, r2, #1
- 80021d2:	601a      	str	r2, [r3, #0]
+ 80021c8:	230c      	movs	r3, #12
+ 80021ca:	18fb      	adds	r3, r7, r3
+ 80021cc:	2280      	movs	r2, #128	; 0x80
+ 80021ce:	0052      	lsls	r2, r2, #1
+ 80021d0:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG26_PORT, &GPIO_InitStruct);
- 80021d4:	230c      	movs	r3, #12
- 80021d6:	18fb      	adds	r3, r7, r3
- 80021d8:	4a0b      	ldr	r2, [pc, #44]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 80021da:	0019      	movs	r1, r3
- 80021dc:	0010      	movs	r0, r2
- 80021de:	f7fe fad7 	bl	8000790 <HAL_GPIO_Init>
+ 80021d2:	230c      	movs	r3, #12
+ 80021d4:	18fb      	adds	r3, r7, r3
+ 80021d6:	4a0b      	ldr	r2, [pc, #44]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 80021d8:	0019      	movs	r1, r3
+ 80021da:	0010      	movs	r0, r2
+ 80021dc:	f7fe fad8 	bl	8000790 <HAL_GPIO_Init>
 
 	GPIO_InitStruct.Pin = LCD_SEG27_PIN;
- 80021e2:	230c      	movs	r3, #12
- 80021e4:	18fb      	adds	r3, r7, r3
- 80021e6:	2280      	movs	r2, #128	; 0x80
- 80021e8:	0092      	lsls	r2, r2, #2
- 80021ea:	601a      	str	r2, [r3, #0]
+ 80021e0:	230c      	movs	r3, #12
+ 80021e2:	18fb      	adds	r3, r7, r3
+ 80021e4:	2280      	movs	r2, #128	; 0x80
+ 80021e6:	0092      	lsls	r2, r2, #2
+ 80021e8:	601a      	str	r2, [r3, #0]
 	HAL_GPIO_Init(LCD_SEG27_PORT, &GPIO_InitStruct);
- 80021ec:	230c      	movs	r3, #12
- 80021ee:	18fb      	adds	r3, r7, r3
- 80021f0:	4a05      	ldr	r2, [pc, #20]	; (8002208 <_ZN3Lcd7pinInitEv+0x26c>)
- 80021f2:	0019      	movs	r1, r3
- 80021f4:	0010      	movs	r0, r2
- 80021f6:	f7fe facb 	bl	8000790 <HAL_GPIO_Init>
+ 80021ea:	230c      	movs	r3, #12
+ 80021ec:	18fb      	adds	r3, r7, r3
+ 80021ee:	4a05      	ldr	r2, [pc, #20]	; (8002204 <_ZN3Lcd7pinInitEv+0x268>)
+ 80021f0:	0019      	movs	r1, r3
+ 80021f2:	0010      	movs	r0, r2
+ 80021f4:	f7fe facc 	bl	8000790 <HAL_GPIO_Init>
 }
- 80021fa:	46c0      	nop			; (mov r8, r8)
- 80021fc:	46bd      	mov	sp, r7
- 80021fe:	b008      	add	sp, #32
- 8002200:	bd80      	pop	{r7, pc}
- 8002202:	46c0      	nop			; (mov r8, r8)
- 8002204:	50000400 	.word	0x50000400
- 8002208:	50000800 	.word	0x50000800
+ 80021f8:	46c0      	nop			; (mov r8, r8)
+ 80021fa:	46bd      	mov	sp, r7
+ 80021fc:	b008      	add	sp, #32
+ 80021fe:	bd80      	pop	{r7, pc}
+ 8002200:	50000400 	.word	0x50000400
+ 8002204:	50000800 	.word	0x50000800
 
-0800220c <_ZN3Lcd5clearEv>:
+08002208 <_ZN3Lcd5clearEv>:
 
 void Lcd::clear() {
- 800220c:	b580      	push	{r7, lr}
- 800220e:	b082      	sub	sp, #8
- 8002210:	af00      	add	r7, sp, #0
- 8002212:	6078      	str	r0, [r7, #4]
+ 8002208:	b580      	push	{r7, lr}
+ 800220a:	b082      	sub	sp, #8
+ 800220c:	af00      	add	r7, sp, #0
+ 800220e:	6078      	str	r0, [r7, #4]
 	HAL_LCD_Clear (&lcdHandler);
- 8002214:	687b      	ldr	r3, [r7, #4]
- 8002216:	0018      	movs	r0, r3
- 8002218:	f7fe fd89 	bl	8000d2e <HAL_LCD_Clear>
+ 8002210:	687b      	ldr	r3, [r7, #4]
+ 8002212:	0018      	movs	r0, r3
+ 8002214:	f7fe fd8b 	bl	8000d2e <HAL_LCD_Clear>
 }
- 800221c:	46c0      	nop			; (mov r8, r8)
- 800221e:	46bd      	mov	sp, r7
- 8002220:	b002      	add	sp, #8
- 8002222:	bd80      	pop	{r7, pc}
+ 8002218:	46c0      	nop			; (mov r8, r8)
+ 800221a:	46bd      	mov	sp, r7
+ 800221c:	b002      	add	sp, #8
+ 800221e:	bd80      	pop	{r7, pc}
 
-08002224 <_ZN3Lcd9writeCharEPhh>:
+08002220 <_ZN3Lcd9writeCharEPhh>:
 
 void Lcd::writeChar(uint8_t* ch, uint8_t pos) {
- 8002224:	b5b0      	push	{r4, r5, r7, lr}
- 8002226:	b08a      	sub	sp, #40	; 0x28
- 8002228:	af00      	add	r7, sp, #0
- 800222a:	60f8      	str	r0, [r7, #12]
- 800222c:	60b9      	str	r1, [r7, #8]
- 800222e:	1dfb      	adds	r3, r7, #7
- 8002230:	701a      	strb	r2, [r3, #0]
+ 8002220:	b5b0      	push	{r4, r5, r7, lr}
+ 8002222:	b08a      	sub	sp, #40	; 0x28
+ 8002224:	af00      	add	r7, sp, #0
+ 8002226:	60f8      	str	r0, [r7, #12]
+ 8002228:	60b9      	str	r1, [r7, #8]
+ 800222a:	1dfb      	adds	r3, r7, #7
+ 800222c:	701a      	strb	r2, [r3, #0]
 	dig[pos].setNumber(*ch - 0x30);
- 8002232:	1dfb      	adds	r3, r7, #7
- 8002234:	781a      	ldrb	r2, [r3, #0]
- 8002236:	0013      	movs	r3, r2
- 8002238:	005b      	lsls	r3, r3, #1
- 800223a:	189b      	adds	r3, r3, r2
- 800223c:	3338      	adds	r3, #56	; 0x38
- 800223e:	68fa      	ldr	r2, [r7, #12]
- 8002240:	18d3      	adds	r3, r2, r3
- 8002242:	1d1a      	adds	r2, r3, #4
- 8002244:	68bb      	ldr	r3, [r7, #8]
- 8002246:	781b      	ldrb	r3, [r3, #0]
- 8002248:	3b30      	subs	r3, #48	; 0x30
- 800224a:	b2db      	uxtb	r3, r3
- 800224c:	0019      	movs	r1, r3
- 800224e:	0010      	movs	r0, r2
- 8002250:	f7ff fded 	bl	8001e2e <_ZN5Digit9setNumberEh>
+ 800222e:	1dfb      	adds	r3, r7, #7
+ 8002230:	781a      	ldrb	r2, [r3, #0]
+ 8002232:	0013      	movs	r3, r2
+ 8002234:	005b      	lsls	r3, r3, #1
+ 8002236:	189b      	adds	r3, r3, r2
+ 8002238:	3338      	adds	r3, #56	; 0x38
+ 800223a:	68fa      	ldr	r2, [r7, #12]
+ 800223c:	18d3      	adds	r3, r2, r3
+ 800223e:	1d1a      	adds	r2, r3, #4
+ 8002240:	68bb      	ldr	r3, [r7, #8]
+ 8002242:	781b      	ldrb	r3, [r3, #0]
+ 8002244:	3b30      	subs	r3, #48	; 0x30
+ 8002246:	b2db      	uxtb	r3, r3
+ 8002248:	0019      	movs	r1, r3
+ 800224a:	0010      	movs	r0, r2
+ 800224c:	f7ff fdef 	bl	8001e2e <_ZN5Digit9setNumberEh>
 	uint8_t segVal = dig[pos].getSegmentValue();
- 8002254:	1dfb      	adds	r3, r7, #7
- 8002256:	781a      	ldrb	r2, [r3, #0]
- 8002258:	0013      	movs	r3, r2
- 800225a:	005b      	lsls	r3, r3, #1
- 800225c:	189b      	adds	r3, r3, r2
- 800225e:	3338      	adds	r3, #56	; 0x38
- 8002260:	68fa      	ldr	r2, [r7, #12]
- 8002262:	18d3      	adds	r3, r2, r3
- 8002264:	3304      	adds	r3, #4
- 8002266:	2227      	movs	r2, #39	; 0x27
- 8002268:	18bc      	adds	r4, r7, r2
- 800226a:	0018      	movs	r0, r3
- 800226c:	f7ff fdee 	bl	8001e4c <_ZN5Digit15getSegmentValueEv>
- 8002270:	0003      	movs	r3, r0
- 8002272:	7023      	strb	r3, [r4, #0]
+ 8002250:	1dfb      	adds	r3, r7, #7
+ 8002252:	781a      	ldrb	r2, [r3, #0]
+ 8002254:	0013      	movs	r3, r2
+ 8002256:	005b      	lsls	r3, r3, #1
+ 8002258:	189b      	adds	r3, r3, r2
+ 800225a:	3338      	adds	r3, #56	; 0x38
+ 800225c:	68fa      	ldr	r2, [r7, #12]
+ 800225e:	18d3      	adds	r3, r2, r3
+ 8002260:	3304      	adds	r3, #4
+ 8002262:	2227      	movs	r2, #39	; 0x27
+ 8002264:	18bc      	adds	r4, r7, r2
+ 8002266:	0018      	movs	r0, r3
+ 8002268:	f7ff fdf0 	bl	8001e4c <_ZN5Digit15getSegmentValueEv>
+ 800226c:	0003      	movs	r3, r0
+ 800226e:	7023      	strb	r3, [r4, #0]
 
 	uint32_t R0 = 0x00;
- 8002274:	2300      	movs	r3, #0
- 8002276:	623b      	str	r3, [r7, #32]
+ 8002270:	2300      	movs	r3, #0
+ 8002272:	623b      	str	r3, [r7, #32]
 	uint32_t R2 = 0x00;
- 8002278:	2300      	movs	r3, #0
- 800227a:	61fb      	str	r3, [r7, #28]
+ 8002274:	2300      	movs	r3, #0
+ 8002276:	61fb      	str	r3, [r7, #28]
 	uint32_t R4 = 0x00;
- 800227c:	2300      	movs	r3, #0
- 800227e:	61bb      	str	r3, [r7, #24]
+ 8002278:	2300      	movs	r3, #0
+ 800227a:	61bb      	str	r3, [r7, #24]
 	uint32_t R6 = 0x00;
- 8002280:	2300      	movs	r3, #0
- 8002282:	617b      	str	r3, [r7, #20]
+ 800227c:	2300      	movs	r3, #0
+ 800227e:	617b      	str	r3, [r7, #20]
 
-	R0 = ((segVal >> 5) & 0x1) << dig[pos].getD2() | (segVal & 0x1) << dig[pos].getD1();
- 8002284:	2327      	movs	r3, #39	; 0x27
- 8002286:	18fb      	adds	r3, r7, r3
- 8002288:	781b      	ldrb	r3, [r3, #0]
- 800228a:	115b      	asrs	r3, r3, #5
- 800228c:	2201      	movs	r2, #1
- 800228e:	4013      	ands	r3, r2
- 8002290:	001c      	movs	r4, r3
- 8002292:	1dfb      	adds	r3, r7, #7
- 8002294:	781a      	ldrb	r2, [r3, #0]
- 8002296:	0013      	movs	r3, r2
- 8002298:	005b      	lsls	r3, r3, #1
- 800229a:	189b      	adds	r3, r3, r2
- 800229c:	3338      	adds	r3, #56	; 0x38
- 800229e:	68fa      	ldr	r2, [r7, #12]
- 80022a0:	18d3      	adds	r3, r2, r3
- 80022a2:	3304      	adds	r3, #4
- 80022a4:	0018      	movs	r0, r3
- 80022a6:	f7ff fdeb 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 80022aa:	0003      	movs	r3, r0
- 80022ac:	409c      	lsls	r4, r3
+	R0 = ((segVal >> 3) & 0x1) << dig[pos].getD2();
+ 8002280:	2327      	movs	r3, #39	; 0x27
+ 8002282:	18fb      	adds	r3, r7, r3
+ 8002284:	781b      	ldrb	r3, [r3, #0]
+ 8002286:	10db      	asrs	r3, r3, #3
+ 8002288:	2201      	movs	r2, #1
+ 800228a:	4013      	ands	r3, r2
+ 800228c:	001c      	movs	r4, r3
+ 800228e:	1dfb      	adds	r3, r7, #7
+ 8002290:	781a      	ldrb	r2, [r3, #0]
+ 8002292:	0013      	movs	r3, r2
+ 8002294:	005b      	lsls	r3, r3, #1
+ 8002296:	189b      	adds	r3, r3, r2
+ 8002298:	3338      	adds	r3, #56	; 0x38
+ 800229a:	68fa      	ldr	r2, [r7, #12]
+ 800229c:	18d3      	adds	r3, r2, r3
+ 800229e:	3304      	adds	r3, #4
+ 80022a0:	0018      	movs	r0, r3
+ 80022a2:	f7ff fded 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 80022a6:	0003      	movs	r3, r0
+ 80022a8:	409c      	lsls	r4, r3
+ 80022aa:	0023      	movs	r3, r4
+ 80022ac:	623b      	str	r3, [r7, #32]
+	R2 = ((segVal >> 6) & 0x1) << dig[pos].getD2() | ((segVal >> 1) & 0x1) << dig[pos].getD1();
  80022ae:	2327      	movs	r3, #39	; 0x27
  80022b0:	18fb      	adds	r3, r7, r3
  80022b2:	781b      	ldrb	r3, [r3, #0]
- 80022b4:	2201      	movs	r2, #1
- 80022b6:	4013      	ands	r3, r2
- 80022b8:	001d      	movs	r5, r3
- 80022ba:	1dfb      	adds	r3, r7, #7
- 80022bc:	781a      	ldrb	r2, [r3, #0]
- 80022be:	0013      	movs	r3, r2
- 80022c0:	005b      	lsls	r3, r3, #1
- 80022c2:	189b      	adds	r3, r3, r2
- 80022c4:	3338      	adds	r3, #56	; 0x38
- 80022c6:	68fa      	ldr	r2, [r7, #12]
- 80022c8:	18d3      	adds	r3, r2, r3
- 80022ca:	3304      	adds	r3, #4
- 80022cc:	0018      	movs	r0, r3
- 80022ce:	f7ff fdcd 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 80022d2:	0003      	movs	r3, r0
- 80022d4:	409d      	lsls	r5, r3
- 80022d6:	002b      	movs	r3, r5
- 80022d8:	4323      	orrs	r3, r4
- 80022da:	623b      	str	r3, [r7, #32]
-	R2 = ((segVal >> 4) & 0x1) << dig[pos].getD2() | ((segVal >> 2) & 0x1) << dig[pos].getD1();
- 80022dc:	2327      	movs	r3, #39	; 0x27
- 80022de:	18fb      	adds	r3, r7, r3
- 80022e0:	781b      	ldrb	r3, [r3, #0]
- 80022e2:	111b      	asrs	r3, r3, #4
- 80022e4:	2201      	movs	r2, #1
- 80022e6:	4013      	ands	r3, r2
- 80022e8:	001c      	movs	r4, r3
- 80022ea:	1dfb      	adds	r3, r7, #7
- 80022ec:	781a      	ldrb	r2, [r3, #0]
- 80022ee:	0013      	movs	r3, r2
- 80022f0:	005b      	lsls	r3, r3, #1
- 80022f2:	189b      	adds	r3, r3, r2
- 80022f4:	3338      	adds	r3, #56	; 0x38
- 80022f6:	68fa      	ldr	r2, [r7, #12]
- 80022f8:	18d3      	adds	r3, r2, r3
- 80022fa:	3304      	adds	r3, #4
- 80022fc:	0018      	movs	r0, r3
- 80022fe:	f7ff fdbf 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 8002302:	0003      	movs	r3, r0
- 8002304:	409c      	lsls	r4, r3
- 8002306:	2327      	movs	r3, #39	; 0x27
- 8002308:	18fb      	adds	r3, r7, r3
- 800230a:	781b      	ldrb	r3, [r3, #0]
- 800230c:	109b      	asrs	r3, r3, #2
- 800230e:	2201      	movs	r2, #1
- 8002310:	4013      	ands	r3, r2
- 8002312:	001d      	movs	r5, r3
- 8002314:	1dfb      	adds	r3, r7, #7
- 8002316:	781a      	ldrb	r2, [r3, #0]
- 8002318:	0013      	movs	r3, r2
- 800231a:	005b      	lsls	r3, r3, #1
- 800231c:	189b      	adds	r3, r3, r2
- 800231e:	3338      	adds	r3, #56	; 0x38
- 8002320:	68fa      	ldr	r2, [r7, #12]
- 8002322:	18d3      	adds	r3, r2, r3
- 8002324:	3304      	adds	r3, #4
- 8002326:	0018      	movs	r0, r3
- 8002328:	f7ff fda0 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 800232c:	0003      	movs	r3, r0
- 800232e:	409d      	lsls	r5, r3
- 8002330:	002b      	movs	r3, r5
- 8002332:	4323      	orrs	r3, r4
- 8002334:	61fb      	str	r3, [r7, #28]
-	R4 = ((segVal >> 6) & 0x1) << dig[pos].getD2() | ((segVal >> 1) & 0x1) << dig[pos].getD1();
- 8002336:	2327      	movs	r3, #39	; 0x27
- 8002338:	18fb      	adds	r3, r7, r3
- 800233a:	781b      	ldrb	r3, [r3, #0]
- 800233c:	119b      	asrs	r3, r3, #6
- 800233e:	2201      	movs	r2, #1
- 8002340:	4013      	ands	r3, r2
- 8002342:	001c      	movs	r4, r3
- 8002344:	1dfb      	adds	r3, r7, #7
- 8002346:	781a      	ldrb	r2, [r3, #0]
- 8002348:	0013      	movs	r3, r2
- 800234a:	005b      	lsls	r3, r3, #1
- 800234c:	189b      	adds	r3, r3, r2
- 800234e:	3338      	adds	r3, #56	; 0x38
- 8002350:	68fa      	ldr	r2, [r7, #12]
- 8002352:	18d3      	adds	r3, r2, r3
- 8002354:	3304      	adds	r3, #4
- 8002356:	0018      	movs	r0, r3
- 8002358:	f7ff fd92 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 800235c:	0003      	movs	r3, r0
- 800235e:	409c      	lsls	r4, r3
- 8002360:	2327      	movs	r3, #39	; 0x27
- 8002362:	18fb      	adds	r3, r7, r3
- 8002364:	781b      	ldrb	r3, [r3, #0]
- 8002366:	105b      	asrs	r3, r3, #1
- 8002368:	2201      	movs	r2, #1
- 800236a:	4013      	ands	r3, r2
- 800236c:	001d      	movs	r5, r3
- 800236e:	1dfb      	adds	r3, r7, #7
- 8002370:	781a      	ldrb	r2, [r3, #0]
- 8002372:	0013      	movs	r3, r2
- 8002374:	005b      	lsls	r3, r3, #1
- 8002376:	189b      	adds	r3, r3, r2
- 8002378:	3338      	adds	r3, #56	; 0x38
- 800237a:	68fa      	ldr	r2, [r7, #12]
- 800237c:	18d3      	adds	r3, r2, r3
- 800237e:	3304      	adds	r3, #4
- 8002380:	0018      	movs	r0, r3
- 8002382:	f7ff fd73 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 8002386:	0003      	movs	r3, r0
- 8002388:	409d      	lsls	r5, r3
- 800238a:	002b      	movs	r3, r5
- 800238c:	4323      	orrs	r3, r4
- 800238e:	61bb      	str	r3, [r7, #24]
-	R6 = ((segVal >> 3) & 0x1) << dig[pos].getD2();
- 8002390:	2327      	movs	r3, #39	; 0x27
- 8002392:	18fb      	adds	r3, r7, r3
- 8002394:	781b      	ldrb	r3, [r3, #0]
- 8002396:	10db      	asrs	r3, r3, #3
- 8002398:	2201      	movs	r2, #1
- 800239a:	4013      	ands	r3, r2
- 800239c:	001c      	movs	r4, r3
- 800239e:	1dfb      	adds	r3, r7, #7
- 80023a0:	781a      	ldrb	r2, [r3, #0]
- 80023a2:	0013      	movs	r3, r2
- 80023a4:	005b      	lsls	r3, r3, #1
- 80023a6:	189b      	adds	r3, r3, r2
- 80023a8:	3338      	adds	r3, #56	; 0x38
- 80023aa:	68fa      	ldr	r2, [r7, #12]
- 80023ac:	18d3      	adds	r3, r2, r3
- 80023ae:	3304      	adds	r3, #4
- 80023b0:	0018      	movs	r0, r3
- 80023b2:	f7ff fd65 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 80023b6:	0003      	movs	r3, r0
- 80023b8:	409c      	lsls	r4, r3
- 80023ba:	0023      	movs	r3, r4
- 80023bc:	617b      	str	r3, [r7, #20]
+ 80022b4:	119b      	asrs	r3, r3, #6
+ 80022b6:	2201      	movs	r2, #1
+ 80022b8:	4013      	ands	r3, r2
+ 80022ba:	001c      	movs	r4, r3
+ 80022bc:	1dfb      	adds	r3, r7, #7
+ 80022be:	781a      	ldrb	r2, [r3, #0]
+ 80022c0:	0013      	movs	r3, r2
+ 80022c2:	005b      	lsls	r3, r3, #1
+ 80022c4:	189b      	adds	r3, r3, r2
+ 80022c6:	3338      	adds	r3, #56	; 0x38
+ 80022c8:	68fa      	ldr	r2, [r7, #12]
+ 80022ca:	18d3      	adds	r3, r2, r3
+ 80022cc:	3304      	adds	r3, #4
+ 80022ce:	0018      	movs	r0, r3
+ 80022d0:	f7ff fdd6 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 80022d4:	0003      	movs	r3, r0
+ 80022d6:	409c      	lsls	r4, r3
+ 80022d8:	2327      	movs	r3, #39	; 0x27
+ 80022da:	18fb      	adds	r3, r7, r3
+ 80022dc:	781b      	ldrb	r3, [r3, #0]
+ 80022de:	105b      	asrs	r3, r3, #1
+ 80022e0:	2201      	movs	r2, #1
+ 80022e2:	4013      	ands	r3, r2
+ 80022e4:	001d      	movs	r5, r3
+ 80022e6:	1dfb      	adds	r3, r7, #7
+ 80022e8:	781a      	ldrb	r2, [r3, #0]
+ 80022ea:	0013      	movs	r3, r2
+ 80022ec:	005b      	lsls	r3, r3, #1
+ 80022ee:	189b      	adds	r3, r3, r2
+ 80022f0:	3338      	adds	r3, #56	; 0x38
+ 80022f2:	68fa      	ldr	r2, [r7, #12]
+ 80022f4:	18d3      	adds	r3, r2, r3
+ 80022f6:	3304      	adds	r3, #4
+ 80022f8:	0018      	movs	r0, r3
+ 80022fa:	f7ff fdb7 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 80022fe:	0003      	movs	r3, r0
+ 8002300:	409d      	lsls	r5, r3
+ 8002302:	002b      	movs	r3, r5
+ 8002304:	4323      	orrs	r3, r4
+ 8002306:	61fb      	str	r3, [r7, #28]
+	R4 = ((segVal >> 4) & 0x1) << dig[pos].getD2() | ((segVal >> 2) & 0x1) << dig[pos].getD1();
+ 8002308:	2327      	movs	r3, #39	; 0x27
+ 800230a:	18fb      	adds	r3, r7, r3
+ 800230c:	781b      	ldrb	r3, [r3, #0]
+ 800230e:	111b      	asrs	r3, r3, #4
+ 8002310:	2201      	movs	r2, #1
+ 8002312:	4013      	ands	r3, r2
+ 8002314:	001c      	movs	r4, r3
+ 8002316:	1dfb      	adds	r3, r7, #7
+ 8002318:	781a      	ldrb	r2, [r3, #0]
+ 800231a:	0013      	movs	r3, r2
+ 800231c:	005b      	lsls	r3, r3, #1
+ 800231e:	189b      	adds	r3, r3, r2
+ 8002320:	3338      	adds	r3, #56	; 0x38
+ 8002322:	68fa      	ldr	r2, [r7, #12]
+ 8002324:	18d3      	adds	r3, r2, r3
+ 8002326:	3304      	adds	r3, #4
+ 8002328:	0018      	movs	r0, r3
+ 800232a:	f7ff fda9 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 800232e:	0003      	movs	r3, r0
+ 8002330:	409c      	lsls	r4, r3
+ 8002332:	2327      	movs	r3, #39	; 0x27
+ 8002334:	18fb      	adds	r3, r7, r3
+ 8002336:	781b      	ldrb	r3, [r3, #0]
+ 8002338:	109b      	asrs	r3, r3, #2
+ 800233a:	2201      	movs	r2, #1
+ 800233c:	4013      	ands	r3, r2
+ 800233e:	001d      	movs	r5, r3
+ 8002340:	1dfb      	adds	r3, r7, #7
+ 8002342:	781a      	ldrb	r2, [r3, #0]
+ 8002344:	0013      	movs	r3, r2
+ 8002346:	005b      	lsls	r3, r3, #1
+ 8002348:	189b      	adds	r3, r3, r2
+ 800234a:	3338      	adds	r3, #56	; 0x38
+ 800234c:	68fa      	ldr	r2, [r7, #12]
+ 800234e:	18d3      	adds	r3, r2, r3
+ 8002350:	3304      	adds	r3, #4
+ 8002352:	0018      	movs	r0, r3
+ 8002354:	f7ff fd8a 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 8002358:	0003      	movs	r3, r0
+ 800235a:	409d      	lsls	r5, r3
+ 800235c:	002b      	movs	r3, r5
+ 800235e:	4323      	orrs	r3, r4
+ 8002360:	61bb      	str	r3, [r7, #24]
+	R6 = ((segVal >> 5) & 0x1) << dig[pos].getD2() | (segVal & 0x1) << dig[pos].getD1();
+ 8002362:	2327      	movs	r3, #39	; 0x27
+ 8002364:	18fb      	adds	r3, r7, r3
+ 8002366:	781b      	ldrb	r3, [r3, #0]
+ 8002368:	115b      	asrs	r3, r3, #5
+ 800236a:	2201      	movs	r2, #1
+ 800236c:	4013      	ands	r3, r2
+ 800236e:	001c      	movs	r4, r3
+ 8002370:	1dfb      	adds	r3, r7, #7
+ 8002372:	781a      	ldrb	r2, [r3, #0]
+ 8002374:	0013      	movs	r3, r2
+ 8002376:	005b      	lsls	r3, r3, #1
+ 8002378:	189b      	adds	r3, r3, r2
+ 800237a:	3338      	adds	r3, #56	; 0x38
+ 800237c:	68fa      	ldr	r2, [r7, #12]
+ 800237e:	18d3      	adds	r3, r2, r3
+ 8002380:	3304      	adds	r3, #4
+ 8002382:	0018      	movs	r0, r3
+ 8002384:	f7ff fd7c 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 8002388:	0003      	movs	r3, r0
+ 800238a:	409c      	lsls	r4, r3
+ 800238c:	2327      	movs	r3, #39	; 0x27
+ 800238e:	18fb      	adds	r3, r7, r3
+ 8002390:	781b      	ldrb	r3, [r3, #0]
+ 8002392:	2201      	movs	r2, #1
+ 8002394:	4013      	ands	r3, r2
+ 8002396:	001d      	movs	r5, r3
+ 8002398:	1dfb      	adds	r3, r7, #7
+ 800239a:	781a      	ldrb	r2, [r3, #0]
+ 800239c:	0013      	movs	r3, r2
+ 800239e:	005b      	lsls	r3, r3, #1
+ 80023a0:	189b      	adds	r3, r3, r2
+ 80023a2:	3338      	adds	r3, #56	; 0x38
+ 80023a4:	68fa      	ldr	r2, [r7, #12]
+ 80023a6:	18d3      	adds	r3, r2, r3
+ 80023a8:	3304      	adds	r3, #4
+ 80023aa:	0018      	movs	r0, r3
+ 80023ac:	f7ff fd5e 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 80023b0:	0003      	movs	r3, r0
+ 80023b2:	409d      	lsls	r5, r3
+ 80023b4:	002b      	movs	r3, r5
+ 80023b6:	4323      	orrs	r3, r4
+ 80023b8:	617b      	str	r3, [r7, #20]
+
 
 	uint32_t MASK = 0xFFFFFFFF;
- 80023be:	2301      	movs	r3, #1
- 80023c0:	425b      	negs	r3, r3
- 80023c2:	613b      	str	r3, [r7, #16]
+ 80023ba:	2301      	movs	r3, #1
+ 80023bc:	425b      	negs	r3, r3
+ 80023be:	613b      	str	r3, [r7, #16]
 
-	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R0);
- 80023c4:	68fd      	ldr	r5, [r7, #12]
- 80023c6:	1dfb      	adds	r3, r7, #7
- 80023c8:	781a      	ldrb	r2, [r3, #0]
- 80023ca:	0013      	movs	r3, r2
- 80023cc:	005b      	lsls	r3, r3, #1
- 80023ce:	189b      	adds	r3, r3, r2
- 80023d0:	3338      	adds	r3, #56	; 0x38
- 80023d2:	68fa      	ldr	r2, [r7, #12]
- 80023d4:	18d3      	adds	r3, r2, r3
- 80023d6:	3304      	adds	r3, #4
- 80023d8:	0018      	movs	r0, r3
- 80023da:	f7ff fd51 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 80023de:	0003      	movs	r3, r0
- 80023e0:	001a      	movs	r2, r3
- 80023e2:	2301      	movs	r3, #1
- 80023e4:	4093      	lsls	r3, r2
- 80023e6:	43db      	mvns	r3, r3
- 80023e8:	001a      	movs	r2, r3
- 80023ea:	693b      	ldr	r3, [r7, #16]
- 80023ec:	4013      	ands	r3, r2
- 80023ee:	001c      	movs	r4, r3
- 80023f0:	1dfb      	adds	r3, r7, #7
- 80023f2:	781a      	ldrb	r2, [r3, #0]
- 80023f4:	0013      	movs	r3, r2
- 80023f6:	005b      	lsls	r3, r3, #1
- 80023f8:	189b      	adds	r3, r3, r2
- 80023fa:	3338      	adds	r3, #56	; 0x38
- 80023fc:	68fa      	ldr	r2, [r7, #12]
- 80023fe:	18d3      	adds	r3, r2, r3
- 8002400:	3304      	adds	r3, #4
- 8002402:	0018      	movs	r0, r3
- 8002404:	f7ff fd32 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 8002408:	0003      	movs	r3, r0
- 800240a:	001a      	movs	r2, r3
- 800240c:	2301      	movs	r3, #1
- 800240e:	4093      	lsls	r3, r2
- 8002410:	43db      	mvns	r3, r3
- 8002412:	4023      	ands	r3, r4
- 8002414:	001a      	movs	r2, r3
- 8002416:	6a3b      	ldr	r3, [r7, #32]
- 8002418:	2100      	movs	r1, #0
- 800241a:	0028      	movs	r0, r5
- 800241c:	f7fe fc24 	bl	8000c68 <HAL_LCD_Write>
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(1 << dig[pos].getD2()), R0);
+ 80023c0:	68fc      	ldr	r4, [r7, #12]
+ 80023c2:	1dfb      	adds	r3, r7, #7
+ 80023c4:	781a      	ldrb	r2, [r3, #0]
+ 80023c6:	0013      	movs	r3, r2
+ 80023c8:	005b      	lsls	r3, r3, #1
+ 80023ca:	189b      	adds	r3, r3, r2
+ 80023cc:	3338      	adds	r3, #56	; 0x38
+ 80023ce:	68fa      	ldr	r2, [r7, #12]
+ 80023d0:	18d3      	adds	r3, r2, r3
+ 80023d2:	3304      	adds	r3, #4
+ 80023d4:	0018      	movs	r0, r3
+ 80023d6:	f7ff fd53 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 80023da:	0003      	movs	r3, r0
+ 80023dc:	001a      	movs	r2, r3
+ 80023de:	2301      	movs	r3, #1
+ 80023e0:	4093      	lsls	r3, r2
+ 80023e2:	43db      	mvns	r3, r3
+ 80023e4:	001a      	movs	r2, r3
+ 80023e6:	693b      	ldr	r3, [r7, #16]
+ 80023e8:	401a      	ands	r2, r3
+ 80023ea:	6a3b      	ldr	r3, [r7, #32]
+ 80023ec:	2100      	movs	r1, #0
+ 80023ee:	0020      	movs	r0, r4
+ 80023f0:	f7fe fc3a 	bl	8000c68 <HAL_LCD_Write>
 	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER2, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R2);
- 8002420:	68fd      	ldr	r5, [r7, #12]
- 8002422:	1dfb      	adds	r3, r7, #7
- 8002424:	781a      	ldrb	r2, [r3, #0]
- 8002426:	0013      	movs	r3, r2
- 8002428:	005b      	lsls	r3, r3, #1
- 800242a:	189b      	adds	r3, r3, r2
- 800242c:	3338      	adds	r3, #56	; 0x38
- 800242e:	68fa      	ldr	r2, [r7, #12]
- 8002430:	18d3      	adds	r3, r2, r3
- 8002432:	3304      	adds	r3, #4
- 8002434:	0018      	movs	r0, r3
- 8002436:	f7ff fd23 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 800243a:	0003      	movs	r3, r0
- 800243c:	001a      	movs	r2, r3
- 800243e:	2301      	movs	r3, #1
- 8002440:	4093      	lsls	r3, r2
- 8002442:	43db      	mvns	r3, r3
+ 80023f4:	68fd      	ldr	r5, [r7, #12]
+ 80023f6:	1dfb      	adds	r3, r7, #7
+ 80023f8:	781a      	ldrb	r2, [r3, #0]
+ 80023fa:	0013      	movs	r3, r2
+ 80023fc:	005b      	lsls	r3, r3, #1
+ 80023fe:	189b      	adds	r3, r3, r2
+ 8002400:	3338      	adds	r3, #56	; 0x38
+ 8002402:	68fa      	ldr	r2, [r7, #12]
+ 8002404:	18d3      	adds	r3, r2, r3
+ 8002406:	3304      	adds	r3, #4
+ 8002408:	0018      	movs	r0, r3
+ 800240a:	f7ff fd39 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 800240e:	0003      	movs	r3, r0
+ 8002410:	001a      	movs	r2, r3
+ 8002412:	2301      	movs	r3, #1
+ 8002414:	4093      	lsls	r3, r2
+ 8002416:	43db      	mvns	r3, r3
+ 8002418:	001a      	movs	r2, r3
+ 800241a:	693b      	ldr	r3, [r7, #16]
+ 800241c:	4013      	ands	r3, r2
+ 800241e:	001c      	movs	r4, r3
+ 8002420:	1dfb      	adds	r3, r7, #7
+ 8002422:	781a      	ldrb	r2, [r3, #0]
+ 8002424:	0013      	movs	r3, r2
+ 8002426:	005b      	lsls	r3, r3, #1
+ 8002428:	189b      	adds	r3, r3, r2
+ 800242a:	3338      	adds	r3, #56	; 0x38
+ 800242c:	68fa      	ldr	r2, [r7, #12]
+ 800242e:	18d3      	adds	r3, r2, r3
+ 8002430:	3304      	adds	r3, #4
+ 8002432:	0018      	movs	r0, r3
+ 8002434:	f7ff fd1a 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 8002438:	0003      	movs	r3, r0
+ 800243a:	001a      	movs	r2, r3
+ 800243c:	2301      	movs	r3, #1
+ 800243e:	4093      	lsls	r3, r2
+ 8002440:	43db      	mvns	r3, r3
+ 8002442:	4023      	ands	r3, r4
  8002444:	001a      	movs	r2, r3
- 8002446:	693b      	ldr	r3, [r7, #16]
- 8002448:	4013      	ands	r3, r2
- 800244a:	001c      	movs	r4, r3
- 800244c:	1dfb      	adds	r3, r7, #7
- 800244e:	781a      	ldrb	r2, [r3, #0]
- 8002450:	0013      	movs	r3, r2
- 8002452:	005b      	lsls	r3, r3, #1
- 8002454:	189b      	adds	r3, r3, r2
- 8002456:	3338      	adds	r3, #56	; 0x38
- 8002458:	68fa      	ldr	r2, [r7, #12]
- 800245a:	18d3      	adds	r3, r2, r3
- 800245c:	3304      	adds	r3, #4
- 800245e:	0018      	movs	r0, r3
- 8002460:	f7ff fd04 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 8002464:	0003      	movs	r3, r0
- 8002466:	001a      	movs	r2, r3
- 8002468:	2301      	movs	r3, #1
- 800246a:	4093      	lsls	r3, r2
- 800246c:	43db      	mvns	r3, r3
- 800246e:	4023      	ands	r3, r4
- 8002470:	001a      	movs	r2, r3
- 8002472:	69fb      	ldr	r3, [r7, #28]
- 8002474:	2102      	movs	r1, #2
- 8002476:	0028      	movs	r0, r5
- 8002478:	f7fe fbf6 	bl	8000c68 <HAL_LCD_Write>
+ 8002446:	69fb      	ldr	r3, [r7, #28]
+ 8002448:	2102      	movs	r1, #2
+ 800244a:	0028      	movs	r0, r5
+ 800244c:	f7fe fc0c 	bl	8000c68 <HAL_LCD_Write>
 	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER4, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R4);
- 800247c:	68fd      	ldr	r5, [r7, #12]
- 800247e:	1dfb      	adds	r3, r7, #7
- 8002480:	781a      	ldrb	r2, [r3, #0]
- 8002482:	0013      	movs	r3, r2
- 8002484:	005b      	lsls	r3, r3, #1
- 8002486:	189b      	adds	r3, r3, r2
- 8002488:	3338      	adds	r3, #56	; 0x38
- 800248a:	68fa      	ldr	r2, [r7, #12]
- 800248c:	18d3      	adds	r3, r2, r3
- 800248e:	3304      	adds	r3, #4
- 8002490:	0018      	movs	r0, r3
- 8002492:	f7ff fcf5 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 8002496:	0003      	movs	r3, r0
- 8002498:	001a      	movs	r2, r3
- 800249a:	2301      	movs	r3, #1
- 800249c:	4093      	lsls	r3, r2
- 800249e:	43db      	mvns	r3, r3
+ 8002450:	68fd      	ldr	r5, [r7, #12]
+ 8002452:	1dfb      	adds	r3, r7, #7
+ 8002454:	781a      	ldrb	r2, [r3, #0]
+ 8002456:	0013      	movs	r3, r2
+ 8002458:	005b      	lsls	r3, r3, #1
+ 800245a:	189b      	adds	r3, r3, r2
+ 800245c:	3338      	adds	r3, #56	; 0x38
+ 800245e:	68fa      	ldr	r2, [r7, #12]
+ 8002460:	18d3      	adds	r3, r2, r3
+ 8002462:	3304      	adds	r3, #4
+ 8002464:	0018      	movs	r0, r3
+ 8002466:	f7ff fd0b 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 800246a:	0003      	movs	r3, r0
+ 800246c:	001a      	movs	r2, r3
+ 800246e:	2301      	movs	r3, #1
+ 8002470:	4093      	lsls	r3, r2
+ 8002472:	43db      	mvns	r3, r3
+ 8002474:	001a      	movs	r2, r3
+ 8002476:	693b      	ldr	r3, [r7, #16]
+ 8002478:	4013      	ands	r3, r2
+ 800247a:	001c      	movs	r4, r3
+ 800247c:	1dfb      	adds	r3, r7, #7
+ 800247e:	781a      	ldrb	r2, [r3, #0]
+ 8002480:	0013      	movs	r3, r2
+ 8002482:	005b      	lsls	r3, r3, #1
+ 8002484:	189b      	adds	r3, r3, r2
+ 8002486:	3338      	adds	r3, #56	; 0x38
+ 8002488:	68fa      	ldr	r2, [r7, #12]
+ 800248a:	18d3      	adds	r3, r2, r3
+ 800248c:	3304      	adds	r3, #4
+ 800248e:	0018      	movs	r0, r3
+ 8002490:	f7ff fcec 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 8002494:	0003      	movs	r3, r0
+ 8002496:	001a      	movs	r2, r3
+ 8002498:	2301      	movs	r3, #1
+ 800249a:	4093      	lsls	r3, r2
+ 800249c:	43db      	mvns	r3, r3
+ 800249e:	4023      	ands	r3, r4
  80024a0:	001a      	movs	r2, r3
- 80024a2:	693b      	ldr	r3, [r7, #16]
- 80024a4:	4013      	ands	r3, r2
- 80024a6:	001c      	movs	r4, r3
- 80024a8:	1dfb      	adds	r3, r7, #7
- 80024aa:	781a      	ldrb	r2, [r3, #0]
- 80024ac:	0013      	movs	r3, r2
- 80024ae:	005b      	lsls	r3, r3, #1
- 80024b0:	189b      	adds	r3, r3, r2
- 80024b2:	3338      	adds	r3, #56	; 0x38
- 80024b4:	68fa      	ldr	r2, [r7, #12]
- 80024b6:	18d3      	adds	r3, r2, r3
- 80024b8:	3304      	adds	r3, #4
- 80024ba:	0018      	movs	r0, r3
- 80024bc:	f7ff fcd6 	bl	8001e6c <_ZN5Digit5getD1Ev>
- 80024c0:	0003      	movs	r3, r0
- 80024c2:	001a      	movs	r2, r3
- 80024c4:	2301      	movs	r3, #1
- 80024c6:	4093      	lsls	r3, r2
- 80024c8:	43db      	mvns	r3, r3
- 80024ca:	4023      	ands	r3, r4
- 80024cc:	001a      	movs	r2, r3
- 80024ce:	69bb      	ldr	r3, [r7, #24]
- 80024d0:	2104      	movs	r1, #4
- 80024d2:	0028      	movs	r0, r5
- 80024d4:	f7fe fbc8 	bl	8000c68 <HAL_LCD_Write>
-	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER6, MASK & ~(1 << dig[pos].getD2()), R6);
- 80024d8:	68fc      	ldr	r4, [r7, #12]
- 80024da:	1dfb      	adds	r3, r7, #7
- 80024dc:	781a      	ldrb	r2, [r3, #0]
- 80024de:	0013      	movs	r3, r2
- 80024e0:	005b      	lsls	r3, r3, #1
- 80024e2:	189b      	adds	r3, r3, r2
- 80024e4:	3338      	adds	r3, #56	; 0x38
- 80024e6:	68fa      	ldr	r2, [r7, #12]
- 80024e8:	18d3      	adds	r3, r2, r3
- 80024ea:	3304      	adds	r3, #4
- 80024ec:	0018      	movs	r0, r3
- 80024ee:	f7ff fcc7 	bl	8001e80 <_ZN5Digit5getD2Ev>
- 80024f2:	0003      	movs	r3, r0
- 80024f4:	001a      	movs	r2, r3
- 80024f6:	2301      	movs	r3, #1
- 80024f8:	4093      	lsls	r3, r2
- 80024fa:	43db      	mvns	r3, r3
+ 80024a2:	69bb      	ldr	r3, [r7, #24]
+ 80024a4:	2104      	movs	r1, #4
+ 80024a6:	0028      	movs	r0, r5
+ 80024a8:	f7fe fbde 	bl	8000c68 <HAL_LCD_Write>
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER6, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R6);
+ 80024ac:	68fd      	ldr	r5, [r7, #12]
+ 80024ae:	1dfb      	adds	r3, r7, #7
+ 80024b0:	781a      	ldrb	r2, [r3, #0]
+ 80024b2:	0013      	movs	r3, r2
+ 80024b4:	005b      	lsls	r3, r3, #1
+ 80024b6:	189b      	adds	r3, r3, r2
+ 80024b8:	3338      	adds	r3, #56	; 0x38
+ 80024ba:	68fa      	ldr	r2, [r7, #12]
+ 80024bc:	18d3      	adds	r3, r2, r3
+ 80024be:	3304      	adds	r3, #4
+ 80024c0:	0018      	movs	r0, r3
+ 80024c2:	f7ff fcdd 	bl	8001e80 <_ZN5Digit5getD2Ev>
+ 80024c6:	0003      	movs	r3, r0
+ 80024c8:	001a      	movs	r2, r3
+ 80024ca:	2301      	movs	r3, #1
+ 80024cc:	4093      	lsls	r3, r2
+ 80024ce:	43db      	mvns	r3, r3
+ 80024d0:	001a      	movs	r2, r3
+ 80024d2:	693b      	ldr	r3, [r7, #16]
+ 80024d4:	4013      	ands	r3, r2
+ 80024d6:	001c      	movs	r4, r3
+ 80024d8:	1dfb      	adds	r3, r7, #7
+ 80024da:	781a      	ldrb	r2, [r3, #0]
+ 80024dc:	0013      	movs	r3, r2
+ 80024de:	005b      	lsls	r3, r3, #1
+ 80024e0:	189b      	adds	r3, r3, r2
+ 80024e2:	3338      	adds	r3, #56	; 0x38
+ 80024e4:	68fa      	ldr	r2, [r7, #12]
+ 80024e6:	18d3      	adds	r3, r2, r3
+ 80024e8:	3304      	adds	r3, #4
+ 80024ea:	0018      	movs	r0, r3
+ 80024ec:	f7ff fcbe 	bl	8001e6c <_ZN5Digit5getD1Ev>
+ 80024f0:	0003      	movs	r3, r0
+ 80024f2:	001a      	movs	r2, r3
+ 80024f4:	2301      	movs	r3, #1
+ 80024f6:	4093      	lsls	r3, r2
+ 80024f8:	43db      	mvns	r3, r3
+ 80024fa:	4023      	ands	r3, r4
  80024fc:	001a      	movs	r2, r3
- 80024fe:	693b      	ldr	r3, [r7, #16]
- 8002500:	401a      	ands	r2, r3
- 8002502:	697b      	ldr	r3, [r7, #20]
- 8002504:	2106      	movs	r1, #6
- 8002506:	0020      	movs	r0, r4
- 8002508:	f7fe fbae 	bl	8000c68 <HAL_LCD_Write>
+ 80024fe:	697b      	ldr	r3, [r7, #20]
+ 8002500:	2106      	movs	r1, #6
+ 8002502:	0028      	movs	r0, r5
+ 8002504:	f7fe fbb0 	bl	8000c68 <HAL_LCD_Write>
 
 	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
- 800250c:	68fb      	ldr	r3, [r7, #12]
- 800250e:	0018      	movs	r0, r3
- 8002510:	f7fe fc6b 	bl	8000dea <HAL_LCD_UpdateDisplayRequest>
+ 8002508:	68fb      	ldr	r3, [r7, #12]
+ 800250a:	0018      	movs	r0, r3
+ 800250c:	f7fe fc6d 	bl	8000dea <HAL_LCD_UpdateDisplayRequest>
 }
- 8002514:	46c0      	nop			; (mov r8, r8)
- 8002516:	46bd      	mov	sp, r7
- 8002518:	b00a      	add	sp, #40	; 0x28
- 800251a:	bdb0      	pop	{r4, r5, r7, pc}
+ 8002510:	46c0      	nop			; (mov r8, r8)
+ 8002512:	46bd      	mov	sp, r7
+ 8002514:	b00a      	add	sp, #40	; 0x28
+ 8002516:	bdb0      	pop	{r4, r5, r7, pc}
 
-0800251c <_ZN7IButtonC1Ev>:
-#define IBUTTON_H_
-
-/**
- * \brief Klasa interfejsowa dla klasy button
- */
-class IButton
- 800251c:	b580      	push	{r7, lr}
- 800251e:	b082      	sub	sp, #8
- 8002520:	af00      	add	r7, sp, #0
- 8002522:	6078      	str	r0, [r7, #4]
- 8002524:	687b      	ldr	r3, [r7, #4]
- 8002526:	0018      	movs	r0, r3
- 8002528:	46bd      	mov	sp, r7
- 800252a:	b002      	add	sp, #8
- 800252c:	bd80      	pop	{r7, pc}
-
-0800252e <_ZN7CButtonC1Ev>:
- ****************************/
-
-#include "button.h"
-
-//------------------------------------------------------------------------------
-CButton::CButton()
- 800252e:	b580      	push	{r7, lr}
- 8002530:	b082      	sub	sp, #8
- 8002532:	af00      	add	r7, sp, #0
- 8002534:	6078      	str	r0, [r7, #4]
- 8002536:	687b      	ldr	r3, [r7, #4]
- 8002538:	0018      	movs	r0, r3
- 800253a:	f7ff ffef 	bl	800251c <_ZN7IButtonC1Ev>
-//------------------------------------------------------------------------------
-{
+08002518 <_ZN3Lcd14printHourglassEb>:
+	uint32_t MASK = 0xFFFFFFFF;
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 14), R0);
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
 }
- 800253e:	687b      	ldr	r3, [r7, #4]
- 8002540:	0018      	movs	r0, r3
- 8002542:	46bd      	mov	sp, r7
- 8002544:	b002      	add	sp, #8
- 8002546:	bd80      	pop	{r7, pc}
 
-08002548 <_ZN7CButton4initEP12GPIO_TypeDeftb>:
-
-//------------------------------------------------------------------------------
-void CButton::init(GPIO_TypeDef *port, uint16_t pin, bool reversed)
-//------------------------------------------------------------------------------
-{
- 8002548:	b580      	push	{r7, lr}
- 800254a:	b08a      	sub	sp, #40	; 0x28
- 800254c:	af00      	add	r7, sp, #0
- 800254e:	60f8      	str	r0, [r7, #12]
- 8002550:	60b9      	str	r1, [r7, #8]
- 8002552:	0019      	movs	r1, r3
- 8002554:	1dbb      	adds	r3, r7, #6
- 8002556:	801a      	strh	r2, [r3, #0]
- 8002558:	1d7b      	adds	r3, r7, #5
- 800255a:	1c0a      	adds	r2, r1, #0
- 800255c:	701a      	strb	r2, [r3, #0]
-    m_port = port;
- 800255e:	68fb      	ldr	r3, [r7, #12]
- 8002560:	68ba      	ldr	r2, [r7, #8]
- 8002562:	601a      	str	r2, [r3, #0]
-    m_pin = pin;
- 8002564:	68fb      	ldr	r3, [r7, #12]
- 8002566:	1dba      	adds	r2, r7, #6
- 8002568:	8812      	ldrh	r2, [r2, #0]
- 800256a:	809a      	strh	r2, [r3, #4]
-    GPIO_InitTypeDef GPIO_InitStructure = GPIO_InitTypeDef();
- 800256c:	2314      	movs	r3, #20
- 800256e:	18fb      	adds	r3, r7, r3
- 8002570:	0018      	movs	r0, r3
- 8002572:	2314      	movs	r3, #20
- 8002574:	001a      	movs	r2, r3
- 8002576:	2100      	movs	r1, #0
- 8002578:	f000 fcd0 	bl	8002f1c <memset>
-    GPIO_InitStructure.Pin = pin;
- 800257c:	1dbb      	adds	r3, r7, #6
- 800257e:	881a      	ldrh	r2, [r3, #0]
- 8002580:	2314      	movs	r3, #20
- 8002582:	18fb      	adds	r3, r7, r3
- 8002584:	601a      	str	r2, [r3, #0]
-    GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_LOW;
- 8002586:	2314      	movs	r3, #20
- 8002588:	18fb      	adds	r3, r7, r3
- 800258a:	2200      	movs	r2, #0
- 800258c:	60da      	str	r2, [r3, #12]
-    GPIO_InitStructure.Mode = GPIO_MODE_INPUT;
- 800258e:	2314      	movs	r3, #20
- 8002590:	18fb      	adds	r3, r7, r3
- 8002592:	2200      	movs	r2, #0
- 8002594:	605a      	str	r2, [r3, #4]
-    GPIO_InitStructure.Pull = GPIO_PULLUP;
- 8002596:	2314      	movs	r3, #20
- 8002598:	18fb      	adds	r3, r7, r3
- 800259a:	2201      	movs	r2, #1
- 800259c:	609a      	str	r2, [r3, #8]
-    HAL_GPIO_Init(m_port, &GPIO_InitStructure);
- 800259e:	68fb      	ldr	r3, [r7, #12]
- 80025a0:	681b      	ldr	r3, [r3, #0]
- 80025a2:	2214      	movs	r2, #20
- 80025a4:	18ba      	adds	r2, r7, r2
- 80025a6:	0011      	movs	r1, r2
- 80025a8:	0018      	movs	r0, r3
- 80025aa:	f7fe f8f1 	bl	8000790 <HAL_GPIO_Init>
-    m_buttonDown = false;
- 80025ae:	68fb      	ldr	r3, [r7, #12]
- 80025b0:	2200      	movs	r2, #0
- 80025b2:	721a      	strb	r2, [r3, #8]
-    m_akceptedState = TAS_RELEASED;
- 80025b4:	68fb      	ldr	r3, [r7, #12]
- 80025b6:	2200      	movs	r2, #0
- 80025b8:	71da      	strb	r2, [r3, #7]
-    m_reveresed = reversed;
- 80025ba:	68fb      	ldr	r3, [r7, #12]
- 80025bc:	1d7a      	adds	r2, r7, #5
- 80025be:	7812      	ldrb	r2, [r2, #0]
- 80025c0:	72da      	strb	r2, [r3, #11]
+void Lcd::printHourglass(bool status){
+ 8002518:	b580      	push	{r7, lr}
+ 800251a:	b084      	sub	sp, #16
+ 800251c:	af00      	add	r7, sp, #0
+ 800251e:	6078      	str	r0, [r7, #4]
+ 8002520:	000a      	movs	r2, r1
+ 8002522:	1cfb      	adds	r3, r7, #3
+ 8002524:	701a      	strb	r2, [r3, #0]
+	uint32_t R0 = (1<<19);
+ 8002526:	2380      	movs	r3, #128	; 0x80
+ 8002528:	031b      	lsls	r3, r3, #12
+ 800252a:	60fb      	str	r3, [r7, #12]
+	uint32_t MASK = 0xFFFFFFFF;
+ 800252c:	2301      	movs	r3, #1
+ 800252e:	425b      	negs	r3, r3
+ 8002530:	60bb      	str	r3, [r7, #8]
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 19), R0);
+ 8002532:	6878      	ldr	r0, [r7, #4]
+ 8002534:	1cfb      	adds	r3, r7, #3
+ 8002536:	781b      	ldrb	r3, [r3, #0]
+ 8002538:	04db      	lsls	r3, r3, #19
+ 800253a:	43db      	mvns	r3, r3
+ 800253c:	001a      	movs	r2, r3
+ 800253e:	68bb      	ldr	r3, [r7, #8]
+ 8002540:	401a      	ands	r2, r3
+ 8002542:	68fb      	ldr	r3, [r7, #12]
+ 8002544:	2100      	movs	r1, #0
+ 8002546:	f7fe fb8f 	bl	8000c68 <HAL_LCD_Write>
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
+ 800254a:	687b      	ldr	r3, [r7, #4]
+ 800254c:	0018      	movs	r0, r3
+ 800254e:	f7fe fc4c 	bl	8000dea <HAL_LCD_UpdateDisplayRequest>
 }
- 80025c2:	46c0      	nop			; (mov r8, r8)
- 80025c4:	46bd      	mov	sp, r7
- 80025c6:	b00a      	add	sp, #40	; 0x28
- 80025c8:	bd80      	pop	{r7, pc}
+ 8002552:	46c0      	nop			; (mov r8, r8)
+ 8002554:	46bd      	mov	sp, r7
+ 8002556:	b004      	add	sp, #16
+ 8002558:	bd80      	pop	{r7, pc}
 	...
 
-080025cc <_ZN6CTimer13classInit1000EPFmvE>:
+0800255c <_ZN6CTimer13classInit1000EPFmvE>:
 uint32_t (*CTimer::getTickFunc)() = CTimer::defaultGetTickFunc;
 
 /*---CLASS FUNCTIONS-------------------------------------*/
 /*-------------------------------------------------------*/
 void CTimer::classInit1000(uint32_t (*getterTick1000)())
 {
- 80025cc:	b580      	push	{r7, lr}
- 80025ce:	b082      	sub	sp, #8
- 80025d0:	af00      	add	r7, sp, #0
- 80025d2:	6078      	str	r0, [r7, #4]
+ 800255c:	b580      	push	{r7, lr}
+ 800255e:	b082      	sub	sp, #8
+ 8002560:	af00      	add	r7, sp, #0
+ 8002562:	6078      	str	r0, [r7, #4]
     getTickFunc = getterTick1000;
- 80025d4:	4b03      	ldr	r3, [pc, #12]	; (80025e4 <_ZN6CTimer13classInit1000EPFmvE+0x18>)
- 80025d6:	687a      	ldr	r2, [r7, #4]
- 80025d8:	601a      	str	r2, [r3, #0]
+ 8002564:	4b03      	ldr	r3, [pc, #12]	; (8002574 <_ZN6CTimer13classInit1000EPFmvE+0x18>)
+ 8002566:	687a      	ldr	r2, [r7, #4]
+ 8002568:	601a      	str	r2, [r3, #0]
 }
- 80025da:	46c0      	nop			; (mov r8, r8)
- 80025dc:	46bd      	mov	sp, r7
- 80025de:	b002      	add	sp, #8
- 80025e0:	bd80      	pop	{r7, pc}
- 80025e2:	46c0      	nop			; (mov r8, r8)
- 80025e4:	20000000 	.word	0x20000000
+ 800256a:	46c0      	nop			; (mov r8, r8)
+ 800256c:	46bd      	mov	sp, r7
+ 800256e:	b002      	add	sp, #8
+ 8002570:	bd80      	pop	{r7, pc}
+ 8002572:	46c0      	nop			; (mov r8, r8)
+ 8002574:	20000000 	.word	0x20000000
 
-080025e8 <_ZN6CTimer18defaultGetTickFuncEv>:
+08002578 <_ZN6CTimer18defaultGetTickFuncEv>:
 
 /*-------------------------------------------------------*/
 uint32_t CTimer::defaultGetTickFunc()
 {
- 80025e8:	b580      	push	{r7, lr}
- 80025ea:	af00      	add	r7, sp, #0
+ 8002578:	b580      	push	{r7, lr}
+ 800257a:	af00      	add	r7, sp, #0
     return 0;
- 80025ec:	2300      	movs	r3, #0
+ 800257c:	2300      	movs	r3, #0
 }
- 80025ee:	0018      	movs	r0, r3
- 80025f0:	46bd      	mov	sp, r7
- 80025f2:	bd80      	pop	{r7, pc}
+ 800257e:	0018      	movs	r0, r3
+ 8002580:	46bd      	mov	sp, r7
+ 8002582:	bd80      	pop	{r7, pc}
 
-080025f4 <_ZN6CTimer7getTickEv>:
+08002584 <_ZN6CTimer7getTickEv>:
 
 /*-------------------------------------------------------*/
 uint32_t CTimer::getTick()
 {
- 80025f4:	b580      	push	{r7, lr}
- 80025f6:	af00      	add	r7, sp, #0
+ 8002584:	b580      	push	{r7, lr}
+ 8002586:	af00      	add	r7, sp, #0
     return getTickFunc();
- 80025f8:	4b03      	ldr	r3, [pc, #12]	; (8002608 <_ZN6CTimer7getTickEv+0x14>)
- 80025fa:	681b      	ldr	r3, [r3, #0]
- 80025fc:	4798      	blx	r3
- 80025fe:	0003      	movs	r3, r0
+ 8002588:	4b03      	ldr	r3, [pc, #12]	; (8002598 <_ZN6CTimer7getTickEv+0x14>)
+ 800258a:	681b      	ldr	r3, [r3, #0]
+ 800258c:	4798      	blx	r3
+ 800258e:	0003      	movs	r3, r0
 }
- 8002600:	0018      	movs	r0, r3
- 8002602:	46bd      	mov	sp, r7
- 8002604:	bd80      	pop	{r7, pc}
- 8002606:	46c0      	nop			; (mov r8, r8)
- 8002608:	20000000 	.word	0x20000000
+ 8002590:	0018      	movs	r0, r3
+ 8002592:	46bd      	mov	sp, r7
+ 8002594:	bd80      	pop	{r7, pc}
+ 8002596:	46c0      	nop			; (mov r8, r8)
+ 8002598:	20000000 	.word	0x20000000
 
-0800260c <_ZN6CTimerC1ENS_4UnitE>:
+0800259c <_ZN6CTimerC1ENS_4UnitE>:
 
 /*---OBJECT FUNCTIONS------------------------------------*/
 /*-------------------------------------------------------*/
 CTimer::CTimer(Unit unit)
- 800260c:	b580      	push	{r7, lr}
- 800260e:	b082      	sub	sp, #8
- 8002610:	af00      	add	r7, sp, #0
- 8002612:	6078      	str	r0, [r7, #4]
- 8002614:	000a      	movs	r2, r1
- 8002616:	1cfb      	adds	r3, r7, #3
- 8002618:	701a      	strb	r2, [r3, #0]
+ 800259c:	b580      	push	{r7, lr}
+ 800259e:	b082      	sub	sp, #8
+ 80025a0:	af00      	add	r7, sp, #0
+ 80025a2:	6078      	str	r0, [r7, #4]
+ 80025a4:	000a      	movs	r2, r1
+ 80025a6:	1cfb      	adds	r3, r7, #3
+ 80025a8:	701a      	strb	r2, [r3, #0]
 {
     setCounterUnit(unit);
- 800261a:	1cfb      	adds	r3, r7, #3
- 800261c:	781a      	ldrb	r2, [r3, #0]
- 800261e:	687b      	ldr	r3, [r7, #4]
- 8002620:	0011      	movs	r1, r2
- 8002622:	0018      	movs	r0, r3
- 8002624:	f000 f805 	bl	8002632 <_ZN6CTimer14setCounterUnitENS_4UnitE>
+ 80025aa:	1cfb      	adds	r3, r7, #3
+ 80025ac:	781a      	ldrb	r2, [r3, #0]
+ 80025ae:	687b      	ldr	r3, [r7, #4]
+ 80025b0:	0011      	movs	r1, r2
+ 80025b2:	0018      	movs	r0, r3
+ 80025b4:	f000 f805 	bl	80025c2 <_ZN6CTimer14setCounterUnitENS_4UnitE>
 }
- 8002628:	687b      	ldr	r3, [r7, #4]
- 800262a:	0018      	movs	r0, r3
- 800262c:	46bd      	mov	sp, r7
- 800262e:	b002      	add	sp, #8
- 8002630:	bd80      	pop	{r7, pc}
+ 80025b8:	687b      	ldr	r3, [r7, #4]
+ 80025ba:	0018      	movs	r0, r3
+ 80025bc:	46bd      	mov	sp, r7
+ 80025be:	b002      	add	sp, #8
+ 80025c0:	bd80      	pop	{r7, pc}
 
-08002632 <_ZN6CTimer14setCounterUnitENS_4UnitE>:
+080025c2 <_ZN6CTimer14setCounterUnitENS_4UnitE>:
 
 /*-------------------------------------------------------*/
 void CTimer::setCounterUnit(Unit unit)
 {
- 8002632:	b580      	push	{r7, lr}
- 8002634:	b082      	sub	sp, #8
- 8002636:	af00      	add	r7, sp, #0
- 8002638:	6078      	str	r0, [r7, #4]
- 800263a:	000a      	movs	r2, r1
- 800263c:	1cfb      	adds	r3, r7, #3
- 800263e:	701a      	strb	r2, [r3, #0]
+ 80025c2:	b580      	push	{r7, lr}
+ 80025c4:	b082      	sub	sp, #8
+ 80025c6:	af00      	add	r7, sp, #0
+ 80025c8:	6078      	str	r0, [r7, #4]
+ 80025ca:	000a      	movs	r2, r1
+ 80025cc:	1cfb      	adds	r3, r7, #3
+ 80025ce:	701a      	strb	r2, [r3, #0]
     turnOff();
- 8002640:	687b      	ldr	r3, [r7, #4]
- 8002642:	0018      	movs	r0, r3
- 8002644:	f000 f81c 	bl	8002680 <_ZN6CTimer7turnOffEv>
+ 80025d0:	687b      	ldr	r3, [r7, #4]
+ 80025d2:	0018      	movs	r0, r3
+ 80025d4:	f000 f81c 	bl	8002610 <_ZN6CTimer7turnOffEv>
     this->unit = unit;
- 8002648:	687b      	ldr	r3, [r7, #4]
- 800264a:	1cfa      	adds	r2, r7, #3
- 800264c:	7812      	ldrb	r2, [r2, #0]
- 800264e:	721a      	strb	r2, [r3, #8]
+ 80025d8:	687b      	ldr	r3, [r7, #4]
+ 80025da:	1cfa      	adds	r2, r7, #3
+ 80025dc:	7812      	ldrb	r2, [r2, #0]
+ 80025de:	721a      	strb	r2, [r3, #8]
 }
- 8002650:	46c0      	nop			; (mov r8, r8)
- 8002652:	46bd      	mov	sp, r7
- 8002654:	b002      	add	sp, #8
- 8002656:	bd80      	pop	{r7, pc}
+ 80025e0:	46c0      	nop			; (mov r8, r8)
+ 80025e2:	46bd      	mov	sp, r7
+ 80025e4:	b002      	add	sp, #8
+ 80025e6:	bd80      	pop	{r7, pc}
 
-08002658 <_ZN6CTimer5startEm>:
+080025e8 <_ZN6CTimer5startEm>:
     setCounterUnit(unit);
 }
 
 /*-------------------------------------------------------*/
 void CTimer::start(uint32_t time)
 {
- 8002658:	b580      	push	{r7, lr}
- 800265a:	b082      	sub	sp, #8
- 800265c:	af00      	add	r7, sp, #0
- 800265e:	6078      	str	r0, [r7, #4]
- 8002660:	6039      	str	r1, [r7, #0]
+ 80025e8:	b580      	push	{r7, lr}
+ 80025ea:	b082      	sub	sp, #8
+ 80025ec:	af00      	add	r7, sp, #0
+ 80025ee:	6078      	str	r0, [r7, #4]
+ 80025f0:	6039      	str	r1, [r7, #0]
 	timState = TS_DOWNCOUNTING;
- 8002662:	687b      	ldr	r3, [r7, #4]
- 8002664:	2201      	movs	r2, #1
- 8002666:	725a      	strb	r2, [r3, #9]
+ 80025f2:	687b      	ldr	r3, [r7, #4]
+ 80025f4:	2201      	movs	r2, #1
+ 80025f6:	725a      	strb	r2, [r3, #9]
     startTick = getTick();
- 8002668:	f7ff ffc4 	bl	80025f4 <_ZN6CTimer7getTickEv>
- 800266c:	0002      	movs	r2, r0
- 800266e:	687b      	ldr	r3, [r7, #4]
- 8002670:	601a      	str	r2, [r3, #0]
+ 80025f8:	f7ff ffc4 	bl	8002584 <_ZN6CTimer7getTickEv>
+ 80025fc:	0002      	movs	r2, r0
+ 80025fe:	687b      	ldr	r3, [r7, #4]
+ 8002600:	601a      	str	r2, [r3, #0]
     duration = time;
- 8002672:	687b      	ldr	r3, [r7, #4]
- 8002674:	683a      	ldr	r2, [r7, #0]
- 8002676:	605a      	str	r2, [r3, #4]
+ 8002602:	687b      	ldr	r3, [r7, #4]
+ 8002604:	683a      	ldr	r2, [r7, #0]
+ 8002606:	605a      	str	r2, [r3, #4]
 }
- 8002678:	46c0      	nop			; (mov r8, r8)
- 800267a:	46bd      	mov	sp, r7
- 800267c:	b002      	add	sp, #8
- 800267e:	bd80      	pop	{r7, pc}
+ 8002608:	46c0      	nop			; (mov r8, r8)
+ 800260a:	46bd      	mov	sp, r7
+ 800260c:	b002      	add	sp, #8
+ 800260e:	bd80      	pop	{r7, pc}
 
-08002680 <_ZN6CTimer7turnOffEv>:
+08002610 <_ZN6CTimer7turnOffEv>:
     return result;
 }
 
 /*-------------------------------------------------------*/
 void CTimer::turnOff()
 {
- 8002680:	b580      	push	{r7, lr}
- 8002682:	b082      	sub	sp, #8
- 8002684:	af00      	add	r7, sp, #0
- 8002686:	6078      	str	r0, [r7, #4]
+ 8002610:	b580      	push	{r7, lr}
+ 8002612:	b082      	sub	sp, #8
+ 8002614:	af00      	add	r7, sp, #0
+ 8002616:	6078      	str	r0, [r7, #4]
     timState = TS_OFF;
- 8002688:	687b      	ldr	r3, [r7, #4]
- 800268a:	2200      	movs	r2, #0
- 800268c:	725a      	strb	r2, [r3, #9]
+ 8002618:	687b      	ldr	r3, [r7, #4]
+ 800261a:	2200      	movs	r2, #0
+ 800261c:	725a      	strb	r2, [r3, #9]
 }
- 800268e:	46c0      	nop			; (mov r8, r8)
- 8002690:	46bd      	mov	sp, r7
- 8002692:	b002      	add	sp, #8
- 8002694:	bd80      	pop	{r7, pc}
+ 800261e:	46c0      	nop			; (mov r8, r8)
+ 8002620:	46bd      	mov	sp, r7
+ 8002622:	b002      	add	sp, #8
+ 8002624:	bd80      	pop	{r7, pc}
 
-08002696 <_ZN6CTimer9isElapsedEv>:
+08002626 <_ZN6CTimer9isElapsedEv>:
     return !isZero();
 }
 
 /*-------------------------------------------------------*/
 bool CTimer::isElapsed()
 {
- 8002696:	b580      	push	{r7, lr}
- 8002698:	b084      	sub	sp, #16
- 800269a:	af00      	add	r7, sp, #0
- 800269c:	6078      	str	r0, [r7, #4]
+ 8002626:	b580      	push	{r7, lr}
+ 8002628:	b084      	sub	sp, #16
+ 800262a:	af00      	add	r7, sp, #0
+ 800262c:	6078      	str	r0, [r7, #4]
     bool elapsedFlag = false;
- 800269e:	230f      	movs	r3, #15
- 80026a0:	18fb      	adds	r3, r7, r3
- 80026a2:	2200      	movs	r2, #0
- 80026a4:	701a      	strb	r2, [r3, #0]
+ 800262e:	230f      	movs	r3, #15
+ 8002630:	18fb      	adds	r3, r7, r3
+ 8002632:	2200      	movs	r2, #0
+ 8002634:	701a      	strb	r2, [r3, #0]
 
     _updateDowncounter();
- 80026a6:	687b      	ldr	r3, [r7, #4]
- 80026a8:	0018      	movs	r0, r3
- 80026aa:	f000 f82d 	bl	8002708 <_ZN6CTimer18_updateDowncounterEv>
+ 8002636:	687b      	ldr	r3, [r7, #4]
+ 8002638:	0018      	movs	r0, r3
+ 800263a:	f000 f82d 	bl	8002698 <_ZN6CTimer18_updateDowncounterEv>
     switch(timState)
- 80026ae:	687b      	ldr	r3, [r7, #4]
- 80026b0:	7a5b      	ldrb	r3, [r3, #9]
- 80026b2:	2b02      	cmp	r3, #2
- 80026b4:	d003      	beq.n	80026be <_ZN6CTimer9isElapsedEv+0x28>
- 80026b6:	dc07      	bgt.n	80026c8 <_ZN6CTimer9isElapsedEv+0x32>
- 80026b8:	2b00      	cmp	r3, #0
- 80026ba:	db06      	blt.n	80026ca <_ZN6CTimer9isElapsedEv+0x34>
+ 800263e:	687b      	ldr	r3, [r7, #4]
+ 8002640:	7a5b      	ldrb	r3, [r3, #9]
+ 8002642:	2b02      	cmp	r3, #2
+ 8002644:	d003      	beq.n	800264e <_ZN6CTimer9isElapsedEv+0x28>
+ 8002646:	dc07      	bgt.n	8002658 <_ZN6CTimer9isElapsedEv+0x32>
+ 8002648:	2b00      	cmp	r3, #0
+ 800264a:	db06      	blt.n	800265a <_ZN6CTimer9isElapsedEv+0x34>
         elapsedFlag = true;
         break;
     case TS_OFF:
     case TS_DOWNCOUNTING:
     case TS_FREE_RUN:
         break;
- 80026bc:	e004      	b.n	80026c8 <_ZN6CTimer9isElapsedEv+0x32>
+ 800264c:	e004      	b.n	8002658 <_ZN6CTimer9isElapsedEv+0x32>
         elapsedFlag = true;
- 80026be:	230f      	movs	r3, #15
- 80026c0:	18fb      	adds	r3, r7, r3
- 80026c2:	2201      	movs	r2, #1
- 80026c4:	701a      	strb	r2, [r3, #0]
+ 800264e:	230f      	movs	r3, #15
+ 8002650:	18fb      	adds	r3, r7, r3
+ 8002652:	2201      	movs	r2, #1
+ 8002654:	701a      	strb	r2, [r3, #0]
         break;
- 80026c6:	e000      	b.n	80026ca <_ZN6CTimer9isElapsedEv+0x34>
+ 8002656:	e000      	b.n	800265a <_ZN6CTimer9isElapsedEv+0x34>
         break;
- 80026c8:	46c0      	nop			; (mov r8, r8)
+ 8002658:	46c0      	nop			; (mov r8, r8)
     }
     return elapsedFlag;
- 80026ca:	230f      	movs	r3, #15
- 80026cc:	18fb      	adds	r3, r7, r3
- 80026ce:	781b      	ldrb	r3, [r3, #0]
+ 800265a:	230f      	movs	r3, #15
+ 800265c:	18fb      	adds	r3, r7, r3
+ 800265e:	781b      	ldrb	r3, [r3, #0]
 }
- 80026d0:	0018      	movs	r0, r3
- 80026d2:	46bd      	mov	sp, r7
- 80026d4:	b004      	add	sp, #16
- 80026d6:	bd80      	pop	{r7, pc}
+ 8002660:	0018      	movs	r0, r3
+ 8002662:	46bd      	mov	sp, r7
+ 8002664:	b004      	add	sp, #16
+ 8002666:	bd80      	pop	{r7, pc}
 
-080026d8 <_ZN6CTimer18_getTimeSinceStartEv>:
+08002668 <_ZN6CTimer18_getTimeSinceStartEv>:
 }
 
 //--------PRIVATE----------------------------------------------------
 /*-------------------------------------------------------*/
 uint32_t CTimer::_getTimeSinceStart()
 {
- 80026d8:	b580      	push	{r7, lr}
- 80026da:	b084      	sub	sp, #16
- 80026dc:	af00      	add	r7, sp, #0
- 80026de:	6078      	str	r0, [r7, #4]
+ 8002668:	b580      	push	{r7, lr}
+ 800266a:	b084      	sub	sp, #16
+ 800266c:	af00      	add	r7, sp, #0
+ 800266e:	6078      	str	r0, [r7, #4]
     uint32_t ticksDuration;
     uint32_t unitsDuration;
 
     ticksDuration = getTick() - startTick;
- 80026e0:	f7ff ff88 	bl	80025f4 <_ZN6CTimer7getTickEv>
- 80026e4:	0002      	movs	r2, r0
- 80026e6:	687b      	ldr	r3, [r7, #4]
- 80026e8:	681b      	ldr	r3, [r3, #0]
- 80026ea:	1ad3      	subs	r3, r2, r3
- 80026ec:	60fb      	str	r3, [r7, #12]
+ 8002670:	f7ff ff88 	bl	8002584 <_ZN6CTimer7getTickEv>
+ 8002674:	0002      	movs	r2, r0
+ 8002676:	687b      	ldr	r3, [r7, #4]
+ 8002678:	681b      	ldr	r3, [r3, #0]
+ 800267a:	1ad3      	subs	r3, r2, r3
+ 800267c:	60fb      	str	r3, [r7, #12]
     unitsDuration = _ticks2timerUnits(ticksDuration);
- 80026ee:	68fa      	ldr	r2, [r7, #12]
- 80026f0:	687b      	ldr	r3, [r7, #4]
- 80026f2:	0011      	movs	r1, r2
- 80026f4:	0018      	movs	r0, r3
- 80026f6:	f000 f86f 	bl	80027d8 <_ZN6CTimer17_ticks2timerUnitsEm>
- 80026fa:	0003      	movs	r3, r0
- 80026fc:	60bb      	str	r3, [r7, #8]
+ 800267e:	68fa      	ldr	r2, [r7, #12]
+ 8002680:	687b      	ldr	r3, [r7, #4]
+ 8002682:	0011      	movs	r1, r2
+ 8002684:	0018      	movs	r0, r3
+ 8002686:	f000 f86f 	bl	8002768 <_ZN6CTimer17_ticks2timerUnitsEm>
+ 800268a:	0003      	movs	r3, r0
+ 800268c:	60bb      	str	r3, [r7, #8]
 
     return unitsDuration;
- 80026fe:	68bb      	ldr	r3, [r7, #8]
+ 800268e:	68bb      	ldr	r3, [r7, #8]
 }
- 8002700:	0018      	movs	r0, r3
- 8002702:	46bd      	mov	sp, r7
- 8002704:	b004      	add	sp, #16
- 8002706:	bd80      	pop	{r7, pc}
+ 8002690:	0018      	movs	r0, r3
+ 8002692:	46bd      	mov	sp, r7
+ 8002694:	b004      	add	sp, #16
+ 8002696:	bd80      	pop	{r7, pc}
 
-08002708 <_ZN6CTimer18_updateDowncounterEv>:
+08002698 <_ZN6CTimer18_updateDowncounterEv>:
 
 /*-------------------------------------------------------*/
 uint32_t CTimer::_updateDowncounter()
 {
- 8002708:	b580      	push	{r7, lr}
- 800270a:	b084      	sub	sp, #16
- 800270c:	af00      	add	r7, sp, #0
- 800270e:	6078      	str	r0, [r7, #4]
+ 8002698:	b580      	push	{r7, lr}
+ 800269a:	b084      	sub	sp, #16
+ 800269c:	af00      	add	r7, sp, #0
+ 800269e:	6078      	str	r0, [r7, #4]
     uint32_t timeSinceStart = 0;
- 8002710:	2300      	movs	r3, #0
- 8002712:	60fb      	str	r3, [r7, #12]
+ 80026a0:	2300      	movs	r3, #0
+ 80026a2:	60fb      	str	r3, [r7, #12]
 
     switch(timState)
- 8002714:	687b      	ldr	r3, [r7, #4]
- 8002716:	7a5b      	ldrb	r3, [r3, #9]
- 8002718:	2b01      	cmp	r3, #1
- 800271a:	d003      	beq.n	8002724 <_ZN6CTimer18_updateDowncounterEv+0x1c>
- 800271c:	dd14      	ble.n	8002748 <_ZN6CTimer18_updateDowncounterEv+0x40>
- 800271e:	2b03      	cmp	r3, #3
- 8002720:	dc15      	bgt.n	800274e <_ZN6CTimer18_updateDowncounterEv+0x46>
+ 80026a4:	687b      	ldr	r3, [r7, #4]
+ 80026a6:	7a5b      	ldrb	r3, [r3, #9]
+ 80026a8:	2b01      	cmp	r3, #1
+ 80026aa:	d003      	beq.n	80026b4 <_ZN6CTimer18_updateDowncounterEv+0x1c>
+ 80026ac:	dd14      	ble.n	80026d8 <_ZN6CTimer18_updateDowncounterEv+0x40>
+ 80026ae:	2b03      	cmp	r3, #3
+ 80026b0:	dc15      	bgt.n	80026de <_ZN6CTimer18_updateDowncounterEv+0x46>
             timState = TS_ELAPSED;
         }
         break;
     case TS_ELAPSED:
     case TS_FREE_RUN:
         break;
- 8002722:	e014      	b.n	800274e <_ZN6CTimer18_updateDowncounterEv+0x46>
+ 80026b2:	e014      	b.n	80026de <_ZN6CTimer18_updateDowncounterEv+0x46>
         timeSinceStart = _getTimeSinceStart();
- 8002724:	687b      	ldr	r3, [r7, #4]
- 8002726:	0018      	movs	r0, r3
- 8002728:	f7ff ffd6 	bl	80026d8 <_ZN6CTimer18_getTimeSinceStartEv>
- 800272c:	0003      	movs	r3, r0
- 800272e:	60fb      	str	r3, [r7, #12]
+ 80026b4:	687b      	ldr	r3, [r7, #4]
+ 80026b6:	0018      	movs	r0, r3
+ 80026b8:	f7ff ffd6 	bl	8002668 <_ZN6CTimer18_getTimeSinceStartEv>
+ 80026bc:	0003      	movs	r3, r0
+ 80026be:	60fb      	str	r3, [r7, #12]
         if (_isTimeElapsed(timeSinceStart))
- 8002730:	68fa      	ldr	r2, [r7, #12]
- 8002732:	687b      	ldr	r3, [r7, #4]
- 8002734:	0011      	movs	r1, r2
- 8002736:	0018      	movs	r0, r3
- 8002738:	f000 f80e 	bl	8002758 <_ZN6CTimer14_isTimeElapsedEm>
- 800273c:	1e03      	subs	r3, r0, #0
- 800273e:	d005      	beq.n	800274c <_ZN6CTimer18_updateDowncounterEv+0x44>
+ 80026c0:	68fa      	ldr	r2, [r7, #12]
+ 80026c2:	687b      	ldr	r3, [r7, #4]
+ 80026c4:	0011      	movs	r1, r2
+ 80026c6:	0018      	movs	r0, r3
+ 80026c8:	f000 f80e 	bl	80026e8 <_ZN6CTimer14_isTimeElapsedEm>
+ 80026cc:	1e03      	subs	r3, r0, #0
+ 80026ce:	d005      	beq.n	80026dc <_ZN6CTimer18_updateDowncounterEv+0x44>
             timState = TS_ELAPSED;
- 8002740:	687b      	ldr	r3, [r7, #4]
- 8002742:	2202      	movs	r2, #2
- 8002744:	725a      	strb	r2, [r3, #9]
+ 80026d0:	687b      	ldr	r3, [r7, #4]
+ 80026d2:	2202      	movs	r2, #2
+ 80026d4:	725a      	strb	r2, [r3, #9]
         break;
- 8002746:	e001      	b.n	800274c <_ZN6CTimer18_updateDowncounterEv+0x44>
+ 80026d6:	e001      	b.n	80026dc <_ZN6CTimer18_updateDowncounterEv+0x44>
         break;
- 8002748:	46c0      	nop			; (mov r8, r8)
- 800274a:	e000      	b.n	800274e <_ZN6CTimer18_updateDowncounterEv+0x46>
+ 80026d8:	46c0      	nop			; (mov r8, r8)
+ 80026da:	e000      	b.n	80026de <_ZN6CTimer18_updateDowncounterEv+0x46>
         break;
- 800274c:	46c0      	nop			; (mov r8, r8)
+ 80026dc:	46c0      	nop			; (mov r8, r8)
     }
 
     return timeSinceStart;
- 800274e:	68fb      	ldr	r3, [r7, #12]
+ 80026de:	68fb      	ldr	r3, [r7, #12]
 }
- 8002750:	0018      	movs	r0, r3
- 8002752:	46bd      	mov	sp, r7
- 8002754:	b004      	add	sp, #16
- 8002756:	bd80      	pop	{r7, pc}
+ 80026e0:	0018      	movs	r0, r3
+ 80026e2:	46bd      	mov	sp, r7
+ 80026e4:	b004      	add	sp, #16
+ 80026e6:	bd80      	pop	{r7, pc}
 
-08002758 <_ZN6CTimer14_isTimeElapsedEm>:
+080026e8 <_ZN6CTimer14_isTimeElapsedEm>:
     return result;
 }
 
 /*-------------------------------------------------------*/
 bool CTimer::_isTimeElapsed(uint32_t _timeSinceStart)
 {
- 8002758:	b580      	push	{r7, lr}
- 800275a:	b082      	sub	sp, #8
- 800275c:	af00      	add	r7, sp, #0
- 800275e:	6078      	str	r0, [r7, #4]
- 8002760:	6039      	str	r1, [r7, #0]
+ 80026e8:	b580      	push	{r7, lr}
+ 80026ea:	b082      	sub	sp, #8
+ 80026ec:	af00      	add	r7, sp, #0
+ 80026ee:	6078      	str	r0, [r7, #4]
+ 80026f0:	6039      	str	r1, [r7, #0]
     return _timeSinceStart >= duration;
- 8002762:	687b      	ldr	r3, [r7, #4]
- 8002764:	685a      	ldr	r2, [r3, #4]
- 8002766:	6839      	ldr	r1, [r7, #0]
- 8002768:	2300      	movs	r3, #0
- 800276a:	4291      	cmp	r1, r2
- 800276c:	415b      	adcs	r3, r3
- 800276e:	b2db      	uxtb	r3, r3
+ 80026f2:	687b      	ldr	r3, [r7, #4]
+ 80026f4:	685a      	ldr	r2, [r3, #4]
+ 80026f6:	6839      	ldr	r1, [r7, #0]
+ 80026f8:	2300      	movs	r3, #0
+ 80026fa:	4291      	cmp	r1, r2
+ 80026fc:	415b      	adcs	r3, r3
+ 80026fe:	b2db      	uxtb	r3, r3
 }
- 8002770:	0018      	movs	r0, r3
- 8002772:	46bd      	mov	sp, r7
- 8002774:	b002      	add	sp, #8
- 8002776:	bd80      	pop	{r7, pc}
+ 8002700:	0018      	movs	r0, r3
+ 8002702:	46bd      	mov	sp, r7
+ 8002704:	b002      	add	sp, #8
+ 8002706:	bd80      	pop	{r7, pc}
 
-08002778 <_ZN6CTimer13getFactor1000ENS_4UnitE>:
+08002708 <_ZN6CTimer13getFactor1000ENS_4UnitE>:
 
 /*-------------------------------------------------------*/
 uint32_t CTimer::getFactor1000(Unit unit)
 {
- 8002778:	b580      	push	{r7, lr}
- 800277a:	b084      	sub	sp, #16
- 800277c:	af00      	add	r7, sp, #0
- 800277e:	0002      	movs	r2, r0
- 8002780:	1dfb      	adds	r3, r7, #7
- 8002782:	701a      	strb	r2, [r3, #0]
+ 8002708:	b580      	push	{r7, lr}
+ 800270a:	b084      	sub	sp, #16
+ 800270c:	af00      	add	r7, sp, #0
+ 800270e:	0002      	movs	r2, r0
+ 8002710:	1dfb      	adds	r3, r7, #7
+ 8002712:	701a      	strb	r2, [r3, #0]
     uint32_t factor;
 
     switch (unit)
- 8002784:	1dfb      	adds	r3, r7, #7
- 8002786:	781b      	ldrb	r3, [r3, #0]
- 8002788:	2b05      	cmp	r3, #5
- 800278a:	d817      	bhi.n	80027bc <_ZN6CTimer13getFactor1000ENS_4UnitE+0x44>
- 800278c:	009a      	lsls	r2, r3, #2
- 800278e:	4b0f      	ldr	r3, [pc, #60]	; (80027cc <_ZN6CTimer13getFactor1000ENS_4UnitE+0x54>)
- 8002790:	18d3      	adds	r3, r2, r3
- 8002792:	681b      	ldr	r3, [r3, #0]
- 8002794:	469f      	mov	pc, r3
+ 8002714:	1dfb      	adds	r3, r7, #7
+ 8002716:	781b      	ldrb	r3, [r3, #0]
+ 8002718:	2b05      	cmp	r3, #5
+ 800271a:	d817      	bhi.n	800274c <_ZN6CTimer13getFactor1000ENS_4UnitE+0x44>
+ 800271c:	009a      	lsls	r2, r3, #2
+ 800271e:	4b0f      	ldr	r3, [pc, #60]	; (800275c <_ZN6CTimer13getFactor1000ENS_4UnitE+0x54>)
+ 8002720:	18d3      	adds	r3, r2, r3
+ 8002722:	681b      	ldr	r3, [r3, #0]
+ 8002724:	469f      	mov	pc, r3
     {
         case UNIT_MILISEC:
             //0.001s <-> 0.001s
             factor = 1U;
- 8002796:	2301      	movs	r3, #1
- 8002798:	60fb      	str	r3, [r7, #12]
+ 8002726:	2301      	movs	r3, #1
+ 8002728:	60fb      	str	r3, [r7, #12]
             break;
- 800279a:	e012      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 800272a:	e012      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         case UNIT_HUNDRETHS_SEC:
             //0.001s <-> 0.01s
             factor = 10U;
- 800279c:	230a      	movs	r3, #10
- 800279e:	60fb      	str	r3, [r7, #12]
+ 800272c:	230a      	movs	r3, #10
+ 800272e:	60fb      	str	r3, [r7, #12]
             break;
- 80027a0:	e00f      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 8002730:	e00f      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         case UNIT_TENTHS_SEC:
             //0.001s <-> 0.1s
             factor = 100U;
- 80027a2:	2364      	movs	r3, #100	; 0x64
- 80027a4:	60fb      	str	r3, [r7, #12]
+ 8002732:	2364      	movs	r3, #100	; 0x64
+ 8002734:	60fb      	str	r3, [r7, #12]
             break;
- 80027a6:	e00c      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 8002736:	e00c      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         case UNIT_SEC:
             //0.001s <-> 1s
             factor = 1000U;
- 80027a8:	23fa      	movs	r3, #250	; 0xfa
- 80027aa:	009b      	lsls	r3, r3, #2
- 80027ac:	60fb      	str	r3, [r7, #12]
+ 8002738:	23fa      	movs	r3, #250	; 0xfa
+ 800273a:	009b      	lsls	r3, r3, #2
+ 800273c:	60fb      	str	r3, [r7, #12]
             break;
- 80027ae:	e008      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 800273e:	e008      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         case UNIT_MIN:
             //0.001s <-> 1min
             factor = 60000U;
- 80027b0:	4b07      	ldr	r3, [pc, #28]	; (80027d0 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x58>)
- 80027b2:	60fb      	str	r3, [r7, #12]
+ 8002740:	4b07      	ldr	r3, [pc, #28]	; (8002760 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x58>)
+ 8002742:	60fb      	str	r3, [r7, #12]
             break;
- 80027b4:	e005      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 8002744:	e005      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         case UNIT_HOUR:
             //0.001s <-> 1hour
             factor = 3600000U;
- 80027b6:	4b07      	ldr	r3, [pc, #28]	; (80027d4 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x5c>)
- 80027b8:	60fb      	str	r3, [r7, #12]
+ 8002746:	4b07      	ldr	r3, [pc, #28]	; (8002764 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x5c>)
+ 8002748:	60fb      	str	r3, [r7, #12]
             break;
- 80027ba:	e002      	b.n	80027c2 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
+ 800274a:	e002      	b.n	8002752 <_ZN6CTimer13getFactor1000ENS_4UnitE+0x4a>
         default:
             factor = 1U;
- 80027bc:	2301      	movs	r3, #1
- 80027be:	60fb      	str	r3, [r7, #12]
+ 800274c:	2301      	movs	r3, #1
+ 800274e:	60fb      	str	r3, [r7, #12]
             break;
- 80027c0:	46c0      	nop			; (mov r8, r8)
+ 8002750:	46c0      	nop			; (mov r8, r8)
     }
     return factor;
- 80027c2:	68fb      	ldr	r3, [r7, #12]
+ 8002752:	68fb      	ldr	r3, [r7, #12]
 }
- 80027c4:	0018      	movs	r0, r3
- 80027c6:	46bd      	mov	sp, r7
- 80027c8:	b004      	add	sp, #16
- 80027ca:	bd80      	pop	{r7, pc}
- 80027cc:	08003070 	.word	0x08003070
- 80027d0:	0000ea60 	.word	0x0000ea60
- 80027d4:	0036ee80 	.word	0x0036ee80
+ 8002754:	0018      	movs	r0, r3
+ 8002756:	46bd      	mov	sp, r7
+ 8002758:	b004      	add	sp, #16
+ 800275a:	bd80      	pop	{r7, pc}
+ 800275c:	08002fa0 	.word	0x08002fa0
+ 8002760:	0000ea60 	.word	0x0000ea60
+ 8002764:	0036ee80 	.word	0x0036ee80
 
-080027d8 <_ZN6CTimer17_ticks2timerUnitsEm>:
+08002768 <_ZN6CTimer17_ticks2timerUnitsEm>:
     return timerUnits * getFactor1000(unit);
 }
 
 /*-------------------------------------------------------*/
 uint32_t CTimer::_ticks2timerUnits(uint32_t ticks)
 {
- 80027d8:	b580      	push	{r7, lr}
- 80027da:	b082      	sub	sp, #8
- 80027dc:	af00      	add	r7, sp, #0
- 80027de:	6078      	str	r0, [r7, #4]
- 80027e0:	6039      	str	r1, [r7, #0]
+ 8002768:	b580      	push	{r7, lr}
+ 800276a:	b082      	sub	sp, #8
+ 800276c:	af00      	add	r7, sp, #0
+ 800276e:	6078      	str	r0, [r7, #4]
+ 8002770:	6039      	str	r1, [r7, #0]
     return ticks / getFactor1000(unit);
- 80027e2:	687b      	ldr	r3, [r7, #4]
- 80027e4:	7a1b      	ldrb	r3, [r3, #8]
- 80027e6:	0018      	movs	r0, r3
- 80027e8:	f7ff ffc6 	bl	8002778 <_ZN6CTimer13getFactor1000ENS_4UnitE>
- 80027ec:	0003      	movs	r3, r0
- 80027ee:	0019      	movs	r1, r3
- 80027f0:	6838      	ldr	r0, [r7, #0]
- 80027f2:	f7fd fc89 	bl	8000108 <__udivsi3>
- 80027f6:	0003      	movs	r3, r0
+ 8002772:	687b      	ldr	r3, [r7, #4]
+ 8002774:	7a1b      	ldrb	r3, [r3, #8]
+ 8002776:	0018      	movs	r0, r3
+ 8002778:	f7ff ffc6 	bl	8002708 <_ZN6CTimer13getFactor1000ENS_4UnitE>
+ 800277c:	0003      	movs	r3, r0
+ 800277e:	0019      	movs	r1, r3
+ 8002780:	6838      	ldr	r0, [r7, #0]
+ 8002782:	f7fd fcc1 	bl	8000108 <__udivsi3>
+ 8002786:	0003      	movs	r3, r0
 }
- 80027f8:	0018      	movs	r0, r3
- 80027fa:	46bd      	mov	sp, r7
- 80027fc:	b002      	add	sp, #8
- 80027fe:	bd80      	pop	{r7, pc}
+ 8002788:	0018      	movs	r0, r3
+ 800278a:	46bd      	mov	sp, r7
+ 800278c:	b002      	add	sp, #8
+ 800278e:	bd80      	pop	{r7, pc}
 
-08002800 <_ZN14CControlerInfoC1Ev>:
+08002790 <_ZN14CControlerInfoC1Ev>:
 EEPROMVar CControlerInfo::m_eepromInitialization = EEPROMVar(sizeof(uint8_t));
 EEPROMVar CControlerInfo::m_eeppromMotominutes = EEPROMVar(sizeof(uint8_t));
 EEPROMVar CControlerInfo::m_eeppromMotohours = EEPROMVar(sizeof(MOTOHOUR));
 EEPROMVar CControlerInfo::m_eeppromMaxMotohours = EEPROMVar(sizeof(MOTOHOUR));
 
 CControlerInfo::CControlerInfo() {
- 8002800:	b580      	push	{r7, lr}
- 8002802:	b082      	sub	sp, #8
- 8002804:	af00      	add	r7, sp, #0
- 8002806:	6078      	str	r0, [r7, #4]
+ 8002790:	b580      	push	{r7, lr}
+ 8002792:	b082      	sub	sp, #8
+ 8002794:	af00      	add	r7, sp, #0
+ 8002796:	6078      	str	r0, [r7, #4]
 	if (getStatusInitialization() != INITIATED) {
- 8002808:	687b      	ldr	r3, [r7, #4]
- 800280a:	0018      	movs	r0, r3
- 800280c:	f000 f82a 	bl	8002864 <_ZN14CControlerInfo23getStatusInitializationEv>
- 8002810:	0003      	movs	r3, r0
- 8002812:	3b02      	subs	r3, #2
- 8002814:	1e5a      	subs	r2, r3, #1
- 8002816:	4193      	sbcs	r3, r2
- 8002818:	b2db      	uxtb	r3, r3
- 800281a:	2b00      	cmp	r3, #0
- 800281c:	d015      	beq.n	800284a <_ZN14CControlerInfoC1Ev+0x4a>
+ 8002798:	687b      	ldr	r3, [r7, #4]
+ 800279a:	0018      	movs	r0, r3
+ 800279c:	f000 f82a 	bl	80027f4 <_ZN14CControlerInfo23getStatusInitializationEv>
+ 80027a0:	0003      	movs	r3, r0
+ 80027a2:	3b02      	subs	r3, #2
+ 80027a4:	1e5a      	subs	r2, r3, #1
+ 80027a6:	4193      	sbcs	r3, r2
+ 80027a8:	b2db      	uxtb	r3, r3
+ 80027aa:	2b00      	cmp	r3, #0
+ 80027ac:	d015      	beq.n	80027da <_ZN14CControlerInfoC1Ev+0x4a>
 		m_eepromInitialization = (uint8_t) INITIATED;
- 800281e:	4b0d      	ldr	r3, [pc, #52]	; (8002854 <_ZN14CControlerInfoC1Ev+0x54>)
- 8002820:	2102      	movs	r1, #2
- 8002822:	0018      	movs	r0, r3
- 8002824:	f7ff fa5a 	bl	8001cdc <_ZN9EEPROMVaraSEh>
+ 80027ae:	4b0d      	ldr	r3, [pc, #52]	; (80027e4 <_ZN14CControlerInfoC1Ev+0x54>)
+ 80027b0:	2102      	movs	r1, #2
+ 80027b2:	0018      	movs	r0, r3
+ 80027b4:	f7ff fa92 	bl	8001cdc <_ZN9EEPROMVaraSEh>
 		m_eeppromMotohours = (MOTOHOUR)0;
- 8002828:	4b0b      	ldr	r3, [pc, #44]	; (8002858 <_ZN14CControlerInfoC1Ev+0x58>)
- 800282a:	2100      	movs	r1, #0
- 800282c:	0018      	movs	r0, r3
- 800282e:	f7ff fa75 	bl	8001d1c <_ZN9EEPROMVaraSEt>
+ 80027b8:	4b0b      	ldr	r3, [pc, #44]	; (80027e8 <_ZN14CControlerInfoC1Ev+0x58>)
+ 80027ba:	2100      	movs	r1, #0
+ 80027bc:	0018      	movs	r0, r3
+ 80027be:	f7ff faad 	bl	8001d1c <_ZN9EEPROMVaraSEt>
 		m_eeppromMotominutes = (uint8_t)0;
- 8002832:	4b0a      	ldr	r3, [pc, #40]	; (800285c <_ZN14CControlerInfoC1Ev+0x5c>)
- 8002834:	2100      	movs	r1, #0
- 8002836:	0018      	movs	r0, r3
- 8002838:	f7ff fa50 	bl	8001cdc <_ZN9EEPROMVaraSEh>
+ 80027c2:	4b0a      	ldr	r3, [pc, #40]	; (80027ec <_ZN14CControlerInfoC1Ev+0x5c>)
+ 80027c4:	2100      	movs	r1, #0
+ 80027c6:	0018      	movs	r0, r3
+ 80027c8:	f7ff fa88 	bl	8001cdc <_ZN9EEPROMVaraSEh>
 		m_eeppromMaxMotohours = (MOTOHOUR)400;
- 800283c:	23c8      	movs	r3, #200	; 0xc8
- 800283e:	005a      	lsls	r2, r3, #1
- 8002840:	4b07      	ldr	r3, [pc, #28]	; (8002860 <_ZN14CControlerInfoC1Ev+0x60>)
- 8002842:	0011      	movs	r1, r2
- 8002844:	0018      	movs	r0, r3
- 8002846:	f7ff fa69 	bl	8001d1c <_ZN9EEPROMVaraSEt>
+ 80027cc:	23c8      	movs	r3, #200	; 0xc8
+ 80027ce:	005a      	lsls	r2, r3, #1
+ 80027d0:	4b07      	ldr	r3, [pc, #28]	; (80027f0 <_ZN14CControlerInfoC1Ev+0x60>)
+ 80027d2:	0011      	movs	r1, r2
+ 80027d4:	0018      	movs	r0, r3
+ 80027d6:	f7ff faa1 	bl	8001d1c <_ZN9EEPROMVaraSEt>
 	}
 }
- 800284a:	687b      	ldr	r3, [r7, #4]
- 800284c:	0018      	movs	r0, r3
- 800284e:	46bd      	mov	sp, r7
- 8002850:	b002      	add	sp, #8
- 8002852:	bd80      	pop	{r7, pc}
- 8002854:	20000098 	.word	0x20000098
- 8002858:	200000a8 	.word	0x200000a8
- 800285c:	200000a0 	.word	0x200000a0
- 8002860:	200000b0 	.word	0x200000b0
+ 80027da:	687b      	ldr	r3, [r7, #4]
+ 80027dc:	0018      	movs	r0, r3
+ 80027de:	46bd      	mov	sp, r7
+ 80027e0:	b002      	add	sp, #8
+ 80027e2:	bd80      	pop	{r7, pc}
+ 80027e4:	20000098 	.word	0x20000098
+ 80027e8:	200000a8 	.word	0x200000a8
+ 80027ec:	200000a0 	.word	0x200000a0
+ 80027f0:	200000b0 	.word	0x200000b0
 
-08002864 <_ZN14CControlerInfo23getStatusInitializationEv>:
+080027f4 <_ZN14CControlerInfo23getStatusInitializationEv>:
 
 CControlerInfo::TStatusInitialization CControlerInfo::getStatusInitialization() {
- 8002864:	b590      	push	{r4, r7, lr}
- 8002866:	b085      	sub	sp, #20
- 8002868:	af00      	add	r7, sp, #0
- 800286a:	6078      	str	r0, [r7, #4]
+ 80027f4:	b590      	push	{r4, r7, lr}
+ 80027f6:	b085      	sub	sp, #20
+ 80027f8:	af00      	add	r7, sp, #0
+ 80027fa:	6078      	str	r0, [r7, #4]
 	uint8_t temp;
 	temp = m_eepromInitialization;
- 800286c:	230f      	movs	r3, #15
- 800286e:	18fc      	adds	r4, r7, r3
- 8002870:	4b06      	ldr	r3, [pc, #24]	; (800288c <_ZN14CControlerInfo23getStatusInitializationEv+0x28>)
- 8002872:	0018      	movs	r0, r3
- 8002874:	f7ff fa72 	bl	8001d5c <_ZN9EEPROMVarcvhEv>
- 8002878:	0003      	movs	r3, r0
- 800287a:	7023      	strb	r3, [r4, #0]
+ 80027fc:	230f      	movs	r3, #15
+ 80027fe:	18fc      	adds	r4, r7, r3
+ 8002800:	4b06      	ldr	r3, [pc, #24]	; (800281c <_ZN14CControlerInfo23getStatusInitializationEv+0x28>)
+ 8002802:	0018      	movs	r0, r3
+ 8002804:	f7ff faaa 	bl	8001d5c <_ZN9EEPROMVarcvhEv>
+ 8002808:	0003      	movs	r3, r0
+ 800280a:	7023      	strb	r3, [r4, #0]
 	return (TStatusInitialization) temp;
- 800287c:	230f      	movs	r3, #15
- 800287e:	18fb      	adds	r3, r7, r3
- 8002880:	781b      	ldrb	r3, [r3, #0]
+ 800280c:	230f      	movs	r3, #15
+ 800280e:	18fb      	adds	r3, r7, r3
+ 8002810:	781b      	ldrb	r3, [r3, #0]
 }
- 8002882:	0018      	movs	r0, r3
- 8002884:	46bd      	mov	sp, r7
- 8002886:	b005      	add	sp, #20
- 8002888:	bd90      	pop	{r4, r7, pc}
- 800288a:	46c0      	nop			; (mov r8, r8)
- 800288c:	20000098 	.word	0x20000098
+ 8002812:	0018      	movs	r0, r3
+ 8002814:	46bd      	mov	sp, r7
+ 8002816:	b005      	add	sp, #20
+ 8002818:	bd90      	pop	{r4, r7, pc}
+ 800281a:	46c0      	nop			; (mov r8, r8)
+ 800281c:	20000098 	.word	0x20000098
 
-08002890 <_ZN14CControlerInfo12getMotohoursEv>:
+08002820 <_ZN14CControlerInfo12getMotohoursEv>:
 
 void CControlerInfo::deinitialization() {
 	m_eepromInitialization = (uint8_t) NO_INITIATED;
 }
 
 MOTOHOUR CControlerInfo::getMotohours() {
- 8002890:	b590      	push	{r4, r7, lr}
- 8002892:	b085      	sub	sp, #20
- 8002894:	af00      	add	r7, sp, #0
- 8002896:	6078      	str	r0, [r7, #4]
+ 8002820:	b590      	push	{r4, r7, lr}
+ 8002822:	b085      	sub	sp, #20
+ 8002824:	af00      	add	r7, sp, #0
+ 8002826:	6078      	str	r0, [r7, #4]
 	MOTOHOUR temp;
 	temp = m_eeppromMotohours;
- 8002898:	230e      	movs	r3, #14
- 800289a:	18fc      	adds	r4, r7, r3
- 800289c:	4b06      	ldr	r3, [pc, #24]	; (80028b8 <_ZN14CControlerInfo12getMotohoursEv+0x28>)
- 800289e:	0018      	movs	r0, r3
- 80028a0:	f7ff fa78 	bl	8001d94 <_ZN9EEPROMVarcvtEv>
- 80028a4:	0003      	movs	r3, r0
- 80028a6:	8023      	strh	r3, [r4, #0]
+ 8002828:	230e      	movs	r3, #14
+ 800282a:	18fc      	adds	r4, r7, r3
+ 800282c:	4b06      	ldr	r3, [pc, #24]	; (8002848 <_ZN14CControlerInfo12getMotohoursEv+0x28>)
+ 800282e:	0018      	movs	r0, r3
+ 8002830:	f7ff fab0 	bl	8001d94 <_ZN9EEPROMVarcvtEv>
+ 8002834:	0003      	movs	r3, r0
+ 8002836:	8023      	strh	r3, [r4, #0]
 	return temp;
- 80028a8:	230e      	movs	r3, #14
- 80028aa:	18fb      	adds	r3, r7, r3
- 80028ac:	881b      	ldrh	r3, [r3, #0]
+ 8002838:	230e      	movs	r3, #14
+ 800283a:	18fb      	adds	r3, r7, r3
+ 800283c:	881b      	ldrh	r3, [r3, #0]
 }
- 80028ae:	0018      	movs	r0, r3
- 80028b0:	46bd      	mov	sp, r7
- 80028b2:	b005      	add	sp, #20
- 80028b4:	bd90      	pop	{r4, r7, pc}
- 80028b6:	46c0      	nop			; (mov r8, r8)
- 80028b8:	200000a8 	.word	0x200000a8
+ 800283e:	0018      	movs	r0, r3
+ 8002840:	46bd      	mov	sp, r7
+ 8002842:	b005      	add	sp, #20
+ 8002844:	bd90      	pop	{r4, r7, pc}
+ 8002846:	46c0      	nop			; (mov r8, r8)
+ 8002848:	200000a8 	.word	0x200000a8
 
-080028bc <_ZN14CControlerInfo12setMotohoursEt>:
+0800284c <_ZN14CControlerInfo12setMotohoursEt>:
 
 void CControlerInfo::setMotohours(MOTOHOUR val) {
- 80028bc:	b580      	push	{r7, lr}
- 80028be:	b082      	sub	sp, #8
- 80028c0:	af00      	add	r7, sp, #0
- 80028c2:	6078      	str	r0, [r7, #4]
- 80028c4:	000a      	movs	r2, r1
- 80028c6:	1cbb      	adds	r3, r7, #2
- 80028c8:	801a      	strh	r2, [r3, #0]
+ 800284c:	b580      	push	{r7, lr}
+ 800284e:	b082      	sub	sp, #8
+ 8002850:	af00      	add	r7, sp, #0
+ 8002852:	6078      	str	r0, [r7, #4]
+ 8002854:	000a      	movs	r2, r1
+ 8002856:	1cbb      	adds	r3, r7, #2
+ 8002858:	801a      	strh	r2, [r3, #0]
 	m_eeppromMotohours = val;
- 80028ca:	1cbb      	adds	r3, r7, #2
- 80028cc:	881a      	ldrh	r2, [r3, #0]
- 80028ce:	4b04      	ldr	r3, [pc, #16]	; (80028e0 <_ZN14CControlerInfo12setMotohoursEt+0x24>)
- 80028d0:	0011      	movs	r1, r2
- 80028d2:	0018      	movs	r0, r3
- 80028d4:	f7ff fa22 	bl	8001d1c <_ZN9EEPROMVaraSEt>
+ 800285a:	1cbb      	adds	r3, r7, #2
+ 800285c:	881a      	ldrh	r2, [r3, #0]
+ 800285e:	4b04      	ldr	r3, [pc, #16]	; (8002870 <_ZN14CControlerInfo12setMotohoursEt+0x24>)
+ 8002860:	0011      	movs	r1, r2
+ 8002862:	0018      	movs	r0, r3
+ 8002864:	f7ff fa5a 	bl	8001d1c <_ZN9EEPROMVaraSEt>
 }
- 80028d8:	46c0      	nop			; (mov r8, r8)
- 80028da:	46bd      	mov	sp, r7
- 80028dc:	b002      	add	sp, #8
- 80028de:	bd80      	pop	{r7, pc}
- 80028e0:	200000a8 	.word	0x200000a8
+ 8002868:	46c0      	nop			; (mov r8, r8)
+ 800286a:	46bd      	mov	sp, r7
+ 800286c:	b002      	add	sp, #8
+ 800286e:	bd80      	pop	{r7, pc}
+ 8002870:	200000a8 	.word	0x200000a8
 
-080028e4 <_ZN14CControlerInfo14getMotominutesEv>:
+08002874 <_ZN14CControlerInfo14getMotominutesEv>:
 
 uint8_t CControlerInfo::getMotominutes() {
- 80028e4:	b590      	push	{r4, r7, lr}
- 80028e6:	b085      	sub	sp, #20
- 80028e8:	af00      	add	r7, sp, #0
- 80028ea:	6078      	str	r0, [r7, #4]
+ 8002874:	b590      	push	{r4, r7, lr}
+ 8002876:	b085      	sub	sp, #20
+ 8002878:	af00      	add	r7, sp, #0
+ 800287a:	6078      	str	r0, [r7, #4]
 	uint8_t temp;
 	temp = m_eeppromMotominutes;
- 80028ec:	230f      	movs	r3, #15
- 80028ee:	18fc      	adds	r4, r7, r3
- 80028f0:	4b06      	ldr	r3, [pc, #24]	; (800290c <_ZN14CControlerInfo14getMotominutesEv+0x28>)
- 80028f2:	0018      	movs	r0, r3
- 80028f4:	f7ff fa32 	bl	8001d5c <_ZN9EEPROMVarcvhEv>
- 80028f8:	0003      	movs	r3, r0
- 80028fa:	7023      	strb	r3, [r4, #0]
+ 800287c:	230f      	movs	r3, #15
+ 800287e:	18fc      	adds	r4, r7, r3
+ 8002880:	4b06      	ldr	r3, [pc, #24]	; (800289c <_ZN14CControlerInfo14getMotominutesEv+0x28>)
+ 8002882:	0018      	movs	r0, r3
+ 8002884:	f7ff fa6a 	bl	8001d5c <_ZN9EEPROMVarcvhEv>
+ 8002888:	0003      	movs	r3, r0
+ 800288a:	7023      	strb	r3, [r4, #0]
 	return temp;
- 80028fc:	230f      	movs	r3, #15
- 80028fe:	18fb      	adds	r3, r7, r3
- 8002900:	781b      	ldrb	r3, [r3, #0]
+ 800288c:	230f      	movs	r3, #15
+ 800288e:	18fb      	adds	r3, r7, r3
+ 8002890:	781b      	ldrb	r3, [r3, #0]
 }
- 8002902:	0018      	movs	r0, r3
- 8002904:	46bd      	mov	sp, r7
- 8002906:	b005      	add	sp, #20
- 8002908:	bd90      	pop	{r4, r7, pc}
- 800290a:	46c0      	nop			; (mov r8, r8)
- 800290c:	200000a0 	.word	0x200000a0
+ 8002892:	0018      	movs	r0, r3
+ 8002894:	46bd      	mov	sp, r7
+ 8002896:	b005      	add	sp, #20
+ 8002898:	bd90      	pop	{r4, r7, pc}
+ 800289a:	46c0      	nop			; (mov r8, r8)
+ 800289c:	200000a0 	.word	0x200000a0
 
-08002910 <_ZN14CControlerInfo14setMotominutesEh>:
+080028a0 <_ZN14CControlerInfo14setMotominutesEh>:
 
 void CControlerInfo::setMotominutes(uint8_t val) {
- 8002910:	b580      	push	{r7, lr}
- 8002912:	b082      	sub	sp, #8
- 8002914:	af00      	add	r7, sp, #0
- 8002916:	6078      	str	r0, [r7, #4]
- 8002918:	000a      	movs	r2, r1
- 800291a:	1cfb      	adds	r3, r7, #3
- 800291c:	701a      	strb	r2, [r3, #0]
+ 80028a0:	b580      	push	{r7, lr}
+ 80028a2:	b082      	sub	sp, #8
+ 80028a4:	af00      	add	r7, sp, #0
+ 80028a6:	6078      	str	r0, [r7, #4]
+ 80028a8:	000a      	movs	r2, r1
+ 80028aa:	1cfb      	adds	r3, r7, #3
+ 80028ac:	701a      	strb	r2, [r3, #0]
 	m_eeppromMotominutes = val;
- 800291e:	1cfb      	adds	r3, r7, #3
- 8002920:	781a      	ldrb	r2, [r3, #0]
- 8002922:	4b04      	ldr	r3, [pc, #16]	; (8002934 <_ZN14CControlerInfo14setMotominutesEh+0x24>)
- 8002924:	0011      	movs	r1, r2
- 8002926:	0018      	movs	r0, r3
- 8002928:	f7ff f9d8 	bl	8001cdc <_ZN9EEPROMVaraSEh>
+ 80028ae:	1cfb      	adds	r3, r7, #3
+ 80028b0:	781a      	ldrb	r2, [r3, #0]
+ 80028b2:	4b04      	ldr	r3, [pc, #16]	; (80028c4 <_ZN14CControlerInfo14setMotominutesEh+0x24>)
+ 80028b4:	0011      	movs	r1, r2
+ 80028b6:	0018      	movs	r0, r3
+ 80028b8:	f7ff fa10 	bl	8001cdc <_ZN9EEPROMVaraSEh>
 }
- 800292c:	46c0      	nop			; (mov r8, r8)
- 800292e:	46bd      	mov	sp, r7
- 8002930:	b002      	add	sp, #8
- 8002932:	bd80      	pop	{r7, pc}
- 8002934:	200000a0 	.word	0x200000a0
+ 80028bc:	46c0      	nop			; (mov r8, r8)
+ 80028be:	46bd      	mov	sp, r7
+ 80028c0:	b002      	add	sp, #8
+ 80028c2:	bd80      	pop	{r7, pc}
+ 80028c4:	200000a0 	.word	0x200000a0
 
-08002938 <_Z41__static_initialization_and_destruction_0ii>:
+080028c8 <_Z41__static_initialization_and_destruction_0ii>:
 	return m_cpuid_2;
 }
 
 uint32_t CControlerInfo::getCpuId_3() {
 	return m_cpuid_3;
 }
- 8002938:	b580      	push	{r7, lr}
- 800293a:	b082      	sub	sp, #8
- 800293c:	af00      	add	r7, sp, #0
- 800293e:	6078      	str	r0, [r7, #4]
- 8002940:	6039      	str	r1, [r7, #0]
- 8002942:	687b      	ldr	r3, [r7, #4]
- 8002944:	2b01      	cmp	r3, #1
- 8002946:	d123      	bne.n	8002990 <_Z41__static_initialization_and_destruction_0ii+0x58>
- 8002948:	683b      	ldr	r3, [r7, #0]
- 800294a:	4a13      	ldr	r2, [pc, #76]	; (8002998 <_Z41__static_initialization_and_destruction_0ii+0x60>)
- 800294c:	4293      	cmp	r3, r2
- 800294e:	d11f      	bne.n	8002990 <_Z41__static_initialization_and_destruction_0ii+0x58>
+ 80028c8:	b580      	push	{r7, lr}
+ 80028ca:	b082      	sub	sp, #8
+ 80028cc:	af00      	add	r7, sp, #0
+ 80028ce:	6078      	str	r0, [r7, #4]
+ 80028d0:	6039      	str	r1, [r7, #0]
+ 80028d2:	687b      	ldr	r3, [r7, #4]
+ 80028d4:	2b01      	cmp	r3, #1
+ 80028d6:	d123      	bne.n	8002920 <_Z41__static_initialization_and_destruction_0ii+0x58>
+ 80028d8:	683b      	ldr	r3, [r7, #0]
+ 80028da:	4a13      	ldr	r2, [pc, #76]	; (8002928 <_Z41__static_initialization_and_destruction_0ii+0x60>)
+ 80028dc:	4293      	cmp	r3, r2
+ 80028de:	d11f      	bne.n	8002920 <_Z41__static_initialization_and_destruction_0ii+0x58>
 uint32_t CControlerInfo::m_cpuid_1 = *(uint32_t *) 0x1FF80050;
- 8002950:	4b12      	ldr	r3, [pc, #72]	; (800299c <_Z41__static_initialization_and_destruction_0ii+0x64>)
- 8002952:	681a      	ldr	r2, [r3, #0]
- 8002954:	4b12      	ldr	r3, [pc, #72]	; (80029a0 <_Z41__static_initialization_and_destruction_0ii+0x68>)
- 8002956:	601a      	str	r2, [r3, #0]
+ 80028e0:	4b12      	ldr	r3, [pc, #72]	; (800292c <_Z41__static_initialization_and_destruction_0ii+0x64>)
+ 80028e2:	681a      	ldr	r2, [r3, #0]
+ 80028e4:	4b12      	ldr	r3, [pc, #72]	; (8002930 <_Z41__static_initialization_and_destruction_0ii+0x68>)
+ 80028e6:	601a      	str	r2, [r3, #0]
 uint32_t CControlerInfo::m_cpuid_2 = *(uint32_t *) 0x1FF80054;
- 8002958:	4b12      	ldr	r3, [pc, #72]	; (80029a4 <_Z41__static_initialization_and_destruction_0ii+0x6c>)
- 800295a:	681a      	ldr	r2, [r3, #0]
- 800295c:	4b12      	ldr	r3, [pc, #72]	; (80029a8 <_Z41__static_initialization_and_destruction_0ii+0x70>)
- 800295e:	601a      	str	r2, [r3, #0]
+ 80028e8:	4b12      	ldr	r3, [pc, #72]	; (8002934 <_Z41__static_initialization_and_destruction_0ii+0x6c>)
+ 80028ea:	681a      	ldr	r2, [r3, #0]
+ 80028ec:	4b12      	ldr	r3, [pc, #72]	; (8002938 <_Z41__static_initialization_and_destruction_0ii+0x70>)
+ 80028ee:	601a      	str	r2, [r3, #0]
 uint32_t CControlerInfo::m_cpuid_3 = *(uint32_t *) 0x1FF80064;
- 8002960:	4b12      	ldr	r3, [pc, #72]	; (80029ac <_Z41__static_initialization_and_destruction_0ii+0x74>)
- 8002962:	681a      	ldr	r2, [r3, #0]
- 8002964:	4b12      	ldr	r3, [pc, #72]	; (80029b0 <_Z41__static_initialization_and_destruction_0ii+0x78>)
- 8002966:	601a      	str	r2, [r3, #0]
+ 80028f0:	4b12      	ldr	r3, [pc, #72]	; (800293c <_Z41__static_initialization_and_destruction_0ii+0x74>)
+ 80028f2:	681a      	ldr	r2, [r3, #0]
+ 80028f4:	4b12      	ldr	r3, [pc, #72]	; (8002940 <_Z41__static_initialization_and_destruction_0ii+0x78>)
+ 80028f6:	601a      	str	r2, [r3, #0]
 EEPROMVar CControlerInfo::m_eepromInitialization = EEPROMVar(sizeof(uint8_t));
- 8002968:	4b12      	ldr	r3, [pc, #72]	; (80029b4 <_Z41__static_initialization_and_destruction_0ii+0x7c>)
- 800296a:	2101      	movs	r1, #1
- 800296c:	0018      	movs	r0, r3
- 800296e:	f7ff f997 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
+ 80028f8:	4b12      	ldr	r3, [pc, #72]	; (8002944 <_Z41__static_initialization_and_destruction_0ii+0x7c>)
+ 80028fa:	2101      	movs	r1, #1
+ 80028fc:	0018      	movs	r0, r3
+ 80028fe:	f7ff f9cf 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
 EEPROMVar CControlerInfo::m_eeppromMotominutes = EEPROMVar(sizeof(uint8_t));
- 8002972:	4b11      	ldr	r3, [pc, #68]	; (80029b8 <_Z41__static_initialization_and_destruction_0ii+0x80>)
- 8002974:	2101      	movs	r1, #1
- 8002976:	0018      	movs	r0, r3
- 8002978:	f7ff f992 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
+ 8002902:	4b11      	ldr	r3, [pc, #68]	; (8002948 <_Z41__static_initialization_and_destruction_0ii+0x80>)
+ 8002904:	2101      	movs	r1, #1
+ 8002906:	0018      	movs	r0, r3
+ 8002908:	f7ff f9ca 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
 EEPROMVar CControlerInfo::m_eeppromMotohours = EEPROMVar(sizeof(MOTOHOUR));
- 800297c:	4b0f      	ldr	r3, [pc, #60]	; (80029bc <_Z41__static_initialization_and_destruction_0ii+0x84>)
- 800297e:	2102      	movs	r1, #2
- 8002980:	0018      	movs	r0, r3
- 8002982:	f7ff f98d 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
+ 800290c:	4b0f      	ldr	r3, [pc, #60]	; (800294c <_Z41__static_initialization_and_destruction_0ii+0x84>)
+ 800290e:	2102      	movs	r1, #2
+ 8002910:	0018      	movs	r0, r3
+ 8002912:	f7ff f9c5 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
 EEPROMVar CControlerInfo::m_eeppromMaxMotohours = EEPROMVar(sizeof(MOTOHOUR));
- 8002986:	4b0e      	ldr	r3, [pc, #56]	; (80029c0 <_Z41__static_initialization_and_destruction_0ii+0x88>)
- 8002988:	2102      	movs	r1, #2
- 800298a:	0018      	movs	r0, r3
- 800298c:	f7ff f988 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
+ 8002916:	4b0e      	ldr	r3, [pc, #56]	; (8002950 <_Z41__static_initialization_and_destruction_0ii+0x88>)
+ 8002918:	2102      	movs	r1, #2
+ 800291a:	0018      	movs	r0, r3
+ 800291c:	f7ff f9c0 	bl	8001ca0 <_ZN9EEPROMVarC1Et>
 }
- 8002990:	46c0      	nop			; (mov r8, r8)
- 8002992:	46bd      	mov	sp, r7
- 8002994:	b002      	add	sp, #8
- 8002996:	bd80      	pop	{r7, pc}
- 8002998:	0000ffff 	.word	0x0000ffff
- 800299c:	1ff80050 	.word	0x1ff80050
- 80029a0:	2000008c 	.word	0x2000008c
- 80029a4:	1ff80054 	.word	0x1ff80054
- 80029a8:	20000090 	.word	0x20000090
- 80029ac:	1ff80064 	.word	0x1ff80064
- 80029b0:	20000094 	.word	0x20000094
- 80029b4:	20000098 	.word	0x20000098
- 80029b8:	200000a0 	.word	0x200000a0
- 80029bc:	200000a8 	.word	0x200000a8
- 80029c0:	200000b0 	.word	0x200000b0
+ 8002920:	46c0      	nop			; (mov r8, r8)
+ 8002922:	46bd      	mov	sp, r7
+ 8002924:	b002      	add	sp, #8
+ 8002926:	bd80      	pop	{r7, pc}
+ 8002928:	0000ffff 	.word	0x0000ffff
+ 800292c:	1ff80050 	.word	0x1ff80050
+ 8002930:	2000008c 	.word	0x2000008c
+ 8002934:	1ff80054 	.word	0x1ff80054
+ 8002938:	20000090 	.word	0x20000090
+ 800293c:	1ff80064 	.word	0x1ff80064
+ 8002940:	20000094 	.word	0x20000094
+ 8002944:	20000098 	.word	0x20000098
+ 8002948:	200000a0 	.word	0x200000a0
+ 800294c:	200000a8 	.word	0x200000a8
+ 8002950:	200000b0 	.word	0x200000b0
 
-080029c4 <_GLOBAL__sub_I__ZN14CControlerInfo9m_cpuid_1E>:
- 80029c4:	b580      	push	{r7, lr}
- 80029c6:	af00      	add	r7, sp, #0
- 80029c8:	4b03      	ldr	r3, [pc, #12]	; (80029d8 <_GLOBAL__sub_I__ZN14CControlerInfo9m_cpuid_1E+0x14>)
- 80029ca:	0019      	movs	r1, r3
- 80029cc:	2001      	movs	r0, #1
- 80029ce:	f7ff ffb3 	bl	8002938 <_Z41__static_initialization_and_destruction_0ii>
- 80029d2:	46bd      	mov	sp, r7
- 80029d4:	bd80      	pop	{r7, pc}
- 80029d6:	46c0      	nop			; (mov r8, r8)
- 80029d8:	0000ffff 	.word	0x0000ffff
+08002954 <_GLOBAL__sub_I__ZN14CControlerInfo9m_cpuid_1E>:
+ 8002954:	b580      	push	{r7, lr}
+ 8002956:	af00      	add	r7, sp, #0
+ 8002958:	4b03      	ldr	r3, [pc, #12]	; (8002968 <_GLOBAL__sub_I__ZN14CControlerInfo9m_cpuid_1E+0x14>)
+ 800295a:	0019      	movs	r1, r3
+ 800295c:	2001      	movs	r0, #1
+ 800295e:	f7ff ffb3 	bl	80028c8 <_Z41__static_initialization_and_destruction_0ii>
+ 8002962:	46bd      	mov	sp, r7
+ 8002964:	bd80      	pop	{r7, pc}
+ 8002966:	46c0      	nop			; (mov r8, r8)
+ 8002968:	0000ffff 	.word	0x0000ffff
 
-080029dc <_ZN6Driver4initEv>:
+0800296c <_ZN6Driver4initEv>:
 
 const uint8_t Driver::MINUTE = 60;
 const uint8_t Driver::TIME_UPDATE_MINUTES_EEPROM = 15;
 const uint8_t Driver::TIME_UPDATE_HOURS_EEPROM = 60;
 
 void Driver::init() {
- 80029dc:	b580      	push	{r7, lr}
- 80029de:	b082      	sub	sp, #8
- 80029e0:	af00      	add	r7, sp, #0
- 80029e2:	6078      	str	r0, [r7, #4]
+ 800296c:	b580      	push	{r7, lr}
+ 800296e:	b082      	sub	sp, #8
+ 8002970:	af00      	add	r7, sp, #0
+ 8002972:	6078      	str	r0, [r7, #4]
 	lcd.init();
- 80029e4:	687b      	ldr	r3, [r7, #4]
- 80029e6:	3308      	adds	r3, #8
- 80029e8:	0018      	movs	r0, r3
- 80029ea:	f7ff fa53 	bl	8001e94 <_ZN3Lcd4initEv>
+ 8002974:	687b      	ldr	r3, [r7, #4]
+ 8002976:	3308      	adds	r3, #8
+ 8002978:	0018      	movs	r0, r3
+ 800297a:	f7ff fa8b 	bl	8001e94 <_ZN3Lcd4initEv>
 	lcd.clear();
- 80029ee:	687b      	ldr	r3, [r7, #4]
- 80029f0:	3308      	adds	r3, #8
- 80029f2:	0018      	movs	r0, r3
- 80029f4:	f7ff fc0a 	bl	800220c <_ZN3Lcd5clearEv>
+ 800297e:	687b      	ldr	r3, [r7, #4]
+ 8002980:	3308      	adds	r3, #8
+ 8002982:	0018      	movs	r0, r3
+ 8002984:	f7ff fc40 	bl	8002208 <_ZN3Lcd5clearEv>
 	alarm.init(BUZZER_PORT, BUZZER_PIN);
- 80029f8:	687b      	ldr	r3, [r7, #4]
- 80029fa:	335c      	adds	r3, #92	; 0x5c
- 80029fc:	4910      	ldr	r1, [pc, #64]	; (8002a40 <_ZN6Driver4initEv+0x64>)
- 80029fe:	2240      	movs	r2, #64	; 0x40
- 8002a00:	0018      	movs	r0, r3
- 8002a02:	f7ff f90f 	bl	8001c24 <_ZN5Alarm4initEP12GPIO_TypeDeft>
+ 8002988:	687b      	ldr	r3, [r7, #4]
+ 800298a:	335c      	adds	r3, #92	; 0x5c
+ 800298c:	0018      	movs	r0, r3
+ 800298e:	2380      	movs	r3, #128	; 0x80
+ 8002990:	015b      	lsls	r3, r3, #5
+ 8002992:	4913      	ldr	r1, [pc, #76]	; (80029e0 <_ZN6Driver4initEv+0x74>)
+ 8002994:	001a      	movs	r2, r3
+ 8002996:	f7ff f945 	bl	8001c24 <_ZN5Alarm4initEP12GPIO_TypeDeft>
 
 	actualMotohours = controlerInfo.getMotohours();
- 8002a06:	687b      	ldr	r3, [r7, #4]
- 8002a08:	3307      	adds	r3, #7
- 8002a0a:	0018      	movs	r0, r3
- 8002a0c:	f7ff ff40 	bl	8002890 <_ZN14CControlerInfo12getMotohoursEv>
- 8002a10:	0003      	movs	r3, r0
- 8002a12:	001a      	movs	r2, r3
- 8002a14:	687b      	ldr	r3, [r7, #4]
- 8002a16:	809a      	strh	r2, [r3, #4]
+ 800299a:	687b      	ldr	r3, [r7, #4]
+ 800299c:	3307      	adds	r3, #7
+ 800299e:	0018      	movs	r0, r3
+ 80029a0:	f7ff ff3e 	bl	8002820 <_ZN14CControlerInfo12getMotohoursEv>
+ 80029a4:	0003      	movs	r3, r0
+ 80029a6:	001a      	movs	r2, r3
+ 80029a8:	687b      	ldr	r3, [r7, #4]
+ 80029aa:	809a      	strh	r2, [r3, #4]
 	actualMotominutes = controlerInfo.getMotominutes();
- 8002a18:	687b      	ldr	r3, [r7, #4]
- 8002a1a:	3307      	adds	r3, #7
- 8002a1c:	0018      	movs	r0, r3
- 8002a1e:	f7ff ff61 	bl	80028e4 <_ZN14CControlerInfo14getMotominutesEv>
- 8002a22:	0003      	movs	r3, r0
- 8002a24:	001a      	movs	r2, r3
- 8002a26:	687b      	ldr	r3, [r7, #4]
- 8002a28:	719a      	strb	r2, [r3, #6]
+ 80029ac:	687b      	ldr	r3, [r7, #4]
+ 80029ae:	3307      	adds	r3, #7
+ 80029b0:	0018      	movs	r0, r3
+ 80029b2:	f7ff ff5f 	bl	8002874 <_ZN14CControlerInfo14getMotominutesEv>
+ 80029b6:	0003      	movs	r3, r0
+ 80029b8:	001a      	movs	r2, r3
+ 80029ba:	687b      	ldr	r3, [r7, #4]
+ 80029bc:	719a      	strb	r2, [r3, #6]
 
 	minuteTimer.start(MINUTE);
- 8002a2a:	687b      	ldr	r3, [r7, #4]
- 8002a2c:	3364      	adds	r3, #100	; 0x64
- 8002a2e:	213c      	movs	r1, #60	; 0x3c
- 8002a30:	0018      	movs	r0, r3
- 8002a32:	f7ff fe11 	bl	8002658 <_ZN6CTimer5startEm>
+ 80029be:	687b      	ldr	r3, [r7, #4]
+ 80029c0:	3364      	adds	r3, #100	; 0x64
+ 80029c2:	213c      	movs	r1, #60	; 0x3c
+ 80029c4:	0018      	movs	r0, r3
+ 80029c6:	f7ff fe0f 	bl	80025e8 <_ZN6CTimer5startEm>
+	lcd.printHourglass(true);
+ 80029ca:	687b      	ldr	r3, [r7, #4]
+ 80029cc:	3308      	adds	r3, #8
+ 80029ce:	2101      	movs	r1, #1
+ 80029d0:	0018      	movs	r0, r3
+ 80029d2:	f7ff fda1 	bl	8002518 <_ZN3Lcd14printHourglassEb>
 }
- 8002a36:	46c0      	nop			; (mov r8, r8)
- 8002a38:	46bd      	mov	sp, r7
- 8002a3a:	b002      	add	sp, #8
- 8002a3c:	bd80      	pop	{r7, pc}
- 8002a3e:	46c0      	nop			; (mov r8, r8)
- 8002a40:	50000400 	.word	0x50000400
+ 80029d6:	46c0      	nop			; (mov r8, r8)
+ 80029d8:	46bd      	mov	sp, r7
+ 80029da:	b002      	add	sp, #8
+ 80029dc:	bd80      	pop	{r7, pc}
+ 80029de:	46c0      	nop			; (mov r8, r8)
+ 80029e0:	50000800 	.word	0x50000800
 
-08002a44 <_ZN6Driver6updateEv>:
+080029e4 <_ZN6Driver6updateEv>:
 
 void Driver::update() {
- 8002a44:	b580      	push	{r7, lr}
- 8002a46:	b082      	sub	sp, #8
- 8002a48:	af00      	add	r7, sp, #0
- 8002a4a:	6078      	str	r0, [r7, #4]
+ 80029e4:	b580      	push	{r7, lr}
+ 80029e6:	b082      	sub	sp, #8
+ 80029e8:	af00      	add	r7, sp, #0
+ 80029ea:	6078      	str	r0, [r7, #4]
 //	checkMotohours();
 	updateMinutes();
- 8002a4c:	687b      	ldr	r3, [r7, #4]
- 8002a4e:	0018      	movs	r0, r3
- 8002a50:	f000 f844 	bl	8002adc <_ZN6Driver13updateMinutesEv>
+ 80029ec:	687b      	ldr	r3, [r7, #4]
+ 80029ee:	0018      	movs	r0, r3
+ 80029f0:	f000 f844 	bl	8002a7c <_ZN6Driver13updateMinutesEv>
 	printMotohour();
- 8002a54:	687b      	ldr	r3, [r7, #4]
- 8002a56:	0018      	movs	r0, r3
- 8002a58:	f000 f804 	bl	8002a64 <_ZN6Driver13printMotohourEv>
+ 80029f4:	687b      	ldr	r3, [r7, #4]
+ 80029f6:	0018      	movs	r0, r3
+ 80029f8:	f000 f804 	bl	8002a04 <_ZN6Driver13printMotohourEv>
 }
- 8002a5c:	46c0      	nop			; (mov r8, r8)
- 8002a5e:	46bd      	mov	sp, r7
- 8002a60:	b002      	add	sp, #8
- 8002a62:	bd80      	pop	{r7, pc}
+ 80029fc:	46c0      	nop			; (mov r8, r8)
+ 80029fe:	46bd      	mov	sp, r7
+ 8002a00:	b002      	add	sp, #8
+ 8002a02:	bd80      	pop	{r7, pc}
 
-08002a64 <_ZN6Driver13printMotohourEv>:
+08002a04 <_ZN6Driver13printMotohourEv>:
 
 void Driver::printMotohour() {
- 8002a64:	b580      	push	{r7, lr}
- 8002a66:	b086      	sub	sp, #24
- 8002a68:	af00      	add	r7, sp, #0
- 8002a6a:	6078      	str	r0, [r7, #4]
+ 8002a04:	b580      	push	{r7, lr}
+ 8002a06:	b086      	sub	sp, #24
+ 8002a08:	af00      	add	r7, sp, #0
+ 8002a0a:	6078      	str	r0, [r7, #4]
 	char buffer[Lcd::NUM_OF_DIG] = {0};
- 8002a6c:	230c      	movs	r3, #12
- 8002a6e:	18fb      	adds	r3, r7, r3
- 8002a70:	0018      	movs	r0, r3
- 8002a72:	2308      	movs	r3, #8
- 8002a74:	001a      	movs	r2, r3
- 8002a76:	2100      	movs	r1, #0
- 8002a78:	f000 fa50 	bl	8002f1c <memset>
+ 8002a0c:	230c      	movs	r3, #12
+ 8002a0e:	18fb      	adds	r3, r7, r3
+ 8002a10:	0018      	movs	r0, r3
+ 8002a12:	2308      	movs	r3, #8
+ 8002a14:	001a      	movs	r2, r3
+ 8002a16:	2100      	movs	r1, #0
+ 8002a18:	f000 fa18 	bl	8002e4c <memset>
 	itoa(actualMotohours, buffer, 10);
- 8002a7c:	687b      	ldr	r3, [r7, #4]
- 8002a7e:	889b      	ldrh	r3, [r3, #4]
- 8002a80:	0018      	movs	r0, r3
- 8002a82:	230c      	movs	r3, #12
- 8002a84:	18fb      	adds	r3, r7, r3
- 8002a86:	220a      	movs	r2, #10
- 8002a88:	0019      	movs	r1, r3
- 8002a8a:	f000 fa39 	bl	8002f00 <itoa>
+ 8002a1c:	687b      	ldr	r3, [r7, #4]
+ 8002a1e:	889b      	ldrh	r3, [r3, #4]
+ 8002a20:	0018      	movs	r0, r3
+ 8002a22:	230c      	movs	r3, #12
+ 8002a24:	18fb      	adds	r3, r7, r3
+ 8002a26:	220a      	movs	r2, #10
+ 8002a28:	0019      	movs	r1, r3
+ 8002a2a:	f000 fa01 	bl	8002e30 <itoa>
 	uint8_t i = 0;
- 8002a8e:	2317      	movs	r3, #23
- 8002a90:	18fb      	adds	r3, r7, r3
- 8002a92:	2200      	movs	r2, #0
- 8002a94:	701a      	strb	r2, [r3, #0]
+ 8002a2e:	2317      	movs	r3, #23
+ 8002a30:	18fb      	adds	r3, r7, r3
+ 8002a32:	2200      	movs	r2, #0
+ 8002a34:	701a      	strb	r2, [r3, #0]
 	while(buffer[i]) {
- 8002a96:	2317      	movs	r3, #23
- 8002a98:	18fb      	adds	r3, r7, r3
- 8002a9a:	781b      	ldrb	r3, [r3, #0]
- 8002a9c:	220c      	movs	r2, #12
- 8002a9e:	18ba      	adds	r2, r7, r2
- 8002aa0:	5cd3      	ldrb	r3, [r2, r3]
- 8002aa2:	2b00      	cmp	r3, #0
- 8002aa4:	d016      	beq.n	8002ad4 <_ZN6Driver13printMotohourEv+0x70>
+ 8002a36:	2317      	movs	r3, #23
+ 8002a38:	18fb      	adds	r3, r7, r3
+ 8002a3a:	781b      	ldrb	r3, [r3, #0]
+ 8002a3c:	220c      	movs	r2, #12
+ 8002a3e:	18ba      	adds	r2, r7, r2
+ 8002a40:	5cd3      	ldrb	r3, [r2, r3]
+ 8002a42:	2b00      	cmp	r3, #0
+ 8002a44:	d016      	beq.n	8002a74 <_ZN6Driver13printMotohourEv+0x70>
 		lcd.writeChar((uint8_t*)&buffer[i], i);
- 8002aa6:	687b      	ldr	r3, [r7, #4]
- 8002aa8:	3308      	adds	r3, #8
- 8002aaa:	0018      	movs	r0, r3
- 8002aac:	2317      	movs	r3, #23
- 8002aae:	18fb      	adds	r3, r7, r3
- 8002ab0:	781b      	ldrb	r3, [r3, #0]
- 8002ab2:	220c      	movs	r2, #12
- 8002ab4:	18ba      	adds	r2, r7, r2
- 8002ab6:	18d1      	adds	r1, r2, r3
- 8002ab8:	2317      	movs	r3, #23
- 8002aba:	18fb      	adds	r3, r7, r3
- 8002abc:	781b      	ldrb	r3, [r3, #0]
- 8002abe:	001a      	movs	r2, r3
- 8002ac0:	f7ff fbb0 	bl	8002224 <_ZN3Lcd9writeCharEPhh>
+ 8002a46:	687b      	ldr	r3, [r7, #4]
+ 8002a48:	3308      	adds	r3, #8
+ 8002a4a:	0018      	movs	r0, r3
+ 8002a4c:	2317      	movs	r3, #23
+ 8002a4e:	18fb      	adds	r3, r7, r3
+ 8002a50:	781b      	ldrb	r3, [r3, #0]
+ 8002a52:	220c      	movs	r2, #12
+ 8002a54:	18ba      	adds	r2, r7, r2
+ 8002a56:	18d1      	adds	r1, r2, r3
+ 8002a58:	2317      	movs	r3, #23
+ 8002a5a:	18fb      	adds	r3, r7, r3
+ 8002a5c:	781b      	ldrb	r3, [r3, #0]
+ 8002a5e:	001a      	movs	r2, r3
+ 8002a60:	f7ff fbde 	bl	8002220 <_ZN3Lcd9writeCharEPhh>
 		i++;
- 8002ac4:	2317      	movs	r3, #23
- 8002ac6:	18fb      	adds	r3, r7, r3
- 8002ac8:	781a      	ldrb	r2, [r3, #0]
- 8002aca:	2317      	movs	r3, #23
- 8002acc:	18fb      	adds	r3, r7, r3
- 8002ace:	3201      	adds	r2, #1
- 8002ad0:	701a      	strb	r2, [r3, #0]
+ 8002a64:	2317      	movs	r3, #23
+ 8002a66:	18fb      	adds	r3, r7, r3
+ 8002a68:	781a      	ldrb	r2, [r3, #0]
+ 8002a6a:	2317      	movs	r3, #23
+ 8002a6c:	18fb      	adds	r3, r7, r3
+ 8002a6e:	3201      	adds	r2, #1
+ 8002a70:	701a      	strb	r2, [r3, #0]
 	while(buffer[i]) {
- 8002ad2:	e7e0      	b.n	8002a96 <_ZN6Driver13printMotohourEv+0x32>
+ 8002a72:	e7e0      	b.n	8002a36 <_ZN6Driver13printMotohourEv+0x32>
 	}
 }
- 8002ad4:	46c0      	nop			; (mov r8, r8)
- 8002ad6:	46bd      	mov	sp, r7
- 8002ad8:	b006      	add	sp, #24
- 8002ada:	bd80      	pop	{r7, pc}
+ 8002a74:	46c0      	nop			; (mov r8, r8)
+ 8002a76:	46bd      	mov	sp, r7
+ 8002a78:	b006      	add	sp, #24
+ 8002a7a:	bd80      	pop	{r7, pc}
 
-08002adc <_ZN6Driver13updateMinutesEv>:
+08002a7c <_ZN6Driver13updateMinutesEv>:
 	} else {
 		alarm.off();
 	}
 }
 
 void Driver::updateMinutes() {
- 8002adc:	b580      	push	{r7, lr}
- 8002ade:	b082      	sub	sp, #8
- 8002ae0:	af00      	add	r7, sp, #0
- 8002ae2:	6078      	str	r0, [r7, #4]
+ 8002a7c:	b580      	push	{r7, lr}
+ 8002a7e:	b082      	sub	sp, #8
+ 8002a80:	af00      	add	r7, sp, #0
+ 8002a82:	6078      	str	r0, [r7, #4]
 	if(minuteTimer.isElapsed()) {
- 8002ae4:	687b      	ldr	r3, [r7, #4]
- 8002ae6:	3364      	adds	r3, #100	; 0x64
- 8002ae8:	0018      	movs	r0, r3
- 8002aea:	f7ff fdd4 	bl	8002696 <_ZN6CTimer9isElapsedEv>
- 8002aee:	1e03      	subs	r3, r0, #0
- 8002af0:	d032      	beq.n	8002b58 <_ZN6Driver13updateMinutesEv+0x7c>
+ 8002a84:	687b      	ldr	r3, [r7, #4]
+ 8002a86:	3364      	adds	r3, #100	; 0x64
+ 8002a88:	0018      	movs	r0, r3
+ 8002a8a:	f7ff fdcc 	bl	8002626 <_ZN6CTimer9isElapsedEv>
+ 8002a8e:	1e03      	subs	r3, r0, #0
+ 8002a90:	d032      	beq.n	8002af8 <_ZN6Driver13updateMinutesEv+0x7c>
 		minuteTimer.start(MINUTE);
- 8002af2:	687b      	ldr	r3, [r7, #4]
- 8002af4:	3364      	adds	r3, #100	; 0x64
- 8002af6:	213c      	movs	r1, #60	; 0x3c
- 8002af8:	0018      	movs	r0, r3
- 8002afa:	f7ff fdad 	bl	8002658 <_ZN6CTimer5startEm>
+ 8002a92:	687b      	ldr	r3, [r7, #4]
+ 8002a94:	3364      	adds	r3, #100	; 0x64
+ 8002a96:	213c      	movs	r1, #60	; 0x3c
+ 8002a98:	0018      	movs	r0, r3
+ 8002a9a:	f7ff fda5 	bl	80025e8 <_ZN6CTimer5startEm>
 		actualMotominutes++;
- 8002afe:	687b      	ldr	r3, [r7, #4]
- 8002b00:	799b      	ldrb	r3, [r3, #6]
- 8002b02:	3301      	adds	r3, #1
- 8002b04:	b2da      	uxtb	r2, r3
- 8002b06:	687b      	ldr	r3, [r7, #4]
- 8002b08:	719a      	strb	r2, [r3, #6]
+ 8002a9e:	687b      	ldr	r3, [r7, #4]
+ 8002aa0:	799b      	ldrb	r3, [r3, #6]
+ 8002aa2:	3301      	adds	r3, #1
+ 8002aa4:	b2da      	uxtb	r2, r3
+ 8002aa6:	687b      	ldr	r3, [r7, #4]
+ 8002aa8:	719a      	strb	r2, [r3, #6]
 		if (actualMotominutes % TIME_UPDATE_MINUTES_EEPROM == 0) {
- 8002b0a:	687b      	ldr	r3, [r7, #4]
- 8002b0c:	799b      	ldrb	r3, [r3, #6]
- 8002b0e:	210f      	movs	r1, #15
- 8002b10:	0018      	movs	r0, r3
- 8002b12:	f7fd fb7f 	bl	8000214 <__aeabi_uidivmod>
- 8002b16:	000b      	movs	r3, r1
- 8002b18:	b2db      	uxtb	r3, r3
- 8002b1a:	2b00      	cmp	r3, #0
- 8002b1c:	d107      	bne.n	8002b2e <_ZN6Driver13updateMinutesEv+0x52>
+ 8002aaa:	687b      	ldr	r3, [r7, #4]
+ 8002aac:	799b      	ldrb	r3, [r3, #6]
+ 8002aae:	210f      	movs	r1, #15
+ 8002ab0:	0018      	movs	r0, r3
+ 8002ab2:	f7fd fbaf 	bl	8000214 <__aeabi_uidivmod>
+ 8002ab6:	000b      	movs	r3, r1
+ 8002ab8:	b2db      	uxtb	r3, r3
+ 8002aba:	2b00      	cmp	r3, #0
+ 8002abc:	d107      	bne.n	8002ace <_ZN6Driver13updateMinutesEv+0x52>
 			controlerInfo.setMotominutes(actualMotominutes);
- 8002b1e:	687b      	ldr	r3, [r7, #4]
- 8002b20:	1dda      	adds	r2, r3, #7
- 8002b22:	687b      	ldr	r3, [r7, #4]
- 8002b24:	799b      	ldrb	r3, [r3, #6]
- 8002b26:	0019      	movs	r1, r3
- 8002b28:	0010      	movs	r0, r2
- 8002b2a:	f7ff fef1 	bl	8002910 <_ZN14CControlerInfo14setMotominutesEh>
+ 8002abe:	687b      	ldr	r3, [r7, #4]
+ 8002ac0:	1dda      	adds	r2, r3, #7
+ 8002ac2:	687b      	ldr	r3, [r7, #4]
+ 8002ac4:	799b      	ldrb	r3, [r3, #6]
+ 8002ac6:	0019      	movs	r1, r3
+ 8002ac8:	0010      	movs	r0, r2
+ 8002aca:	f7ff fee9 	bl	80028a0 <_ZN14CControlerInfo14setMotominutesEh>
 		}
 		if(actualMotominutes == TIME_UPDATE_HOURS_EEPROM) {
- 8002b2e:	687b      	ldr	r3, [r7, #4]
- 8002b30:	799b      	ldrb	r3, [r3, #6]
- 8002b32:	2b3c      	cmp	r3, #60	; 0x3c
- 8002b34:	d110      	bne.n	8002b58 <_ZN6Driver13updateMinutesEv+0x7c>
+ 8002ace:	687b      	ldr	r3, [r7, #4]
+ 8002ad0:	799b      	ldrb	r3, [r3, #6]
+ 8002ad2:	2b3c      	cmp	r3, #60	; 0x3c
+ 8002ad4:	d110      	bne.n	8002af8 <_ZN6Driver13updateMinutesEv+0x7c>
 			actualMotominutes = 0;
- 8002b36:	687b      	ldr	r3, [r7, #4]
- 8002b38:	2200      	movs	r2, #0
- 8002b3a:	719a      	strb	r2, [r3, #6]
+ 8002ad6:	687b      	ldr	r3, [r7, #4]
+ 8002ad8:	2200      	movs	r2, #0
+ 8002ada:	719a      	strb	r2, [r3, #6]
 			actualMotohours++;
- 8002b3c:	687b      	ldr	r3, [r7, #4]
- 8002b3e:	889b      	ldrh	r3, [r3, #4]
- 8002b40:	3301      	adds	r3, #1
- 8002b42:	b29a      	uxth	r2, r3
- 8002b44:	687b      	ldr	r3, [r7, #4]
- 8002b46:	809a      	strh	r2, [r3, #4]
+ 8002adc:	687b      	ldr	r3, [r7, #4]
+ 8002ade:	889b      	ldrh	r3, [r3, #4]
+ 8002ae0:	3301      	adds	r3, #1
+ 8002ae2:	b29a      	uxth	r2, r3
+ 8002ae4:	687b      	ldr	r3, [r7, #4]
+ 8002ae6:	809a      	strh	r2, [r3, #4]
 			controlerInfo.setMotohours(actualMotohours);
- 8002b48:	687b      	ldr	r3, [r7, #4]
- 8002b4a:	1dda      	adds	r2, r3, #7
- 8002b4c:	687b      	ldr	r3, [r7, #4]
- 8002b4e:	889b      	ldrh	r3, [r3, #4]
- 8002b50:	0019      	movs	r1, r3
- 8002b52:	0010      	movs	r0, r2
- 8002b54:	f7ff feb2 	bl	80028bc <_ZN14CControlerInfo12setMotohoursEt>
+ 8002ae8:	687b      	ldr	r3, [r7, #4]
+ 8002aea:	1dda      	adds	r2, r3, #7
+ 8002aec:	687b      	ldr	r3, [r7, #4]
+ 8002aee:	889b      	ldrh	r3, [r3, #4]
+ 8002af0:	0019      	movs	r1, r3
+ 8002af2:	0010      	movs	r0, r2
+ 8002af4:	f7ff feaa 	bl	800284c <_ZN14CControlerInfo12setMotohoursEt>
 		}
 	}
 }
- 8002b58:	46c0      	nop			; (mov r8, r8)
- 8002b5a:	46bd      	mov	sp, r7
- 8002b5c:	b002      	add	sp, #8
- 8002b5e:	bd80      	pop	{r7, pc}
+ 8002af8:	46c0      	nop			; (mov r8, r8)
+ 8002afa:	46bd      	mov	sp, r7
+ 8002afc:	b002      	add	sp, #8
+ 8002afe:	bd80      	pop	{r7, pc}
 
-08002b60 <_ZN6DriverC1Ev>:
+08002b00 <_ZN6DriverC1Ev>:
 #include "CControlerInfo.h"
 #include "timer.h"
 
 class Driver {
 public:
 	Driver(){}
- 8002b60:	b580      	push	{r7, lr}
- 8002b62:	b082      	sub	sp, #8
- 8002b64:	af00      	add	r7, sp, #0
- 8002b66:	6078      	str	r0, [r7, #4]
- 8002b68:	4a09      	ldr	r2, [pc, #36]	; (8002b90 <_ZN6DriverC1Ev+0x30>)
- 8002b6a:	687b      	ldr	r3, [r7, #4]
- 8002b6c:	601a      	str	r2, [r3, #0]
- 8002b6e:	687b      	ldr	r3, [r7, #4]
- 8002b70:	3307      	adds	r3, #7
- 8002b72:	0018      	movs	r0, r3
- 8002b74:	f7ff fe44 	bl	8002800 <_ZN14CControlerInfoC1Ev>
- 8002b78:	687b      	ldr	r3, [r7, #4]
- 8002b7a:	3364      	adds	r3, #100	; 0x64
- 8002b7c:	2103      	movs	r1, #3
- 8002b7e:	0018      	movs	r0, r3
- 8002b80:	f7ff fd44 	bl	800260c <_ZN6CTimerC1ENS_4UnitE>
- 8002b84:	687b      	ldr	r3, [r7, #4]
- 8002b86:	0018      	movs	r0, r3
- 8002b88:	46bd      	mov	sp, r7
- 8002b8a:	b002      	add	sp, #8
- 8002b8c:	bd80      	pop	{r7, pc}
- 8002b8e:	46c0      	nop			; (mov r8, r8)
- 8002b90:	08003090 	.word	0x08003090
+ 8002b00:	b580      	push	{r7, lr}
+ 8002b02:	b082      	sub	sp, #8
+ 8002b04:	af00      	add	r7, sp, #0
+ 8002b06:	6078      	str	r0, [r7, #4]
+ 8002b08:	4a09      	ldr	r2, [pc, #36]	; (8002b30 <_ZN6DriverC1Ev+0x30>)
+ 8002b0a:	687b      	ldr	r3, [r7, #4]
+ 8002b0c:	601a      	str	r2, [r3, #0]
+ 8002b0e:	687b      	ldr	r3, [r7, #4]
+ 8002b10:	3307      	adds	r3, #7
+ 8002b12:	0018      	movs	r0, r3
+ 8002b14:	f7ff fe3c 	bl	8002790 <_ZN14CControlerInfoC1Ev>
+ 8002b18:	687b      	ldr	r3, [r7, #4]
+ 8002b1a:	3364      	adds	r3, #100	; 0x64
+ 8002b1c:	2103      	movs	r1, #3
+ 8002b1e:	0018      	movs	r0, r3
+ 8002b20:	f7ff fd3c 	bl	800259c <_ZN6CTimerC1ENS_4UnitE>
+ 8002b24:	687b      	ldr	r3, [r7, #4]
+ 8002b26:	0018      	movs	r0, r3
+ 8002b28:	46bd      	mov	sp, r7
+ 8002b2a:	b002      	add	sp, #8
+ 8002b2c:	bd80      	pop	{r7, pc}
+ 8002b2e:	46c0      	nop			; (mov r8, r8)
+ 8002b30:	08002fc0 	.word	0x08002fc0
 
-08002b94 <_ZN6DriverD1Ev>:
+08002b34 <_ZN6DriverD1Ev>:
 	virtual ~Driver(){}
- 8002b94:	b580      	push	{r7, lr}
- 8002b96:	b082      	sub	sp, #8
- 8002b98:	af00      	add	r7, sp, #0
- 8002b9a:	6078      	str	r0, [r7, #4]
- 8002b9c:	4a03      	ldr	r2, [pc, #12]	; (8002bac <_ZN6DriverD1Ev+0x18>)
- 8002b9e:	687b      	ldr	r3, [r7, #4]
- 8002ba0:	601a      	str	r2, [r3, #0]
- 8002ba2:	687b      	ldr	r3, [r7, #4]
- 8002ba4:	0018      	movs	r0, r3
- 8002ba6:	46bd      	mov	sp, r7
- 8002ba8:	b002      	add	sp, #8
- 8002baa:	bd80      	pop	{r7, pc}
- 8002bac:	08003090 	.word	0x08003090
+ 8002b34:	b580      	push	{r7, lr}
+ 8002b36:	b082      	sub	sp, #8
+ 8002b38:	af00      	add	r7, sp, #0
+ 8002b3a:	6078      	str	r0, [r7, #4]
+ 8002b3c:	4a03      	ldr	r2, [pc, #12]	; (8002b4c <_ZN6DriverD1Ev+0x18>)
+ 8002b3e:	687b      	ldr	r3, [r7, #4]
+ 8002b40:	601a      	str	r2, [r3, #0]
+ 8002b42:	687b      	ldr	r3, [r7, #4]
+ 8002b44:	0018      	movs	r0, r3
+ 8002b46:	46bd      	mov	sp, r7
+ 8002b48:	b002      	add	sp, #8
+ 8002b4a:	bd80      	pop	{r7, pc}
+ 8002b4c:	08002fc0 	.word	0x08002fc0
 
-08002bb0 <_ZN6DriverD0Ev>:
- 8002bb0:	b580      	push	{r7, lr}
- 8002bb2:	b082      	sub	sp, #8
- 8002bb4:	af00      	add	r7, sp, #0
- 8002bb6:	6078      	str	r0, [r7, #4]
- 8002bb8:	687b      	ldr	r3, [r7, #4]
- 8002bba:	0018      	movs	r0, r3
- 8002bbc:	f7ff ffea 	bl	8002b94 <_ZN6DriverD1Ev>
- 8002bc0:	687b      	ldr	r3, [r7, #4]
- 8002bc2:	0018      	movs	r0, r3
- 8002bc4:	f000 f95c 	bl	8002e80 <_ZdlPv>
- 8002bc8:	687b      	ldr	r3, [r7, #4]
- 8002bca:	0018      	movs	r0, r3
- 8002bcc:	46bd      	mov	sp, r7
- 8002bce:	b002      	add	sp, #8
- 8002bd0:	bd80      	pop	{r7, pc}
+08002b50 <_ZN6DriverD0Ev>:
+ 8002b50:	b580      	push	{r7, lr}
+ 8002b52:	b082      	sub	sp, #8
+ 8002b54:	af00      	add	r7, sp, #0
+ 8002b56:	6078      	str	r0, [r7, #4]
+ 8002b58:	687b      	ldr	r3, [r7, #4]
+ 8002b5a:	0018      	movs	r0, r3
+ 8002b5c:	f7ff ffea 	bl	8002b34 <_ZN6DriverD1Ev>
+ 8002b60:	687b      	ldr	r3, [r7, #4]
+ 8002b62:	0018      	movs	r0, r3
+ 8002b64:	f000 f924 	bl	8002db0 <_ZdlPv>
+ 8002b68:	687b      	ldr	r3, [r7, #4]
+ 8002b6a:	0018      	movs	r0, r3
+ 8002b6c:	46bd      	mov	sp, r7
+ 8002b6e:	b002      	add	sp, #8
+ 8002b70:	bd80      	pop	{r7, pc}
 	...
 
-08002bd4 <main>:
+08002b74 <main>:
 void SystemClock_Config();
 void TurnOnWorkingClock();
 void initPinBuzzer();
 
 int main(void)
 {
- 8002bd4:	b580      	push	{r7, lr}
- 8002bd6:	b0b0      	sub	sp, #192	; 0xc0
- 8002bd8:	af00      	add	r7, sp, #0
+ 8002b74:	b580      	push	{r7, lr}
+ 8002b76:	b09c      	sub	sp, #112	; 0x70
+ 8002b78:	af00      	add	r7, sp, #0
 	HAL_Init();
- 8002bda:	f7fd fb21 	bl	8000220 <HAL_Init>
+ 8002b7a:	f7fd fb51 	bl	8000220 <HAL_Init>
 	SystemClock_Config();
- 8002bde:	f000 f84d 	bl	8002c7c <_Z18SystemClock_Configv>
+ 8002b7e:	f000 f815 	bl	8002bac <_Z18SystemClock_Configv>
 	TurnOnWorkingClock();
- 8002be2:	f000 f8ab 	bl	8002d3c <_Z18TurnOnWorkingClockv>
+ 8002b82:	f000 f873 	bl	8002c6c <_Z18TurnOnWorkingClockv>
 	CTimer::classInit1000(HAL_GetTick);
- 8002be6:	4b22      	ldr	r3, [pc, #136]	; (8002c70 <main+0x9c>)
- 8002be8:	0018      	movs	r0, r3
- 8002bea:	f7ff fcef 	bl	80025cc <_ZN6CTimer13classInit1000EPFmvE>
-	CButton button1;
- 8002bee:	23ac      	movs	r3, #172	; 0xac
- 8002bf0:	18fb      	adds	r3, r7, r3
- 8002bf2:	0018      	movs	r0, r3
- 8002bf4:	f7ff fc9b 	bl	800252e <_ZN7CButtonC1Ev>
-	CButton button2;
- 8002bf8:	2398      	movs	r3, #152	; 0x98
- 8002bfa:	18fb      	adds	r3, r7, r3
- 8002bfc:	0018      	movs	r0, r3
- 8002bfe:	f7ff fc96 	bl	800252e <_ZN7CButtonC1Ev>
-	CButton button3;
- 8002c02:	2384      	movs	r3, #132	; 0x84
- 8002c04:	18fb      	adds	r3, r7, r3
- 8002c06:	0018      	movs	r0, r3
- 8002c08:	f7ff fc91 	bl	800252e <_ZN7CButtonC1Ev>
-	CButton button4;
- 8002c0c:	2370      	movs	r3, #112	; 0x70
- 8002c0e:	18fb      	adds	r3, r7, r3
- 8002c10:	0018      	movs	r0, r3
- 8002c12:	f7ff fc8c 	bl	800252e <_ZN7CButtonC1Ev>
+ 8002b86:	4b08      	ldr	r3, [pc, #32]	; (8002ba8 <main+0x34>)
+ 8002b88:	0018      	movs	r0, r3
+ 8002b8a:	f7ff fce7 	bl	800255c <_ZN6CTimer13classInit1000EPFmvE>
 	Driver driver;
- 8002c16:	003b      	movs	r3, r7
- 8002c18:	0018      	movs	r0, r3
- 8002c1a:	f7ff ffa1 	bl	8002b60 <_ZN6DriverC1Ev>
-
-	button1.init(BUTTON_1_PORT, BUTTON_1_PIN);
- 8002c1e:	2380      	movs	r3, #128	; 0x80
- 8002c20:	00da      	lsls	r2, r3, #3
- 8002c22:	4914      	ldr	r1, [pc, #80]	; (8002c74 <main+0xa0>)
- 8002c24:	23ac      	movs	r3, #172	; 0xac
- 8002c26:	18f8      	adds	r0, r7, r3
- 8002c28:	2300      	movs	r3, #0
- 8002c2a:	f7ff fc8d 	bl	8002548 <_ZN7CButton4initEP12GPIO_TypeDeftb>
-	button2.init(BUTTON_2_PORT, BUTTON_2_PIN);
- 8002c2e:	2380      	movs	r3, #128	; 0x80
- 8002c30:	011a      	lsls	r2, r3, #4
- 8002c32:	4910      	ldr	r1, [pc, #64]	; (8002c74 <main+0xa0>)
- 8002c34:	2398      	movs	r3, #152	; 0x98
- 8002c36:	18f8      	adds	r0, r7, r3
- 8002c38:	2300      	movs	r3, #0
- 8002c3a:	f7ff fc85 	bl	8002548 <_ZN7CButton4initEP12GPIO_TypeDeftb>
-	button3.init(BUTTON_3_PORT, BUTTON_3_PIN);
- 8002c3e:	2380      	movs	r3, #128	; 0x80
- 8002c40:	015a      	lsls	r2, r3, #5
- 8002c42:	490c      	ldr	r1, [pc, #48]	; (8002c74 <main+0xa0>)
- 8002c44:	2384      	movs	r3, #132	; 0x84
- 8002c46:	18f8      	adds	r0, r7, r3
- 8002c48:	2300      	movs	r3, #0
- 8002c4a:	f7ff fc7d 	bl	8002548 <_ZN7CButton4initEP12GPIO_TypeDeftb>
-	button4.init(BUTTON_4_PORT, BUTTON_4_PIN);
- 8002c4e:	490a      	ldr	r1, [pc, #40]	; (8002c78 <main+0xa4>)
- 8002c50:	2370      	movs	r3, #112	; 0x70
- 8002c52:	18f8      	adds	r0, r7, r3
- 8002c54:	2300      	movs	r3, #0
- 8002c56:	2204      	movs	r2, #4
- 8002c58:	f7ff fc76 	bl	8002548 <_ZN7CButton4initEP12GPIO_TypeDeftb>
+ 8002b8e:	003b      	movs	r3, r7
+ 8002b90:	0018      	movs	r0, r3
+ 8002b92:	f7ff ffb5 	bl	8002b00 <_ZN6DriverC1Ev>
 
 	driver.init();
- 8002c5c:	003b      	movs	r3, r7
- 8002c5e:	0018      	movs	r0, r3
- 8002c60:	f7ff febc 	bl	80029dc <_ZN6Driver4initEv>
+ 8002b96:	003b      	movs	r3, r7
+ 8002b98:	0018      	movs	r0, r3
+ 8002b9a:	f7ff fee7 	bl	800296c <_ZN6Driver4initEv>
 	while(true){
 		driver.update();
- 8002c64:	003b      	movs	r3, r7
- 8002c66:	0018      	movs	r0, r3
- 8002c68:	f7ff feec 	bl	8002a44 <_ZN6Driver6updateEv>
- 8002c6c:	e7fa      	b.n	8002c64 <main+0x90>
- 8002c6e:	46c0      	nop			; (mov r8, r8)
- 8002c70:	080002cd 	.word	0x080002cd
- 8002c74:	50000800 	.word	0x50000800
- 8002c78:	50000c00 	.word	0x50000c00
+ 8002b9e:	003b      	movs	r3, r7
+ 8002ba0:	0018      	movs	r0, r3
+ 8002ba2:	f7ff ff1f 	bl	80029e4 <_ZN6Driver6updateEv>
+ 8002ba6:	e7fa      	b.n	8002b9e <main+0x2a>
+ 8002ba8:	080002cd 	.word	0x080002cd
 
-08002c7c <_Z18SystemClock_Configv>:
+08002bac <_Z18SystemClock_Configv>:
 	}
 }
 
 void SystemClock_Config() {
- 8002c7c:	b580      	push	{r7, lr}
- 8002c7e:	b09c      	sub	sp, #112	; 0x70
- 8002c80:	af00      	add	r7, sp, #0
+ 8002bac:	b580      	push	{r7, lr}
+ 8002bae:	b09c      	sub	sp, #112	; 0x70
+ 8002bb0:	af00      	add	r7, sp, #0
 	  RCC_ClkInitTypeDef RCC_ClkInitStruct;
 	  RCC_OscInitTypeDef RCC_OscInitStruct;
 	  RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
 	  __HAL_RCC_PWR_CLK_ENABLE();
- 8002c82:	4b2b      	ldr	r3, [pc, #172]	; (8002d30 <_Z18SystemClock_Configv+0xb4>)
- 8002c84:	4a2a      	ldr	r2, [pc, #168]	; (8002d30 <_Z18SystemClock_Configv+0xb4>)
- 8002c86:	6b92      	ldr	r2, [r2, #56]	; 0x38
- 8002c88:	2180      	movs	r1, #128	; 0x80
- 8002c8a:	0549      	lsls	r1, r1, #21
- 8002c8c:	430a      	orrs	r2, r1
- 8002c8e:	639a      	str	r2, [r3, #56]	; 0x38
+ 8002bb2:	4b2b      	ldr	r3, [pc, #172]	; (8002c60 <_Z18SystemClock_Configv+0xb4>)
+ 8002bb4:	4a2a      	ldr	r2, [pc, #168]	; (8002c60 <_Z18SystemClock_Configv+0xb4>)
+ 8002bb6:	6b92      	ldr	r2, [r2, #56]	; 0x38
+ 8002bb8:	2180      	movs	r1, #128	; 0x80
+ 8002bba:	0549      	lsls	r1, r1, #21
+ 8002bbc:	430a      	orrs	r2, r1
+ 8002bbe:	639a      	str	r2, [r3, #56]	; 0x38
 
 	  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 8002c90:	4b28      	ldr	r3, [pc, #160]	; (8002d34 <_Z18SystemClock_Configv+0xb8>)
- 8002c92:	4a28      	ldr	r2, [pc, #160]	; (8002d34 <_Z18SystemClock_Configv+0xb8>)
- 8002c94:	6812      	ldr	r2, [r2, #0]
- 8002c96:	4928      	ldr	r1, [pc, #160]	; (8002d38 <_Z18SystemClock_Configv+0xbc>)
- 8002c98:	400a      	ands	r2, r1
- 8002c9a:	2180      	movs	r1, #128	; 0x80
- 8002c9c:	0109      	lsls	r1, r1, #4
- 8002c9e:	430a      	orrs	r2, r1
- 8002ca0:	601a      	str	r2, [r3, #0]
+ 8002bc0:	4b28      	ldr	r3, [pc, #160]	; (8002c64 <_Z18SystemClock_Configv+0xb8>)
+ 8002bc2:	4a28      	ldr	r2, [pc, #160]	; (8002c64 <_Z18SystemClock_Configv+0xb8>)
+ 8002bc4:	6812      	ldr	r2, [r2, #0]
+ 8002bc6:	4928      	ldr	r1, [pc, #160]	; (8002c68 <_Z18SystemClock_Configv+0xbc>)
+ 8002bc8:	400a      	ands	r2, r1
+ 8002bca:	2180      	movs	r1, #128	; 0x80
+ 8002bcc:	0109      	lsls	r1, r1, #4
+ 8002bce:	430a      	orrs	r2, r1
+ 8002bd0:	601a      	str	r2, [r3, #0]
 
 	  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_MSI;
- 8002ca2:	2324      	movs	r3, #36	; 0x24
- 8002ca4:	18fb      	adds	r3, r7, r3
- 8002ca6:	2218      	movs	r2, #24
- 8002ca8:	601a      	str	r2, [r3, #0]
+ 8002bd2:	2324      	movs	r3, #36	; 0x24
+ 8002bd4:	18fb      	adds	r3, r7, r3
+ 8002bd6:	2218      	movs	r2, #24
+ 8002bd8:	601a      	str	r2, [r3, #0]
 	  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
- 8002caa:	2324      	movs	r3, #36	; 0x24
- 8002cac:	18fb      	adds	r3, r7, r3
- 8002cae:	2201      	movs	r2, #1
- 8002cb0:	615a      	str	r2, [r3, #20]
+ 8002bda:	2324      	movs	r3, #36	; 0x24
+ 8002bdc:	18fb      	adds	r3, r7, r3
+ 8002bde:	2201      	movs	r2, #1
+ 8002be0:	615a      	str	r2, [r3, #20]
 	  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
- 8002cb2:	2324      	movs	r3, #36	; 0x24
- 8002cb4:	18fb      	adds	r3, r7, r3
- 8002cb6:	2201      	movs	r2, #1
- 8002cb8:	61da      	str	r2, [r3, #28]
+ 8002be2:	2324      	movs	r3, #36	; 0x24
+ 8002be4:	18fb      	adds	r3, r7, r3
+ 8002be6:	2201      	movs	r2, #1
+ 8002be8:	61da      	str	r2, [r3, #28]
 	  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_5;
- 8002cba:	2324      	movs	r3, #36	; 0x24
- 8002cbc:	18fb      	adds	r3, r7, r3
- 8002cbe:	22a0      	movs	r2, #160	; 0xa0
- 8002cc0:	0212      	lsls	r2, r2, #8
- 8002cc2:	625a      	str	r2, [r3, #36]	; 0x24
+ 8002bea:	2324      	movs	r3, #36	; 0x24
+ 8002bec:	18fb      	adds	r3, r7, r3
+ 8002bee:	22a0      	movs	r2, #160	; 0xa0
+ 8002bf0:	0212      	lsls	r2, r2, #8
+ 8002bf2:	625a      	str	r2, [r3, #36]	; 0x24
 	  RCC_OscInitStruct.MSICalibrationValue=0x00;
- 8002cc4:	2324      	movs	r3, #36	; 0x24
- 8002cc6:	18fb      	adds	r3, r7, r3
- 8002cc8:	2200      	movs	r2, #0
- 8002cca:	621a      	str	r2, [r3, #32]
+ 8002bf4:	2324      	movs	r3, #36	; 0x24
+ 8002bf6:	18fb      	adds	r3, r7, r3
+ 8002bf8:	2200      	movs	r2, #0
+ 8002bfa:	621a      	str	r2, [r3, #32]
 	  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 8002ccc:	2324      	movs	r3, #36	; 0x24
- 8002cce:	18fb      	adds	r3, r7, r3
- 8002cd0:	2200      	movs	r2, #0
- 8002cd2:	629a      	str	r2, [r3, #40]	; 0x28
+ 8002bfc:	2324      	movs	r3, #36	; 0x24
+ 8002bfe:	18fb      	adds	r3, r7, r3
+ 8002c00:	2200      	movs	r2, #0
+ 8002c02:	629a      	str	r2, [r3, #40]	; 0x28
 	  HAL_RCC_OscConfig(&RCC_OscInitStruct);
- 8002cd4:	2324      	movs	r3, #36	; 0x24
- 8002cd6:	18fb      	adds	r3, r7, r3
- 8002cd8:	0018      	movs	r0, r3
- 8002cda:	f7fe f8ed 	bl	8000eb8 <HAL_RCC_OscConfig>
+ 8002c04:	2324      	movs	r3, #36	; 0x24
+ 8002c06:	18fb      	adds	r3, r7, r3
+ 8002c08:	0018      	movs	r0, r3
+ 8002c0a:	f7fe f955 	bl	8000eb8 <HAL_RCC_OscConfig>
 
 	  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
- 8002cde:	235c      	movs	r3, #92	; 0x5c
- 8002ce0:	18fb      	adds	r3, r7, r3
- 8002ce2:	220f      	movs	r2, #15
- 8002ce4:	601a      	str	r2, [r3, #0]
+ 8002c0e:	235c      	movs	r3, #92	; 0x5c
+ 8002c10:	18fb      	adds	r3, r7, r3
+ 8002c12:	220f      	movs	r2, #15
+ 8002c14:	601a      	str	r2, [r3, #0]
 	  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
- 8002ce6:	235c      	movs	r3, #92	; 0x5c
- 8002ce8:	18fb      	adds	r3, r7, r3
- 8002cea:	2200      	movs	r2, #0
- 8002cec:	605a      	str	r2, [r3, #4]
+ 8002c16:	235c      	movs	r3, #92	; 0x5c
+ 8002c18:	18fb      	adds	r3, r7, r3
+ 8002c1a:	2200      	movs	r2, #0
+ 8002c1c:	605a      	str	r2, [r3, #4]
 	  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 8002cee:	235c      	movs	r3, #92	; 0x5c
- 8002cf0:	18fb      	adds	r3, r7, r3
- 8002cf2:	2200      	movs	r2, #0
- 8002cf4:	609a      	str	r2, [r3, #8]
+ 8002c1e:	235c      	movs	r3, #92	; 0x5c
+ 8002c20:	18fb      	adds	r3, r7, r3
+ 8002c22:	2200      	movs	r2, #0
+ 8002c24:	609a      	str	r2, [r3, #8]
 	  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 8002cf6:	235c      	movs	r3, #92	; 0x5c
- 8002cf8:	18fb      	adds	r3, r7, r3
- 8002cfa:	2200      	movs	r2, #0
- 8002cfc:	60da      	str	r2, [r3, #12]
+ 8002c26:	235c      	movs	r3, #92	; 0x5c
+ 8002c28:	18fb      	adds	r3, r7, r3
+ 8002c2a:	2200      	movs	r2, #0
+ 8002c2c:	60da      	str	r2, [r3, #12]
 	  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 8002cfe:	235c      	movs	r3, #92	; 0x5c
- 8002d00:	18fb      	adds	r3, r7, r3
- 8002d02:	2200      	movs	r2, #0
- 8002d04:	611a      	str	r2, [r3, #16]
+ 8002c2e:	235c      	movs	r3, #92	; 0x5c
+ 8002c30:	18fb      	adds	r3, r7, r3
+ 8002c32:	2200      	movs	r2, #0
+ 8002c34:	611a      	str	r2, [r3, #16]
 	  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0);
- 8002d06:	235c      	movs	r3, #92	; 0x5c
- 8002d08:	18fb      	adds	r3, r7, r3
- 8002d0a:	2100      	movs	r1, #0
- 8002d0c:	0018      	movs	r0, r3
- 8002d0e:	f7fe fc8f 	bl	8001630 <HAL_RCC_ClockConfig>
+ 8002c36:	235c      	movs	r3, #92	; 0x5c
+ 8002c38:	18fb      	adds	r3, r7, r3
+ 8002c3a:	2100      	movs	r1, #0
+ 8002c3c:	0018      	movs	r0, r3
+ 8002c3e:	f7fe fcf7 	bl	8001630 <HAL_RCC_ClockConfig>
 
 	  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
- 8002d12:	003b      	movs	r3, r7
- 8002d14:	2220      	movs	r2, #32
- 8002d16:	601a      	str	r2, [r3, #0]
+ 8002c42:	003b      	movs	r3, r7
+ 8002c44:	2220      	movs	r2, #32
+ 8002c46:	601a      	str	r2, [r3, #0]
 	  PeriphClkInit.RTCClockSelection = RCC_CSR_RTCSEL_LSI;
- 8002d18:	003b      	movs	r3, r7
- 8002d1a:	2280      	movs	r2, #128	; 0x80
- 8002d1c:	0292      	lsls	r2, r2, #10
- 8002d1e:	605a      	str	r2, [r3, #4]
+ 8002c48:	003b      	movs	r3, r7
+ 8002c4a:	2280      	movs	r2, #128	; 0x80
+ 8002c4c:	0292      	lsls	r2, r2, #10
+ 8002c4e:	605a      	str	r2, [r3, #4]
 	  HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit);
- 8002d20:	003b      	movs	r3, r7
- 8002d22:	0018      	movs	r0, r3
- 8002d24:	f7fe fe20 	bl	8001968 <HAL_RCCEx_PeriphCLKConfig>
+ 8002c50:	003b      	movs	r3, r7
+ 8002c52:	0018      	movs	r0, r3
+ 8002c54:	f7fe fe88 	bl	8001968 <HAL_RCCEx_PeriphCLKConfig>
 }
- 8002d28:	46c0      	nop			; (mov r8, r8)
- 8002d2a:	46bd      	mov	sp, r7
- 8002d2c:	b01c      	add	sp, #112	; 0x70
- 8002d2e:	bd80      	pop	{r7, pc}
- 8002d30:	40021000 	.word	0x40021000
- 8002d34:	40007000 	.word	0x40007000
- 8002d38:	ffffe7ff 	.word	0xffffe7ff
+ 8002c58:	46c0      	nop			; (mov r8, r8)
+ 8002c5a:	46bd      	mov	sp, r7
+ 8002c5c:	b01c      	add	sp, #112	; 0x70
+ 8002c5e:	bd80      	pop	{r7, pc}
+ 8002c60:	40021000 	.word	0x40021000
+ 8002c64:	40007000 	.word	0x40007000
+ 8002c68:	ffffe7ff 	.word	0xffffe7ff
 
-08002d3c <_Z18TurnOnWorkingClockv>:
+08002c6c <_Z18TurnOnWorkingClockv>:
 
 void TurnOnWorkingClock(void) {
- 8002d3c:	b580      	push	{r7, lr}
- 8002d3e:	b084      	sub	sp, #16
- 8002d40:	af00      	add	r7, sp, #0
+ 8002c6c:	b580      	push	{r7, lr}
+ 8002c6e:	b084      	sub	sp, #16
+ 8002c70:	af00      	add	r7, sp, #0
 	__GPIOA_CLK_ENABLE();
- 8002d42:	4b1a      	ldr	r3, [pc, #104]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d44:	4a19      	ldr	r2, [pc, #100]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d46:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
- 8002d48:	2101      	movs	r1, #1
- 8002d4a:	430a      	orrs	r2, r1
- 8002d4c:	62da      	str	r2, [r3, #44]	; 0x2c
- 8002d4e:	4b17      	ldr	r3, [pc, #92]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d50:	6adb      	ldr	r3, [r3, #44]	; 0x2c
- 8002d52:	2201      	movs	r2, #1
- 8002d54:	4013      	ands	r3, r2
- 8002d56:	60fb      	str	r3, [r7, #12]
- 8002d58:	68fb      	ldr	r3, [r7, #12]
+ 8002c72:	4b1a      	ldr	r3, [pc, #104]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c74:	4a19      	ldr	r2, [pc, #100]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c76:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
+ 8002c78:	2101      	movs	r1, #1
+ 8002c7a:	430a      	orrs	r2, r1
+ 8002c7c:	62da      	str	r2, [r3, #44]	; 0x2c
+ 8002c7e:	4b17      	ldr	r3, [pc, #92]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c80:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 8002c82:	2201      	movs	r2, #1
+ 8002c84:	4013      	ands	r3, r2
+ 8002c86:	60fb      	str	r3, [r7, #12]
+ 8002c88:	68fb      	ldr	r3, [r7, #12]
 	__GPIOB_CLK_ENABLE();
- 8002d5a:	4b14      	ldr	r3, [pc, #80]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d5c:	4a13      	ldr	r2, [pc, #76]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d5e:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
- 8002d60:	2102      	movs	r1, #2
- 8002d62:	430a      	orrs	r2, r1
- 8002d64:	62da      	str	r2, [r3, #44]	; 0x2c
- 8002d66:	4b11      	ldr	r3, [pc, #68]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d68:	6adb      	ldr	r3, [r3, #44]	; 0x2c
- 8002d6a:	2202      	movs	r2, #2
- 8002d6c:	4013      	ands	r3, r2
- 8002d6e:	60bb      	str	r3, [r7, #8]
- 8002d70:	68bb      	ldr	r3, [r7, #8]
+ 8002c8a:	4b14      	ldr	r3, [pc, #80]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c8c:	4a13      	ldr	r2, [pc, #76]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c8e:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
+ 8002c90:	2102      	movs	r1, #2
+ 8002c92:	430a      	orrs	r2, r1
+ 8002c94:	62da      	str	r2, [r3, #44]	; 0x2c
+ 8002c96:	4b11      	ldr	r3, [pc, #68]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002c98:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 8002c9a:	2202      	movs	r2, #2
+ 8002c9c:	4013      	ands	r3, r2
+ 8002c9e:	60bb      	str	r3, [r7, #8]
+ 8002ca0:	68bb      	ldr	r3, [r7, #8]
 	__GPIOC_CLK_ENABLE();
- 8002d72:	4b0e      	ldr	r3, [pc, #56]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d74:	4a0d      	ldr	r2, [pc, #52]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d76:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
- 8002d78:	2104      	movs	r1, #4
- 8002d7a:	430a      	orrs	r2, r1
- 8002d7c:	62da      	str	r2, [r3, #44]	; 0x2c
- 8002d7e:	4b0b      	ldr	r3, [pc, #44]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d80:	6adb      	ldr	r3, [r3, #44]	; 0x2c
- 8002d82:	2204      	movs	r2, #4
- 8002d84:	4013      	ands	r3, r2
- 8002d86:	607b      	str	r3, [r7, #4]
- 8002d88:	687b      	ldr	r3, [r7, #4]
+ 8002ca2:	4b0e      	ldr	r3, [pc, #56]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002ca4:	4a0d      	ldr	r2, [pc, #52]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002ca6:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
+ 8002ca8:	2104      	movs	r1, #4
+ 8002caa:	430a      	orrs	r2, r1
+ 8002cac:	62da      	str	r2, [r3, #44]	; 0x2c
+ 8002cae:	4b0b      	ldr	r3, [pc, #44]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002cb0:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 8002cb2:	2204      	movs	r2, #4
+ 8002cb4:	4013      	ands	r3, r2
+ 8002cb6:	607b      	str	r3, [r7, #4]
+ 8002cb8:	687b      	ldr	r3, [r7, #4]
 	__GPIOD_CLK_ENABLE();
- 8002d8a:	4b08      	ldr	r3, [pc, #32]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d8c:	4a07      	ldr	r2, [pc, #28]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d8e:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
- 8002d90:	2108      	movs	r1, #8
- 8002d92:	430a      	orrs	r2, r1
- 8002d94:	62da      	str	r2, [r3, #44]	; 0x2c
- 8002d96:	4b05      	ldr	r3, [pc, #20]	; (8002dac <_Z18TurnOnWorkingClockv+0x70>)
- 8002d98:	6adb      	ldr	r3, [r3, #44]	; 0x2c
- 8002d9a:	2208      	movs	r2, #8
- 8002d9c:	4013      	ands	r3, r2
- 8002d9e:	603b      	str	r3, [r7, #0]
- 8002da0:	683b      	ldr	r3, [r7, #0]
+ 8002cba:	4b08      	ldr	r3, [pc, #32]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002cbc:	4a07      	ldr	r2, [pc, #28]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002cbe:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
+ 8002cc0:	2108      	movs	r1, #8
+ 8002cc2:	430a      	orrs	r2, r1
+ 8002cc4:	62da      	str	r2, [r3, #44]	; 0x2c
+ 8002cc6:	4b05      	ldr	r3, [pc, #20]	; (8002cdc <_Z18TurnOnWorkingClockv+0x70>)
+ 8002cc8:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 8002cca:	2208      	movs	r2, #8
+ 8002ccc:	4013      	ands	r3, r2
+ 8002cce:	603b      	str	r3, [r7, #0]
+ 8002cd0:	683b      	ldr	r3, [r7, #0]
 }
- 8002da2:	46c0      	nop			; (mov r8, r8)
- 8002da4:	46bd      	mov	sp, r7
- 8002da6:	b004      	add	sp, #16
- 8002da8:	bd80      	pop	{r7, pc}
- 8002daa:	46c0      	nop			; (mov r8, r8)
- 8002dac:	40021000 	.word	0x40021000
+ 8002cd2:	46c0      	nop			; (mov r8, r8)
+ 8002cd4:	46bd      	mov	sp, r7
+ 8002cd6:	b004      	add	sp, #16
+ 8002cd8:	bd80      	pop	{r7, pc}
+ 8002cda:	46c0      	nop			; (mov r8, r8)
+ 8002cdc:	40021000 	.word	0x40021000
 
-08002db0 <Reset_Handler>:
+08002ce0 <Reset_Handler>:
 
     .section  .text.Reset_Handler
   .weak  Reset_Handler
   .type  Reset_Handler, %function
 Reset_Handler:  
   ldr   r0, =_estack
- 8002db0:	480d      	ldr	r0, [pc, #52]	; (8002de8 <LoopForever+0x2>)
+ 8002ce0:	480d      	ldr	r0, [pc, #52]	; (8002d18 <LoopForever+0x2>)
   mov   sp, r0          /* set stack pointer */
- 8002db2:	4685      	mov	sp, r0
+ 8002ce2:	4685      	mov	sp, r0
 
 /* Copy the data segment initializers from flash to SRAM */
   movs  r1, #0
- 8002db4:	2100      	movs	r1, #0
+ 8002ce4:	2100      	movs	r1, #0
   b  LoopCopyDataInit
- 8002db6:	e003      	b.n	8002dc0 <LoopCopyDataInit>
+ 8002ce6:	e003      	b.n	8002cf0 <LoopCopyDataInit>
 
-08002db8 <CopyDataInit>:
+08002ce8 <CopyDataInit>:
 
 CopyDataInit:
   ldr  r3, =_sidata
- 8002db8:	4b0c      	ldr	r3, [pc, #48]	; (8002dec <LoopForever+0x6>)
+ 8002ce8:	4b0c      	ldr	r3, [pc, #48]	; (8002d1c <LoopForever+0x6>)
   ldr  r3, [r3, r1]
- 8002dba:	585b      	ldr	r3, [r3, r1]
+ 8002cea:	585b      	ldr	r3, [r3, r1]
   str  r3, [r0, r1]
- 8002dbc:	5043      	str	r3, [r0, r1]
+ 8002cec:	5043      	str	r3, [r0, r1]
   adds  r1, r1, #4
- 8002dbe:	3104      	adds	r1, #4
+ 8002cee:	3104      	adds	r1, #4
 
-08002dc0 <LoopCopyDataInit>:
+08002cf0 <LoopCopyDataInit>:
 
 LoopCopyDataInit:
   ldr  r0, =_sdata
- 8002dc0:	480b      	ldr	r0, [pc, #44]	; (8002df0 <LoopForever+0xa>)
+ 8002cf0:	480b      	ldr	r0, [pc, #44]	; (8002d20 <LoopForever+0xa>)
   ldr  r3, =_edata
- 8002dc2:	4b0c      	ldr	r3, [pc, #48]	; (8002df4 <LoopForever+0xe>)
+ 8002cf2:	4b0c      	ldr	r3, [pc, #48]	; (8002d24 <LoopForever+0xe>)
   adds  r2, r0, r1
- 8002dc4:	1842      	adds	r2, r0, r1
+ 8002cf4:	1842      	adds	r2, r0, r1
   cmp  r2, r3
- 8002dc6:	429a      	cmp	r2, r3
+ 8002cf6:	429a      	cmp	r2, r3
   bcc  CopyDataInit
- 8002dc8:	d3f6      	bcc.n	8002db8 <CopyDataInit>
+ 8002cf8:	d3f6      	bcc.n	8002ce8 <CopyDataInit>
   ldr  r2, =_sbss
- 8002dca:	4a0b      	ldr	r2, [pc, #44]	; (8002df8 <LoopForever+0x12>)
+ 8002cfa:	4a0b      	ldr	r2, [pc, #44]	; (8002d28 <LoopForever+0x12>)
   b  LoopFillZerobss
- 8002dcc:	e002      	b.n	8002dd4 <LoopFillZerobss>
+ 8002cfc:	e002      	b.n	8002d04 <LoopFillZerobss>
 
-08002dce <FillZerobss>:
+08002cfe <FillZerobss>:
 /* Zero fill the bss segment. */
 FillZerobss:
   movs  r3, #0
- 8002dce:	2300      	movs	r3, #0
+ 8002cfe:	2300      	movs	r3, #0
   str  r3, [r2]
- 8002dd0:	6013      	str	r3, [r2, #0]
+ 8002d00:	6013      	str	r3, [r2, #0]
   adds r2, r2, #4
- 8002dd2:	3204      	adds	r2, #4
+ 8002d02:	3204      	adds	r2, #4
 
-08002dd4 <LoopFillZerobss>:
+08002d04 <LoopFillZerobss>:
 
 
 LoopFillZerobss:
   ldr  r3, = _ebss
- 8002dd4:	4b09      	ldr	r3, [pc, #36]	; (8002dfc <LoopForever+0x16>)
+ 8002d04:	4b09      	ldr	r3, [pc, #36]	; (8002d2c <LoopForever+0x16>)
   cmp  r2, r3
- 8002dd6:	429a      	cmp	r2, r3
+ 8002d06:	429a      	cmp	r2, r3
   bcc  FillZerobss
- 8002dd8:	d3f9      	bcc.n	8002dce <FillZerobss>
+ 8002d08:	d3f9      	bcc.n	8002cfe <FillZerobss>
 
 /* Call the clock system intitialization function.*/
   bl  SystemInit
- 8002dda:	f000 f813 	bl	8002e04 <SystemInit>
+ 8002d0a:	f000 f813 	bl	8002d34 <SystemInit>
 /* Call static constructors */
     bl __libc_init_array
- 8002dde:	f000 f853 	bl	8002e88 <__libc_init_array>
+ 8002d0e:	f000 f853 	bl	8002db8 <__libc_init_array>
 /* Call the application's entry point.*/
   bl  main
- 8002de2:	f7ff fef7 	bl	8002bd4 <main>
+ 8002d12:	f7ff ff2f 	bl	8002b74 <main>
 
-08002de6 <LoopForever>:
+08002d16 <LoopForever>:
 
 LoopForever:
     b LoopForever
- 8002de6:	e7fe      	b.n	8002de6 <LoopForever>
+ 8002d16:	e7fe      	b.n	8002d16 <LoopForever>
   ldr   r0, =_estack
- 8002de8:	20002000 	.word	0x20002000
+ 8002d18:	20002000 	.word	0x20002000
   ldr  r3, =_sidata
- 8002dec:	080030e4 	.word	0x080030e4
+ 8002d1c:	08003014 	.word	0x08003014
   ldr  r0, =_sdata
- 8002df0:	20000000 	.word	0x20000000
+ 8002d20:	20000000 	.word	0x20000000
   ldr  r3, =_edata
- 8002df4:	2000006c 	.word	0x2000006c
+ 8002d24:	2000006c 	.word	0x2000006c
   ldr  r2, =_sbss
- 8002df8:	2000006c 	.word	0x2000006c
+ 8002d28:	2000006c 	.word	0x2000006c
   ldr  r3, = _ebss
- 8002dfc:	200000d8 	.word	0x200000d8
+ 8002d2c:	200000d8 	.word	0x200000d8
 
-08002e00 <ADC1_COMP_IRQHandler>:
+08002d30 <ADC1_COMP_IRQHandler>:
  * @retval : None
 */
     .section  .text.Default_Handler,"ax",%progbits
 Default_Handler:
 Infinite_Loop:
   b  Infinite_Loop
- 8002e00:	e7fe      	b.n	8002e00 <ADC1_COMP_IRQHandler>
+ 8002d30:	e7fe      	b.n	8002d30 <ADC1_COMP_IRQHandler>
 	...
 
-08002e04 <SystemInit>:
+08002d34 <SystemInit>:
   * @brief  Setup the microcontroller system.
   * @param  None
   * @retval None
   */
 void SystemInit (void)
 {    
- 8002e04:	b580      	push	{r7, lr}
- 8002e06:	af00      	add	r7, sp, #0
+ 8002d34:	b580      	push	{r7, lr}
+ 8002d36:	af00      	add	r7, sp, #0
  /*!< Set MSION bit */
   RCC->CR |= (uint32_t)0x00000100;
- 8002e08:	4b17      	ldr	r3, [pc, #92]	; (8002e68 <SystemInit+0x64>)
- 8002e0a:	4a17      	ldr	r2, [pc, #92]	; (8002e68 <SystemInit+0x64>)
- 8002e0c:	6812      	ldr	r2, [r2, #0]
- 8002e0e:	2180      	movs	r1, #128	; 0x80
- 8002e10:	0049      	lsls	r1, r1, #1
- 8002e12:	430a      	orrs	r2, r1
- 8002e14:	601a      	str	r2, [r3, #0]
+ 8002d38:	4b17      	ldr	r3, [pc, #92]	; (8002d98 <SystemInit+0x64>)
+ 8002d3a:	4a17      	ldr	r2, [pc, #92]	; (8002d98 <SystemInit+0x64>)
+ 8002d3c:	6812      	ldr	r2, [r2, #0]
+ 8002d3e:	2180      	movs	r1, #128	; 0x80
+ 8002d40:	0049      	lsls	r1, r1, #1
+ 8002d42:	430a      	orrs	r2, r1
+ 8002d44:	601a      	str	r2, [r3, #0]
 
   /*!< Reset SW[1:0], HPRE[3:0], PPRE1[2:0], PPRE2[2:0], MCOSEL[2:0] and MCOPRE[2:0] bits */
   RCC->CFGR &= (uint32_t) 0x88FF400C;
- 8002e16:	4b14      	ldr	r3, [pc, #80]	; (8002e68 <SystemInit+0x64>)
- 8002e18:	4a13      	ldr	r2, [pc, #76]	; (8002e68 <SystemInit+0x64>)
- 8002e1a:	68d2      	ldr	r2, [r2, #12]
- 8002e1c:	4913      	ldr	r1, [pc, #76]	; (8002e6c <SystemInit+0x68>)
- 8002e1e:	400a      	ands	r2, r1
- 8002e20:	60da      	str	r2, [r3, #12]
+ 8002d46:	4b14      	ldr	r3, [pc, #80]	; (8002d98 <SystemInit+0x64>)
+ 8002d48:	4a13      	ldr	r2, [pc, #76]	; (8002d98 <SystemInit+0x64>)
+ 8002d4a:	68d2      	ldr	r2, [r2, #12]
+ 8002d4c:	4913      	ldr	r1, [pc, #76]	; (8002d9c <SystemInit+0x68>)
+ 8002d4e:	400a      	ands	r2, r1
+ 8002d50:	60da      	str	r2, [r3, #12]
  
   /*!< Reset HSION, HSIDIVEN, HSEON, CSSON and PLLON bits */
   RCC->CR &= (uint32_t)0xFEF6FFF6;
- 8002e22:	4b11      	ldr	r3, [pc, #68]	; (8002e68 <SystemInit+0x64>)
- 8002e24:	4a10      	ldr	r2, [pc, #64]	; (8002e68 <SystemInit+0x64>)
- 8002e26:	6812      	ldr	r2, [r2, #0]
- 8002e28:	4911      	ldr	r1, [pc, #68]	; (8002e70 <SystemInit+0x6c>)
- 8002e2a:	400a      	ands	r2, r1
- 8002e2c:	601a      	str	r2, [r3, #0]
+ 8002d52:	4b11      	ldr	r3, [pc, #68]	; (8002d98 <SystemInit+0x64>)
+ 8002d54:	4a10      	ldr	r2, [pc, #64]	; (8002d98 <SystemInit+0x64>)
+ 8002d56:	6812      	ldr	r2, [r2, #0]
+ 8002d58:	4911      	ldr	r1, [pc, #68]	; (8002da0 <SystemInit+0x6c>)
+ 8002d5a:	400a      	ands	r2, r1
+ 8002d5c:	601a      	str	r2, [r3, #0]
   
   /*!< Reset HSI48ON  bit */
   RCC->CRRCR &= (uint32_t)0xFFFFFFFE;
- 8002e2e:	4b0e      	ldr	r3, [pc, #56]	; (8002e68 <SystemInit+0x64>)
- 8002e30:	4a0d      	ldr	r2, [pc, #52]	; (8002e68 <SystemInit+0x64>)
- 8002e32:	6892      	ldr	r2, [r2, #8]
- 8002e34:	2101      	movs	r1, #1
- 8002e36:	438a      	bics	r2, r1
- 8002e38:	609a      	str	r2, [r3, #8]
+ 8002d5e:	4b0e      	ldr	r3, [pc, #56]	; (8002d98 <SystemInit+0x64>)
+ 8002d60:	4a0d      	ldr	r2, [pc, #52]	; (8002d98 <SystemInit+0x64>)
+ 8002d62:	6892      	ldr	r2, [r2, #8]
+ 8002d64:	2101      	movs	r1, #1
+ 8002d66:	438a      	bics	r2, r1
+ 8002d68:	609a      	str	r2, [r3, #8]
   
   /*!< Reset HSEBYP bit */
   RCC->CR &= (uint32_t)0xFFFBFFFF;
- 8002e3a:	4b0b      	ldr	r3, [pc, #44]	; (8002e68 <SystemInit+0x64>)
- 8002e3c:	4a0a      	ldr	r2, [pc, #40]	; (8002e68 <SystemInit+0x64>)
- 8002e3e:	6812      	ldr	r2, [r2, #0]
- 8002e40:	490c      	ldr	r1, [pc, #48]	; (8002e74 <SystemInit+0x70>)
- 8002e42:	400a      	ands	r2, r1
- 8002e44:	601a      	str	r2, [r3, #0]
+ 8002d6a:	4b0b      	ldr	r3, [pc, #44]	; (8002d98 <SystemInit+0x64>)
+ 8002d6c:	4a0a      	ldr	r2, [pc, #40]	; (8002d98 <SystemInit+0x64>)
+ 8002d6e:	6812      	ldr	r2, [r2, #0]
+ 8002d70:	490c      	ldr	r1, [pc, #48]	; (8002da4 <SystemInit+0x70>)
+ 8002d72:	400a      	ands	r2, r1
+ 8002d74:	601a      	str	r2, [r3, #0]
 
   /*!< Reset PLLSRC, PLLMUL[3:0] and PLLDIV[1:0] bits */
   RCC->CFGR &= (uint32_t)0xFF02FFFF;
- 8002e46:	4b08      	ldr	r3, [pc, #32]	; (8002e68 <SystemInit+0x64>)
- 8002e48:	4a07      	ldr	r2, [pc, #28]	; (8002e68 <SystemInit+0x64>)
- 8002e4a:	68d2      	ldr	r2, [r2, #12]
- 8002e4c:	490a      	ldr	r1, [pc, #40]	; (8002e78 <SystemInit+0x74>)
- 8002e4e:	400a      	ands	r2, r1
- 8002e50:	60da      	str	r2, [r3, #12]
+ 8002d76:	4b08      	ldr	r3, [pc, #32]	; (8002d98 <SystemInit+0x64>)
+ 8002d78:	4a07      	ldr	r2, [pc, #28]	; (8002d98 <SystemInit+0x64>)
+ 8002d7a:	68d2      	ldr	r2, [r2, #12]
+ 8002d7c:	490a      	ldr	r1, [pc, #40]	; (8002da8 <SystemInit+0x74>)
+ 8002d7e:	400a      	ands	r2, r1
+ 8002d80:	60da      	str	r2, [r3, #12]
 
   /*!< Disable all interrupts */
   RCC->CIER = 0x00000000;
- 8002e52:	4b05      	ldr	r3, [pc, #20]	; (8002e68 <SystemInit+0x64>)
- 8002e54:	2200      	movs	r2, #0
- 8002e56:	611a      	str	r2, [r3, #16]
+ 8002d82:	4b05      	ldr	r3, [pc, #20]	; (8002d98 <SystemInit+0x64>)
+ 8002d84:	2200      	movs	r2, #0
+ 8002d86:	611a      	str	r2, [r3, #16]
   
   /* Configure the Vector Table location add offset address ------------------*/
 #ifdef VECT_TAB_SRAM
   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
 #else
   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
- 8002e58:	4b08      	ldr	r3, [pc, #32]	; (8002e7c <SystemInit+0x78>)
- 8002e5a:	2280      	movs	r2, #128	; 0x80
- 8002e5c:	0512      	lsls	r2, r2, #20
- 8002e5e:	609a      	str	r2, [r3, #8]
+ 8002d88:	4b08      	ldr	r3, [pc, #32]	; (8002dac <SystemInit+0x78>)
+ 8002d8a:	2280      	movs	r2, #128	; 0x80
+ 8002d8c:	0512      	lsls	r2, r2, #20
+ 8002d8e:	609a      	str	r2, [r3, #8]
 #endif
   
 }
- 8002e60:	46c0      	nop			; (mov r8, r8)
- 8002e62:	46bd      	mov	sp, r7
- 8002e64:	bd80      	pop	{r7, pc}
- 8002e66:	46c0      	nop			; (mov r8, r8)
- 8002e68:	40021000 	.word	0x40021000
- 8002e6c:	88ff400c 	.word	0x88ff400c
- 8002e70:	fef6fff6 	.word	0xfef6fff6
- 8002e74:	fffbffff 	.word	0xfffbffff
- 8002e78:	ff02ffff 	.word	0xff02ffff
- 8002e7c:	e000ed00 	.word	0xe000ed00
+ 8002d90:	46c0      	nop			; (mov r8, r8)
+ 8002d92:	46bd      	mov	sp, r7
+ 8002d94:	bd80      	pop	{r7, pc}
+ 8002d96:	46c0      	nop			; (mov r8, r8)
+ 8002d98:	40021000 	.word	0x40021000
+ 8002d9c:	88ff400c 	.word	0x88ff400c
+ 8002da0:	fef6fff6 	.word	0xfef6fff6
+ 8002da4:	fffbffff 	.word	0xfffbffff
+ 8002da8:	ff02ffff 	.word	0xff02ffff
+ 8002dac:	e000ed00 	.word	0xe000ed00
 
-08002e80 <_ZdlPv>:
- 8002e80:	b510      	push	{r4, lr}
- 8002e82:	f000 f841 	bl	8002f08 <free>
- 8002e86:	bd10      	pop	{r4, pc}
+08002db0 <_ZdlPv>:
+ 8002db0:	b510      	push	{r4, lr}
+ 8002db2:	f000 f841 	bl	8002e38 <free>
+ 8002db6:	bd10      	pop	{r4, pc}
 
-08002e88 <__libc_init_array>:
- 8002e88:	b570      	push	{r4, r5, r6, lr}
- 8002e8a:	2600      	movs	r6, #0
- 8002e8c:	4d0c      	ldr	r5, [pc, #48]	; (8002ec0 <__libc_init_array+0x38>)
- 8002e8e:	4c0d      	ldr	r4, [pc, #52]	; (8002ec4 <__libc_init_array+0x3c>)
- 8002e90:	1b64      	subs	r4, r4, r5
- 8002e92:	10a4      	asrs	r4, r4, #2
- 8002e94:	42a6      	cmp	r6, r4
- 8002e96:	d109      	bne.n	8002eac <__libc_init_array+0x24>
- 8002e98:	2600      	movs	r6, #0
- 8002e9a:	f000 f8d7 	bl	800304c <_init>
- 8002e9e:	4d0a      	ldr	r5, [pc, #40]	; (8002ec8 <__libc_init_array+0x40>)
- 8002ea0:	4c0a      	ldr	r4, [pc, #40]	; (8002ecc <__libc_init_array+0x44>)
- 8002ea2:	1b64      	subs	r4, r4, r5
- 8002ea4:	10a4      	asrs	r4, r4, #2
- 8002ea6:	42a6      	cmp	r6, r4
- 8002ea8:	d105      	bne.n	8002eb6 <__libc_init_array+0x2e>
- 8002eaa:	bd70      	pop	{r4, r5, r6, pc}
- 8002eac:	00b3      	lsls	r3, r6, #2
- 8002eae:	58eb      	ldr	r3, [r5, r3]
- 8002eb0:	4798      	blx	r3
- 8002eb2:	3601      	adds	r6, #1
- 8002eb4:	e7ee      	b.n	8002e94 <__libc_init_array+0xc>
- 8002eb6:	00b3      	lsls	r3, r6, #2
- 8002eb8:	58eb      	ldr	r3, [r5, r3]
- 8002eba:	4798      	blx	r3
- 8002ebc:	3601      	adds	r6, #1
- 8002ebe:	e7f2      	b.n	8002ea6 <__libc_init_array+0x1e>
- 8002ec0:	080030d8 	.word	0x080030d8
- 8002ec4:	080030d8 	.word	0x080030d8
- 8002ec8:	080030d8 	.word	0x080030d8
- 8002ecc:	080030e0 	.word	0x080030e0
+08002db8 <__libc_init_array>:
+ 8002db8:	b570      	push	{r4, r5, r6, lr}
+ 8002dba:	2600      	movs	r6, #0
+ 8002dbc:	4d0c      	ldr	r5, [pc, #48]	; (8002df0 <__libc_init_array+0x38>)
+ 8002dbe:	4c0d      	ldr	r4, [pc, #52]	; (8002df4 <__libc_init_array+0x3c>)
+ 8002dc0:	1b64      	subs	r4, r4, r5
+ 8002dc2:	10a4      	asrs	r4, r4, #2
+ 8002dc4:	42a6      	cmp	r6, r4
+ 8002dc6:	d109      	bne.n	8002ddc <__libc_init_array+0x24>
+ 8002dc8:	2600      	movs	r6, #0
+ 8002dca:	f000 f8d7 	bl	8002f7c <_init>
+ 8002dce:	4d0a      	ldr	r5, [pc, #40]	; (8002df8 <__libc_init_array+0x40>)
+ 8002dd0:	4c0a      	ldr	r4, [pc, #40]	; (8002dfc <__libc_init_array+0x44>)
+ 8002dd2:	1b64      	subs	r4, r4, r5
+ 8002dd4:	10a4      	asrs	r4, r4, #2
+ 8002dd6:	42a6      	cmp	r6, r4
+ 8002dd8:	d105      	bne.n	8002de6 <__libc_init_array+0x2e>
+ 8002dda:	bd70      	pop	{r4, r5, r6, pc}
+ 8002ddc:	00b3      	lsls	r3, r6, #2
+ 8002dde:	58eb      	ldr	r3, [r5, r3]
+ 8002de0:	4798      	blx	r3
+ 8002de2:	3601      	adds	r6, #1
+ 8002de4:	e7ee      	b.n	8002dc4 <__libc_init_array+0xc>
+ 8002de6:	00b3      	lsls	r3, r6, #2
+ 8002de8:	58eb      	ldr	r3, [r5, r3]
+ 8002dea:	4798      	blx	r3
+ 8002dec:	3601      	adds	r6, #1
+ 8002dee:	e7f2      	b.n	8002dd6 <__libc_init_array+0x1e>
+ 8002df0:	08003008 	.word	0x08003008
+ 8002df4:	08003008 	.word	0x08003008
+ 8002df8:	08003008 	.word	0x08003008
+ 8002dfc:	08003010 	.word	0x08003010
 
-08002ed0 <__itoa>:
- 8002ed0:	1e93      	subs	r3, r2, #2
- 8002ed2:	b510      	push	{r4, lr}
- 8002ed4:	000c      	movs	r4, r1
- 8002ed6:	2b22      	cmp	r3, #34	; 0x22
- 8002ed8:	d904      	bls.n	8002ee4 <__itoa+0x14>
- 8002eda:	2300      	movs	r3, #0
- 8002edc:	001c      	movs	r4, r3
- 8002ede:	700b      	strb	r3, [r1, #0]
- 8002ee0:	0020      	movs	r0, r4
- 8002ee2:	bd10      	pop	{r4, pc}
- 8002ee4:	2a0a      	cmp	r2, #10
- 8002ee6:	d109      	bne.n	8002efc <__itoa+0x2c>
- 8002ee8:	2800      	cmp	r0, #0
- 8002eea:	da07      	bge.n	8002efc <__itoa+0x2c>
- 8002eec:	232d      	movs	r3, #45	; 0x2d
- 8002eee:	700b      	strb	r3, [r1, #0]
- 8002ef0:	2101      	movs	r1, #1
- 8002ef2:	4240      	negs	r0, r0
- 8002ef4:	1861      	adds	r1, r4, r1
- 8002ef6:	f000 f863 	bl	8002fc0 <__utoa>
- 8002efa:	e7f1      	b.n	8002ee0 <__itoa+0x10>
- 8002efc:	2100      	movs	r1, #0
- 8002efe:	e7f9      	b.n	8002ef4 <__itoa+0x24>
+08002e00 <__itoa>:
+ 8002e00:	1e93      	subs	r3, r2, #2
+ 8002e02:	b510      	push	{r4, lr}
+ 8002e04:	000c      	movs	r4, r1
+ 8002e06:	2b22      	cmp	r3, #34	; 0x22
+ 8002e08:	d904      	bls.n	8002e14 <__itoa+0x14>
+ 8002e0a:	2300      	movs	r3, #0
+ 8002e0c:	001c      	movs	r4, r3
+ 8002e0e:	700b      	strb	r3, [r1, #0]
+ 8002e10:	0020      	movs	r0, r4
+ 8002e12:	bd10      	pop	{r4, pc}
+ 8002e14:	2a0a      	cmp	r2, #10
+ 8002e16:	d109      	bne.n	8002e2c <__itoa+0x2c>
+ 8002e18:	2800      	cmp	r0, #0
+ 8002e1a:	da07      	bge.n	8002e2c <__itoa+0x2c>
+ 8002e1c:	232d      	movs	r3, #45	; 0x2d
+ 8002e1e:	700b      	strb	r3, [r1, #0]
+ 8002e20:	2101      	movs	r1, #1
+ 8002e22:	4240      	negs	r0, r0
+ 8002e24:	1861      	adds	r1, r4, r1
+ 8002e26:	f000 f863 	bl	8002ef0 <__utoa>
+ 8002e2a:	e7f1      	b.n	8002e10 <__itoa+0x10>
+ 8002e2c:	2100      	movs	r1, #0
+ 8002e2e:	e7f9      	b.n	8002e24 <__itoa+0x24>
 
-08002f00 <itoa>:
- 8002f00:	b510      	push	{r4, lr}
- 8002f02:	f7ff ffe5 	bl	8002ed0 <__itoa>
- 8002f06:	bd10      	pop	{r4, pc}
+08002e30 <itoa>:
+ 8002e30:	b510      	push	{r4, lr}
+ 8002e32:	f7ff ffe5 	bl	8002e00 <__itoa>
+ 8002e36:	bd10      	pop	{r4, pc}
 
-08002f08 <free>:
- 8002f08:	b510      	push	{r4, lr}
- 8002f0a:	4b03      	ldr	r3, [pc, #12]	; (8002f18 <free+0x10>)
- 8002f0c:	0001      	movs	r1, r0
- 8002f0e:	6818      	ldr	r0, [r3, #0]
- 8002f10:	f000 f80c 	bl	8002f2c <_free_r>
- 8002f14:	bd10      	pop	{r4, pc}
- 8002f16:	46c0      	nop			; (mov r8, r8)
- 8002f18:	20000008 	.word	0x20000008
+08002e38 <free>:
+ 8002e38:	b510      	push	{r4, lr}
+ 8002e3a:	4b03      	ldr	r3, [pc, #12]	; (8002e48 <free+0x10>)
+ 8002e3c:	0001      	movs	r1, r0
+ 8002e3e:	6818      	ldr	r0, [r3, #0]
+ 8002e40:	f000 f80c 	bl	8002e5c <_free_r>
+ 8002e44:	bd10      	pop	{r4, pc}
+ 8002e46:	46c0      	nop			; (mov r8, r8)
+ 8002e48:	20000008 	.word	0x20000008
 
-08002f1c <memset>:
- 8002f1c:	0003      	movs	r3, r0
- 8002f1e:	1882      	adds	r2, r0, r2
- 8002f20:	4293      	cmp	r3, r2
- 8002f22:	d100      	bne.n	8002f26 <memset+0xa>
- 8002f24:	4770      	bx	lr
- 8002f26:	7019      	strb	r1, [r3, #0]
- 8002f28:	3301      	adds	r3, #1
- 8002f2a:	e7f9      	b.n	8002f20 <memset+0x4>
+08002e4c <memset>:
+ 8002e4c:	0003      	movs	r3, r0
+ 8002e4e:	1882      	adds	r2, r0, r2
+ 8002e50:	4293      	cmp	r3, r2
+ 8002e52:	d100      	bne.n	8002e56 <memset+0xa>
+ 8002e54:	4770      	bx	lr
+ 8002e56:	7019      	strb	r1, [r3, #0]
+ 8002e58:	3301      	adds	r3, #1
+ 8002e5a:	e7f9      	b.n	8002e50 <memset+0x4>
 
-08002f2c <_free_r>:
- 8002f2c:	b570      	push	{r4, r5, r6, lr}
- 8002f2e:	0005      	movs	r5, r0
- 8002f30:	2900      	cmp	r1, #0
- 8002f32:	d010      	beq.n	8002f56 <_free_r+0x2a>
- 8002f34:	1f0c      	subs	r4, r1, #4
- 8002f36:	6823      	ldr	r3, [r4, #0]
- 8002f38:	2b00      	cmp	r3, #0
- 8002f3a:	da00      	bge.n	8002f3e <_free_r+0x12>
- 8002f3c:	18e4      	adds	r4, r4, r3
- 8002f3e:	0028      	movs	r0, r5
- 8002f40:	f000 f881 	bl	8003046 <__malloc_lock>
- 8002f44:	4a1d      	ldr	r2, [pc, #116]	; (8002fbc <_free_r+0x90>)
- 8002f46:	6813      	ldr	r3, [r2, #0]
- 8002f48:	2b00      	cmp	r3, #0
- 8002f4a:	d105      	bne.n	8002f58 <_free_r+0x2c>
- 8002f4c:	6063      	str	r3, [r4, #4]
- 8002f4e:	6014      	str	r4, [r2, #0]
- 8002f50:	0028      	movs	r0, r5
- 8002f52:	f000 f879 	bl	8003048 <__malloc_unlock>
- 8002f56:	bd70      	pop	{r4, r5, r6, pc}
- 8002f58:	42a3      	cmp	r3, r4
- 8002f5a:	d909      	bls.n	8002f70 <_free_r+0x44>
- 8002f5c:	6821      	ldr	r1, [r4, #0]
- 8002f5e:	1860      	adds	r0, r4, r1
- 8002f60:	4283      	cmp	r3, r0
- 8002f62:	d1f3      	bne.n	8002f4c <_free_r+0x20>
- 8002f64:	6818      	ldr	r0, [r3, #0]
- 8002f66:	685b      	ldr	r3, [r3, #4]
- 8002f68:	1841      	adds	r1, r0, r1
- 8002f6a:	6021      	str	r1, [r4, #0]
- 8002f6c:	e7ee      	b.n	8002f4c <_free_r+0x20>
- 8002f6e:	0013      	movs	r3, r2
- 8002f70:	685a      	ldr	r2, [r3, #4]
- 8002f72:	2a00      	cmp	r2, #0
- 8002f74:	d001      	beq.n	8002f7a <_free_r+0x4e>
- 8002f76:	42a2      	cmp	r2, r4
- 8002f78:	d9f9      	bls.n	8002f6e <_free_r+0x42>
- 8002f7a:	6819      	ldr	r1, [r3, #0]
- 8002f7c:	1858      	adds	r0, r3, r1
- 8002f7e:	42a0      	cmp	r0, r4
- 8002f80:	d10b      	bne.n	8002f9a <_free_r+0x6e>
- 8002f82:	6820      	ldr	r0, [r4, #0]
- 8002f84:	1809      	adds	r1, r1, r0
- 8002f86:	1858      	adds	r0, r3, r1
- 8002f88:	6019      	str	r1, [r3, #0]
- 8002f8a:	4282      	cmp	r2, r0
- 8002f8c:	d1e0      	bne.n	8002f50 <_free_r+0x24>
- 8002f8e:	6810      	ldr	r0, [r2, #0]
- 8002f90:	6852      	ldr	r2, [r2, #4]
- 8002f92:	1841      	adds	r1, r0, r1
- 8002f94:	6019      	str	r1, [r3, #0]
- 8002f96:	605a      	str	r2, [r3, #4]
- 8002f98:	e7da      	b.n	8002f50 <_free_r+0x24>
- 8002f9a:	42a0      	cmp	r0, r4
- 8002f9c:	d902      	bls.n	8002fa4 <_free_r+0x78>
- 8002f9e:	230c      	movs	r3, #12
- 8002fa0:	602b      	str	r3, [r5, #0]
- 8002fa2:	e7d5      	b.n	8002f50 <_free_r+0x24>
- 8002fa4:	6821      	ldr	r1, [r4, #0]
- 8002fa6:	1860      	adds	r0, r4, r1
- 8002fa8:	4282      	cmp	r2, r0
- 8002faa:	d103      	bne.n	8002fb4 <_free_r+0x88>
- 8002fac:	6810      	ldr	r0, [r2, #0]
- 8002fae:	6852      	ldr	r2, [r2, #4]
- 8002fb0:	1841      	adds	r1, r0, r1
- 8002fb2:	6021      	str	r1, [r4, #0]
- 8002fb4:	6062      	str	r2, [r4, #4]
- 8002fb6:	605c      	str	r4, [r3, #4]
- 8002fb8:	e7ca      	b.n	8002f50 <_free_r+0x24>
- 8002fba:	46c0      	nop			; (mov r8, r8)
- 8002fbc:	200000b8 	.word	0x200000b8
+08002e5c <_free_r>:
+ 8002e5c:	b570      	push	{r4, r5, r6, lr}
+ 8002e5e:	0005      	movs	r5, r0
+ 8002e60:	2900      	cmp	r1, #0
+ 8002e62:	d010      	beq.n	8002e86 <_free_r+0x2a>
+ 8002e64:	1f0c      	subs	r4, r1, #4
+ 8002e66:	6823      	ldr	r3, [r4, #0]
+ 8002e68:	2b00      	cmp	r3, #0
+ 8002e6a:	da00      	bge.n	8002e6e <_free_r+0x12>
+ 8002e6c:	18e4      	adds	r4, r4, r3
+ 8002e6e:	0028      	movs	r0, r5
+ 8002e70:	f000 f881 	bl	8002f76 <__malloc_lock>
+ 8002e74:	4a1d      	ldr	r2, [pc, #116]	; (8002eec <_free_r+0x90>)
+ 8002e76:	6813      	ldr	r3, [r2, #0]
+ 8002e78:	2b00      	cmp	r3, #0
+ 8002e7a:	d105      	bne.n	8002e88 <_free_r+0x2c>
+ 8002e7c:	6063      	str	r3, [r4, #4]
+ 8002e7e:	6014      	str	r4, [r2, #0]
+ 8002e80:	0028      	movs	r0, r5
+ 8002e82:	f000 f879 	bl	8002f78 <__malloc_unlock>
+ 8002e86:	bd70      	pop	{r4, r5, r6, pc}
+ 8002e88:	42a3      	cmp	r3, r4
+ 8002e8a:	d909      	bls.n	8002ea0 <_free_r+0x44>
+ 8002e8c:	6821      	ldr	r1, [r4, #0]
+ 8002e8e:	1860      	adds	r0, r4, r1
+ 8002e90:	4283      	cmp	r3, r0
+ 8002e92:	d1f3      	bne.n	8002e7c <_free_r+0x20>
+ 8002e94:	6818      	ldr	r0, [r3, #0]
+ 8002e96:	685b      	ldr	r3, [r3, #4]
+ 8002e98:	1841      	adds	r1, r0, r1
+ 8002e9a:	6021      	str	r1, [r4, #0]
+ 8002e9c:	e7ee      	b.n	8002e7c <_free_r+0x20>
+ 8002e9e:	0013      	movs	r3, r2
+ 8002ea0:	685a      	ldr	r2, [r3, #4]
+ 8002ea2:	2a00      	cmp	r2, #0
+ 8002ea4:	d001      	beq.n	8002eaa <_free_r+0x4e>
+ 8002ea6:	42a2      	cmp	r2, r4
+ 8002ea8:	d9f9      	bls.n	8002e9e <_free_r+0x42>
+ 8002eaa:	6819      	ldr	r1, [r3, #0]
+ 8002eac:	1858      	adds	r0, r3, r1
+ 8002eae:	42a0      	cmp	r0, r4
+ 8002eb0:	d10b      	bne.n	8002eca <_free_r+0x6e>
+ 8002eb2:	6820      	ldr	r0, [r4, #0]
+ 8002eb4:	1809      	adds	r1, r1, r0
+ 8002eb6:	1858      	adds	r0, r3, r1
+ 8002eb8:	6019      	str	r1, [r3, #0]
+ 8002eba:	4282      	cmp	r2, r0
+ 8002ebc:	d1e0      	bne.n	8002e80 <_free_r+0x24>
+ 8002ebe:	6810      	ldr	r0, [r2, #0]
+ 8002ec0:	6852      	ldr	r2, [r2, #4]
+ 8002ec2:	1841      	adds	r1, r0, r1
+ 8002ec4:	6019      	str	r1, [r3, #0]
+ 8002ec6:	605a      	str	r2, [r3, #4]
+ 8002ec8:	e7da      	b.n	8002e80 <_free_r+0x24>
+ 8002eca:	42a0      	cmp	r0, r4
+ 8002ecc:	d902      	bls.n	8002ed4 <_free_r+0x78>
+ 8002ece:	230c      	movs	r3, #12
+ 8002ed0:	602b      	str	r3, [r5, #0]
+ 8002ed2:	e7d5      	b.n	8002e80 <_free_r+0x24>
+ 8002ed4:	6821      	ldr	r1, [r4, #0]
+ 8002ed6:	1860      	adds	r0, r4, r1
+ 8002ed8:	4282      	cmp	r2, r0
+ 8002eda:	d103      	bne.n	8002ee4 <_free_r+0x88>
+ 8002edc:	6810      	ldr	r0, [r2, #0]
+ 8002ede:	6852      	ldr	r2, [r2, #4]
+ 8002ee0:	1841      	adds	r1, r0, r1
+ 8002ee2:	6021      	str	r1, [r4, #0]
+ 8002ee4:	6062      	str	r2, [r4, #4]
+ 8002ee6:	605c      	str	r4, [r3, #4]
+ 8002ee8:	e7ca      	b.n	8002e80 <_free_r+0x24>
+ 8002eea:	46c0      	nop			; (mov r8, r8)
+ 8002eec:	200000b8 	.word	0x200000b8
 
-08002fc0 <__utoa>:
- 8002fc0:	b5f0      	push	{r4, r5, r6, r7, lr}
- 8002fc2:	0017      	movs	r7, r2
- 8002fc4:	b08f      	sub	sp, #60	; 0x3c
- 8002fc6:	2225      	movs	r2, #37	; 0x25
- 8002fc8:	0006      	movs	r6, r0
- 8002fca:	000d      	movs	r5, r1
- 8002fcc:	a804      	add	r0, sp, #16
- 8002fce:	4918      	ldr	r1, [pc, #96]	; (8003030 <__utoa+0x70>)
- 8002fd0:	f000 f830 	bl	8003034 <memcpy>
- 8002fd4:	aa04      	add	r2, sp, #16
- 8002fd6:	1ebb      	subs	r3, r7, #2
- 8002fd8:	2400      	movs	r4, #0
- 8002fda:	9203      	str	r2, [sp, #12]
- 8002fdc:	2b22      	cmp	r3, #34	; 0x22
- 8002fde:	d905      	bls.n	8002fec <__utoa+0x2c>
- 8002fe0:	702c      	strb	r4, [r5, #0]
- 8002fe2:	0025      	movs	r5, r4
- 8002fe4:	0028      	movs	r0, r5
- 8002fe6:	b00f      	add	sp, #60	; 0x3c
- 8002fe8:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 8002fea:	9c01      	ldr	r4, [sp, #4]
- 8002fec:	1c63      	adds	r3, r4, #1
- 8002fee:	9301      	str	r3, [sp, #4]
- 8002ff0:	18eb      	adds	r3, r5, r3
- 8002ff2:	9300      	str	r3, [sp, #0]
- 8002ff4:	0030      	movs	r0, r6
- 8002ff6:	3b01      	subs	r3, #1
- 8002ff8:	0039      	movs	r1, r7
- 8002ffa:	9302      	str	r3, [sp, #8]
- 8002ffc:	f7fd f90a 	bl	8000214 <__aeabi_uidivmod>
- 8003000:	9b03      	ldr	r3, [sp, #12]
- 8003002:	9a02      	ldr	r2, [sp, #8]
- 8003004:	5c5b      	ldrb	r3, [r3, r1]
- 8003006:	0030      	movs	r0, r6
- 8003008:	7013      	strb	r3, [r2, #0]
- 800300a:	0039      	movs	r1, r7
- 800300c:	f7fd f87c 	bl	8000108 <__udivsi3>
- 8003010:	1e06      	subs	r6, r0, #0
- 8003012:	d1ea      	bne.n	8002fea <__utoa+0x2a>
- 8003014:	9b00      	ldr	r3, [sp, #0]
- 8003016:	7018      	strb	r0, [r3, #0]
- 8003018:	002b      	movs	r3, r5
- 800301a:	1b5a      	subs	r2, r3, r5
- 800301c:	4294      	cmp	r4, r2
- 800301e:	dde1      	ble.n	8002fe4 <__utoa+0x24>
- 8003020:	781a      	ldrb	r2, [r3, #0]
- 8003022:	5d29      	ldrb	r1, [r5, r4]
- 8003024:	7019      	strb	r1, [r3, #0]
- 8003026:	552a      	strb	r2, [r5, r4]
- 8003028:	3301      	adds	r3, #1
- 800302a:	3c01      	subs	r4, #1
- 800302c:	e7f5      	b.n	800301a <__utoa+0x5a>
- 800302e:	46c0      	nop			; (mov r8, r8)
- 8003030:	080030b1 	.word	0x080030b1
+08002ef0 <__utoa>:
+ 8002ef0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8002ef2:	0017      	movs	r7, r2
+ 8002ef4:	b08f      	sub	sp, #60	; 0x3c
+ 8002ef6:	2225      	movs	r2, #37	; 0x25
+ 8002ef8:	0006      	movs	r6, r0
+ 8002efa:	000d      	movs	r5, r1
+ 8002efc:	a804      	add	r0, sp, #16
+ 8002efe:	4918      	ldr	r1, [pc, #96]	; (8002f60 <__utoa+0x70>)
+ 8002f00:	f000 f830 	bl	8002f64 <memcpy>
+ 8002f04:	aa04      	add	r2, sp, #16
+ 8002f06:	1ebb      	subs	r3, r7, #2
+ 8002f08:	2400      	movs	r4, #0
+ 8002f0a:	9203      	str	r2, [sp, #12]
+ 8002f0c:	2b22      	cmp	r3, #34	; 0x22
+ 8002f0e:	d905      	bls.n	8002f1c <__utoa+0x2c>
+ 8002f10:	702c      	strb	r4, [r5, #0]
+ 8002f12:	0025      	movs	r5, r4
+ 8002f14:	0028      	movs	r0, r5
+ 8002f16:	b00f      	add	sp, #60	; 0x3c
+ 8002f18:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8002f1a:	9c01      	ldr	r4, [sp, #4]
+ 8002f1c:	1c63      	adds	r3, r4, #1
+ 8002f1e:	9301      	str	r3, [sp, #4]
+ 8002f20:	18eb      	adds	r3, r5, r3
+ 8002f22:	9300      	str	r3, [sp, #0]
+ 8002f24:	0030      	movs	r0, r6
+ 8002f26:	3b01      	subs	r3, #1
+ 8002f28:	0039      	movs	r1, r7
+ 8002f2a:	9302      	str	r3, [sp, #8]
+ 8002f2c:	f7fd f972 	bl	8000214 <__aeabi_uidivmod>
+ 8002f30:	9b03      	ldr	r3, [sp, #12]
+ 8002f32:	9a02      	ldr	r2, [sp, #8]
+ 8002f34:	5c5b      	ldrb	r3, [r3, r1]
+ 8002f36:	0030      	movs	r0, r6
+ 8002f38:	7013      	strb	r3, [r2, #0]
+ 8002f3a:	0039      	movs	r1, r7
+ 8002f3c:	f7fd f8e4 	bl	8000108 <__udivsi3>
+ 8002f40:	1e06      	subs	r6, r0, #0
+ 8002f42:	d1ea      	bne.n	8002f1a <__utoa+0x2a>
+ 8002f44:	9b00      	ldr	r3, [sp, #0]
+ 8002f46:	7018      	strb	r0, [r3, #0]
+ 8002f48:	002b      	movs	r3, r5
+ 8002f4a:	1b5a      	subs	r2, r3, r5
+ 8002f4c:	4294      	cmp	r4, r2
+ 8002f4e:	dde1      	ble.n	8002f14 <__utoa+0x24>
+ 8002f50:	781a      	ldrb	r2, [r3, #0]
+ 8002f52:	5d29      	ldrb	r1, [r5, r4]
+ 8002f54:	7019      	strb	r1, [r3, #0]
+ 8002f56:	552a      	strb	r2, [r5, r4]
+ 8002f58:	3301      	adds	r3, #1
+ 8002f5a:	3c01      	subs	r4, #1
+ 8002f5c:	e7f5      	b.n	8002f4a <__utoa+0x5a>
+ 8002f5e:	46c0      	nop			; (mov r8, r8)
+ 8002f60:	08002fe1 	.word	0x08002fe1
 
-08003034 <memcpy>:
- 8003034:	2300      	movs	r3, #0
- 8003036:	b510      	push	{r4, lr}
- 8003038:	429a      	cmp	r2, r3
- 800303a:	d100      	bne.n	800303e <memcpy+0xa>
- 800303c:	bd10      	pop	{r4, pc}
- 800303e:	5ccc      	ldrb	r4, [r1, r3]
- 8003040:	54c4      	strb	r4, [r0, r3]
- 8003042:	3301      	adds	r3, #1
- 8003044:	e7f8      	b.n	8003038 <memcpy+0x4>
+08002f64 <memcpy>:
+ 8002f64:	2300      	movs	r3, #0
+ 8002f66:	b510      	push	{r4, lr}
+ 8002f68:	429a      	cmp	r2, r3
+ 8002f6a:	d100      	bne.n	8002f6e <memcpy+0xa>
+ 8002f6c:	bd10      	pop	{r4, pc}
+ 8002f6e:	5ccc      	ldrb	r4, [r1, r3]
+ 8002f70:	54c4      	strb	r4, [r0, r3]
+ 8002f72:	3301      	adds	r3, #1
+ 8002f74:	e7f8      	b.n	8002f68 <memcpy+0x4>
 
-08003046 <__malloc_lock>:
- 8003046:	4770      	bx	lr
+08002f76 <__malloc_lock>:
+ 8002f76:	4770      	bx	lr
 
-08003048 <__malloc_unlock>:
- 8003048:	4770      	bx	lr
+08002f78 <__malloc_unlock>:
+ 8002f78:	4770      	bx	lr
 	...
 
-0800304c <_init>:
- 800304c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800304e:	46c0      	nop			; (mov r8, r8)
- 8003050:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8003052:	bc08      	pop	{r3}
- 8003054:	469e      	mov	lr, r3
- 8003056:	4770      	bx	lr
+08002f7c <_init>:
+ 8002f7c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002f7e:	46c0      	nop			; (mov r8, r8)
+ 8002f80:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8002f82:	bc08      	pop	{r3}
+ 8002f84:	469e      	mov	lr, r3
+ 8002f86:	4770      	bx	lr
 
-08003058 <_fini>:
- 8003058:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800305a:	46c0      	nop			; (mov r8, r8)
- 800305c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 800305e:	bc08      	pop	{r3}
- 8003060:	469e      	mov	lr, r3
- 8003062:	4770      	bx	lr
+08002f88 <_fini>:
+ 8002f88:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8002f8a:	46c0      	nop			; (mov r8, r8)
+ 8002f8c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8002f8e:	bc08      	pop	{r3}
+ 8002f90:	469e      	mov	lr, r3
+ 8002f92:	4770      	bx	lr

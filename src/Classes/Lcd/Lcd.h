@@ -17,6 +17,10 @@ public:
 	void init();
 	void clear();
 	void writeChar(uint8_t* ch, uint8_t pos);
+	void print1stColon(bool status);
+	void print2ndColon(bool status);
+	void printDot(bool status);
+	void printHourglass(bool status);
 private:
 	LCD_HandleTypeDef lcdHandler;
 	Digit dig[NUM_OF_DIG];

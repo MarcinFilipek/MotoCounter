@@ -9,14 +9,14 @@
 #include "hardware.h"
 
 void Lcd::init(){
-	dig[0].init(9, 16);
-	dig[1].init(7, 8);
-	dig[2].init(27, 17);
-	dig[3].init(25, 26);
-	dig[4].init(23, 22);
-	dig[5].init(11, 10);
-	dig[6].init(14, 13);
-	dig[7].init(24, 15);
+	dig[0].init(19, 18);
+	dig[1].init(21, 20);
+	dig[2].init(1, 0);
+	dig[3].init(6, 2);
+	dig[4].init(26, 27);
+	dig[5].init(24, 25);
+	dig[6].init(14, 15);
+	dig[7].init(11, 13);
 
 	__HAL_RCC_LCD_CLK_ENABLE();
 	lcdHandler.Instance = LCD;
@@ -74,17 +74,17 @@ void Lcd::pinInit() {
 	GPIO_InitStruct.Pin = LCD_COM3_PIN;
 	HAL_GPIO_Init(LCD_COM3_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG7_PIN;
-	HAL_GPIO_Init(LCD_SEG7_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG0_PIN;
+	HAL_GPIO_Init(LCD_SEG0_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG8_PIN;
-	HAL_GPIO_Init(LCD_SEG8_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG1_PIN;
+	HAL_GPIO_Init(LCD_SEG1_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG9_PIN;
-	HAL_GPIO_Init(LCD_SEG9_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG2_PIN;
+	HAL_GPIO_Init(LCD_SEG2_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG10_PIN;
-	HAL_GPIO_Init(LCD_SEG10_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG6_PIN;
+	HAL_GPIO_Init(LCD_SEG6_PORT, &GPIO_InitStruct);
 
 	GPIO_InitStruct.Pin = LCD_SEG11_PIN;
 	HAL_GPIO_Init(LCD_SEG11_PORT, &GPIO_InitStruct);
@@ -98,17 +98,17 @@ void Lcd::pinInit() {
 	GPIO_InitStruct.Pin = LCD_SEG15_PIN;
 	HAL_GPIO_Init(LCD_SEG15_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG16_PIN;
-	HAL_GPIO_Init(LCD_SEG16_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG18_PIN;
+	HAL_GPIO_Init(LCD_SEG18_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG17_PIN;
-	HAL_GPIO_Init(LCD_SEG17_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG19_PIN;
+	HAL_GPIO_Init(LCD_SEG19_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG22_PIN;
-	HAL_GPIO_Init(LCD_SEG22_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG20_PIN;
+	HAL_GPIO_Init(LCD_SEG20_PORT, &GPIO_InitStruct);
 
-	GPIO_InitStruct.Pin = LCD_SEG23_PIN;
-	HAL_GPIO_Init(LCD_SEG23_PORT, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = LCD_SEG21_PIN;
+	HAL_GPIO_Init(LCD_SEG21_PORT, &GPIO_InitStruct);
 
 	GPIO_InitStruct.Pin = LCD_SEG24_PIN;
 	HAL_GPIO_Init(LCD_SEG24_PORT, &GPIO_InitStruct);
@@ -136,17 +136,18 @@ void Lcd::writeChar(uint8_t* ch, uint8_t pos) {
 	uint32_t R4 = 0x00;
 	uint32_t R6 = 0x00;
 
-	R0 = ((segVal >> 5) & 0x1) << dig[pos].getD2() | (segVal & 0x1) << dig[pos].getD1();
-	R2 = ((segVal >> 4) & 0x1) << dig[pos].getD2() | ((segVal >> 2) & 0x1) << dig[pos].getD1();
-	R4 = ((segVal >> 6) & 0x1) << dig[pos].getD2() | ((segVal >> 1) & 0x1) << dig[pos].getD1();
-	R6 = ((segVal >> 3) & 0x1) << dig[pos].getD2();
+	R0 = ((segVal >> 3) & 0x1) << dig[pos].getD2();
+	R2 = ((segVal >> 6) & 0x1) << dig[pos].getD2() | ((segVal >> 1) & 0x1) << dig[pos].getD1();
+	R4 = ((segVal >> 4) & 0x1) << dig[pos].getD2() | ((segVal >> 2) & 0x1) << dig[pos].getD1();
+	R6 = ((segVal >> 5) & 0x1) << dig[pos].getD2() | (segVal & 0x1) << dig[pos].getD1();
+
 
 	uint32_t MASK = 0xFFFFFFFF;
 
-	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R0);
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(1 << dig[pos].getD2()), R0);
 	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER2, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R2);
 	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER4, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R4);
-	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER6, MASK & ~(1 << dig[pos].getD2()), R6);
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER6, (MASK & ~(1 << dig[pos].getD2())) & ~(1 << dig[pos].getD1()), R6);
 
 	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
 }
@@ -163,4 +164,32 @@ void Lcd::test() {
 			HAL_LCD_UpdateDisplayRequest (&lcdHandler);
 			data = 0;	//only debug
 		}
+}
+
+void Lcd::print1stColon(bool status){
+	uint32_t R0 = (1<<6);
+	uint32_t MASK = 0xFFFFFFFF;
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 6), R0);
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
+}
+
+void Lcd::print2ndColon(bool status){
+	uint32_t R0 = (1<<24);
+	uint32_t MASK = 0xFFFFFFFF;
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 24), R0);
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
+}
+
+void Lcd::printDot(bool status){
+	uint32_t R0 = (1<<14);
+	uint32_t MASK = 0xFFFFFFFF;
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 14), R0);
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
+}
+
+void Lcd::printHourglass(bool status){
+	uint32_t R0 = (1<<19);
+	uint32_t MASK = 0xFFFFFFFF;
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 19), R0);
+	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
 }

@@ -2,7 +2,6 @@
 #include "stm32l0xx.h"
 #include "hal.h"
 #include "hardware.h"
-#include "button.h"
 #include "timer.h"
 #include "Driver.h"
 
@@ -16,16 +15,7 @@ int main(void)
 	SystemClock_Config();
 	TurnOnWorkingClock();
 	CTimer::classInit1000(HAL_GetTick);
-	CButton button1;
-	CButton button2;
-	CButton button3;
-	CButton button4;
 	Driver driver;
-
-	button1.init(BUTTON_1_PORT, BUTTON_1_PIN);
-	button2.init(BUTTON_2_PORT, BUTTON_2_PIN);
-	button3.init(BUTTON_3_PORT, BUTTON_3_PIN);
-	button4.init(BUTTON_4_PORT, BUTTON_4_PIN);
 
 	driver.init();
 	while(true){
