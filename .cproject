@@ -78,6 +78,7 @@
 									<listOptionValue builtIn="false" value="../src/Classes/timer"/>
 									<listOptionValue builtIn="false" value="../src/Classes/HardwareInterrupt"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Interfaces"/>
+									<listOptionValue builtIn="false" value="../src/Classes/VersionScreen"/>
 									<listOptionValue builtIn="false" value="../src/Classes/button"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Alarm"/>
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>

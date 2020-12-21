@@ -13,6 +13,7 @@
 #include "Alarm.h"
 #include "CControlerInfo.h"
 #include "timer.h"
+#include "VersionScreen.h"
 
 class Driver {
 public:
@@ -30,6 +31,8 @@ private:
 	Lcd lcd;
 	Alarm alarm;
 	CTimer minuteTimer;
+
+	VersionScreen versionScreen;
 
 	void printMotohour();
 	void checkMotohours();

@@ -22,12 +22,15 @@ void Driver::init() {
 	actualMotominutes = controlerInfo.getMotominutes();
 
 	minuteTimer.start(MINUTE);
+
+	versionScreen.init(&lcd);
 }
 
 void Driver::update() {
 //	checkMotohours();
 	updateMinutes();
-	printMotohour();
+//	printMotohour();
+	versionScreen.printVerison();
 }
 
 void Driver::printMotohour() {
