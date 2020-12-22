@@ -14,9 +14,13 @@
 #include "CControlerInfo.h"
 #include "timer.h"
 #include "VersionScreen.h"
+#include "wtp3driver.h"
 
 class Driver {
 public:
+	enum ScreenType {
+		VERSION, ADDRES, MOTOHOURS
+	};
 	Driver(){}
 	virtual ~Driver(){}
 	void init();
@@ -31,12 +35,15 @@ private:
 	Lcd lcd;
 	Alarm alarm;
 	CTimer minuteTimer;
+	Wtp3Driver wtp3Driver;
 
+	ScreenType actualScreen;
 	VersionScreen versionScreen;
 
 	void printMotohour();
 	void checkMotohours();
 	void updateMinutes();
+	void updateScreen();
 };
 
 #endif /* DRIVER_DRIVER_H_ */

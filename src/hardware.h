@@ -11,26 +11,7 @@
 #define BUZZER_PORT GPIOC
 #define BUZZER_PIN GPIO_PIN_12
 
-//spi radio
-
-#define RADIO_SDN_PORT GPIOC
-#define RADIO_SDN_PIN GPIO_PIN_5
-
-#define RADIO_INT_PORT GPIOC
-#define RADIO_INT_PIN GPIO_PIN_4
-
-#define RADIO_CS_PORT GPIOA
-#define RADIO_CS_PIN GPIO_PIN_4
-
-#define RADIO_SCK_PORT GPIOA
-#define RADIO_SCK_PIN GPIO_PIN_5
-
-#define RADIO_MISO_PORT GPIOA
-#define RADIO_MISO_PIN GPIO_PIN_6
-
-#define RADIO_MOSI_PORT GPIOA
-#define RADIO_MOSI_PIN GPIO_PIN_7
-
+// radio defined in rfm22HRD.h
 
 //lcd
 #define LCD_COM0_PORT GPIOA

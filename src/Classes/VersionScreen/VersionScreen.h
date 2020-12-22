@@ -12,7 +12,7 @@
 
 class VersionScreen {
 public:
-	const uint16_t VERSION = 100;
+	static const uint16_t VERSION = 100;
 	void init(Lcd* lcd);
 	void printVerison();
 private:

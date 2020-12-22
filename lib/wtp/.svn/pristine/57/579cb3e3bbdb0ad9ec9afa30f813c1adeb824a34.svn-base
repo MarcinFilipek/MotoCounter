@@ -1,0 +1,54 @@
+/*
+ * rfm22bands.h
+ *
+ *  Created on: 31 paź 2013
+ *      Author: Maciek
+ */
+
+#ifndef RFM22BANDS_H_
+#define RFM22BANDS_H_
+
+#include <stdint.h>
+#include "rfm22_registers.h"
+
+#define RFM22BANDS_REGION_EUR_STANDARD_CHANNEL    1
+#define RFM22BANDS_REGION_EUR_CUSTOM_CHANNEL      2
+#define RFM22BANDS_REGION_RUS_STANDARD_CHANNEL    3
+#define RFM22BANDS_REGION_RUS_CUSTOM_CHANNEL      4
+
+//region-dependent
+//used when region is RFM22BANDS_REGION_EUR_CUSTOM_CHANNEL
+#define RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL_EUR         45     /*abs. default channel, use in rfm22callbacks.cpp only*/
+#define RFM22BANDS_MENU_SELECTION_DEFAULT_POWER_EUR           RFM22_TX_POWER_17_DBM
+
+//region-dependent
+//used when region is RFM22BANDS_REGION_RUS_CUSTOM_CHANNEL
+#define RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL_RUS         61     /*abs. default channel, use in rfm22callbacks.cpp only*/
+#define RFM22BANDS_MENU_SELECTION_DEFAULT_POWER_RUS           RFM22_TX_POWER_17_DBM
+
+//region-dependent
+//preprocessor value "RFM22BANDS_REGION" can be defined (in project settings, makefile etc.) to use one set of defaults.
+//It's convenient to initialise channel and power variables when
+//region is in custom mode - RFM22BANDS_REGION_xxx_CUSTOM_CHANNEL
+#if RFM22BANDS_REGION==RFM22BANDS_REGION_EUR_CUSTOM_CHANNEL
+    #define RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL             RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL_EUR
+    #define RFM22BANDS_MENU_SELECTION_DEFAULT_POWER               RFM22BANDS_MENU_SELECTION_DEFAULT_POWER_EUR
+#elif RFM22BANDS_REGION==RFM22BANDS_REGION_RUS_CUSTOM_CHANNEL
+    #define RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL             RFM22BANDS_MENU_SELECTION_DEFAULT_CHANNEL_RUS
+    #define RFM22BANDS_MENU_SELECTION_DEFAULT_POWER               RFM22BANDS_MENU_SELECTION_DEFAULT_POWER_RUS
+#endif
+
+//common
+void    rfm22bands_init(uint8_t region);
+void    rfm22bands_set_user_channel(uint8_t channel);
+int16_t rfm22bands_get_user_channel();
+void    rfm22bands_raw_set_abs_channel(uint8_t abs_channel);
+int16_t rfm22bands_raw_get_abs_channel();
+void    rfm22bands_set_choose_channel();
+void    rfm22bands_set_power(int16_t power);
+uint8_t rfm22bands_get_power();
+int16_t rfm22bands_get_min_channel();
+int16_t rfm22bands_get_max_channel();
+int16_t rfm22bands_get_default_user_channel();
+
+#endif /* RFM22BANDS_H_ */

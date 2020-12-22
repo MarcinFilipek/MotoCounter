@@ -1,0 +1,296 @@
+#include "rfm22ports.h"
+#include "rfm22HRD.h"
+#include "rfm22driver.h"
+#include "stm32l0xx_hal.h"
+#include "stm32l0xx_hal_conf.h"
+//#include "stm32l0xx_hal_gpio.h"
+//#include "stm32l0xx_hal.h"
+
+extern SPI_HandleTypeDef RFM22_SPI_HANDLE;
+SPI_HandleTypeDef *spiHandle = &RFM22_SPI_HANDLE;
+
+//------przerwanie INTx--------------
+uint8_t rfm22ports_isINTActive()
+{
+    return HAL_GPIO_ReadPin(RFM22_INT_PORT, RFM22_INT_BIT) == GPIO_PIN_RESET;
+}
+
+void rfm22ports_clearIntFlag()
+{
+    __HAL_GPIO_EXTI_CLEAR_IT(RFM22_INT_BIT);
+    HAL_NVIC_ClearPendingIRQ(RFM22_IRQ);
+}
+
+void rfm22ports_activateInt()
+{
+    rfm22ports_clearIntFlag();
+    HAL_NVIC_EnableIRQ(RFM22_IRQ);
+}
+
+void rfm22ports_deactivateInt()
+{
+    HAL_NVIC_DisableIRQ(RFM22_IRQ);
+}
+
+void rfm22ports_initIntPort()
+{
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    RFM22_INT_PORT_ENABLE();
+
+    GPIO_InitStruct.Pin = RFM22_INT_BIT;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = 0;
+    HAL_GPIO_Init(RFM22_INT_PORT, &GPIO_InitStruct);
+
+    HAL_NVIC_SetPriority(RFM22_IRQ, 1, 0);
+    //HAL_NVIC_EnableIRQ(RFM22_IRQ);
+}
+
+void rfm22ports_initVccPort()
+{
+    //od razu po przelaczeniu na wyjscie stan wysoki (brak zasilania)
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    RFM22_VCC_PORT_ENABLE();
+
+    GPIO_InitStruct.Pin = RFM22_VCC_BIT;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_MEDIUM;
+    GPIO_InitStruct.Alternate = 0;
+    HAL_GPIO_Init(RFM22_VCC_PORT, &GPIO_InitStruct);
+    HAL_GPIO_WritePin(RFM22_VCC_PORT, RFM22_VCC_BIT, GPIO_PIN_SET);
+}
+
+void rfm22ports_setVcc(uint8_t value)
+{
+    HAL_GPIO_WritePin(RFM22_VCC_PORT, RFM22_VCC_BIT, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}
+
+void rfm22ports_initSDNPort()
+{
+    //od razu po przelaczeniu na wyjscie stan wysoki (shutdown)
+
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    RFM22_SDN_PORT_ENABLE();
+
+    GPIO_InitStruct.Pin = RFM22_SDN_BIT;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_MEDIUM;
+    GPIO_InitStruct.Alternate = 0;
+    HAL_GPIO_Init(RFM22_SDN_PORT, &GPIO_InitStruct);
+    HAL_GPIO_WritePin(RFM22_SDN_PORT, RFM22_SDN_BIT, GPIO_PIN_SET);
+}
+
+void rfm22ports_setSDN(uint8_t value)
+{
+    HAL_GPIO_WritePin(RFM22_SDN_PORT, RFM22_SDN_BIT, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}
+
+uint8_t rfm22ports_getResetMethod()
+{
+    return RFM22PORTS_RESET_SDN;
+}
+
+#if 0
+void rfm22_driver_isr_exti7() interrupt 15
+{
+	//rfm22driver_debug_1++;
+	//EXTI_SR1 = 0x80;            //*musi byc =, nie |=*/
+    //clear interrupt flag here if necessary
+
+	rfm22ports_clearIntFlag();
+    rfm22driver_isr();
+}
+#endif 
+
+//----------SPI-------------------
+#if 0
+uint8_t rfm22ports_isMISOActive()
+{
+    return ((RFM22_SPI_PORT_IDR & (1 << RFM22_SPI_BIT_MISO)) != 0);
+}
+
+void rfm22ports_setMOSI(uint8_t value)
+{
+    if (value)
+    {
+        RFM22_SPI_PORT_ODR |= (1 << RFM22_SPI_BIT_MOSI);
+    }
+    else
+    {
+        RFM22_SPI_PORT_ODR &= ~(1 << RFM22_SPI_BIT_MOSI);
+    }
+}
+
+void rfm22ports_setSCK(uint8_t value)
+{
+    if (value)
+    {
+        RFM22_SPI_PORT_ODR |= (1 << RFM22_SPI_BIT_SCK);
+    }
+    else
+    {
+        RFM22_SPI_PORT_ODR &= ~(1 << RFM22_SPI_BIT_SCK);
+    }
+}
+
+void rfm22ports_setSS(uint8_t value)
+{
+    if (value)
+    {
+        RFM22_SPI_PORT_ODR |= (1 << RFM22_SPI_BIT_CS);
+    }
+    else
+    {
+        RFM22_SPI_PORT_ODR &= ~(1 << RFM22_SPI_BIT_CS);
+    }
+}
+#endif
+
+void rfm22ports_deinitSPI()
+{
+
+}
+
+void rfm22ports_initSPI()
+{
+#if 0
+    CLK_PCKENR3 |= (1 << 2);
+    SYSCFG_RMPCR2 |= (1 << 5);
+
+    //SDO - wejscie, DDR=0, CR1=0, CR2=0
+    RFM22_SPI_PORT_DDR &= ~(1<<RFM22_SPI_BIT_MISO);
+    RFM22_SPI_PORT_CR1 |= (1<<RFM22_SPI_BIT_MISO);
+
+    //SDI - wyjscie, DDR=1, CR1=1, CR2=0
+    RFM22_SPI_PORT_DDR |= (1<<RFM22_SPI_BIT_MOSI);
+    RFM22_SPI_PORT_CR1 |= (1<<RFM22_SPI_BIT_MOSI);
+
+    //CLK - wyjscie
+    RFM22_SPI_PORT_DDR |= (1<<RFM22_SPI_BIT_SCK);
+    RFM22_SPI_PORT_CR1 |= (1<<RFM22_SPI_BIT_SCK);
+
+    //CS - wyjscie
+    RFM22_SPI_PORT_DDR |= (1<<RFM22_SPI_BIT_CS);
+    RFM22_SPI_PORT_CR1 |= (1<<RFM22_SPI_BIT_CS);
+    RFM22_SPI_PORT_ODR |= (1<<RFM22_SPI_BIT_CS);
+
+    RFM22_SPI_CR2 |= (1 << 1) | (1<<0);
+    //SPE: 6 bit; MSTR: 2 bit; BR: 3 bit, 2 -> divider 1/8
+    RFM22_SPI_CR1 |= (1<<6) | (1<<2) | (2 << 3);
+#endif
+}
+
+//KOMUNIKACJA PRZEZ SPI
+
+#if 0
+uint8_t rfm22ports_trans(uint8_t address, uint8_t value)
+{
+    uint8_t feedback = 0;
+    uint8_t ccr = _getCC_();
+
+    _sim_();
+
+    RFM22_SPI_PORT_ODR &= ~(1<<RFM22_SPI_BIT_CS);
+
+    RFM22_SPI_DR = address;
+
+    //TXE: 1 bit
+    while((RFM22_SPI_SR & (1 << 1)) == 0) {}
+    RFM22_SPI_DR = value;
+
+    //RxNE: 0 bit
+    while((RFM22_SPI_SR & (1 << 0)) == 0) {}
+    feedback = RFM22_SPI_DR; /*nieistotne dane*/
+
+    while((RFM22_SPI_SR & (1 << 0)) == 0) {}
+    feedback = RFM22_SPI_DR;
+
+    //BSY: 7 bit, TXE: 1 bit
+    while((RFM22_SPI_SR & (1 << 1)) == 0 || (RFM22_SPI_SR & (1 << 7)) ) {}
+
+    RFM22_SPI_PORT_ODR |= (1<<RFM22_SPI_BIT_CS);
+
+    _setCC_(ccr);
+    return feedback;
+}
+#endif
+
+uint8_t rfm22ports_trans(uint8_t address, uint8_t value)
+{
+    uint8_t txData[2] = {address, value};
+    uint8_t feedback[2] = {0, 0};
+
+    HAL_GPIO_WritePin(RFM22_SPI_CS_PORT, RFM22_SPI_CS_BIT, GPIO_PIN_RESET);
+
+    HAL_SPI_TransmitReceive(spiHandle, txData, feedback, 2, 50);
+
+    HAL_GPIO_WritePin(RFM22_SPI_CS_PORT, RFM22_SPI_CS_BIT, GPIO_PIN_SET);
+
+    return feedback[1];
+}
+
+void rfm22ports_burst(uint8_t address, uint8_t length, uint8_t *values)
+{
+    uint8_t i;
+
+    HAL_GPIO_WritePin(RFM22_SPI_CS_PORT, RFM22_SPI_CS_BIT, GPIO_PIN_RESET);
+
+    HAL_SPI_TransmitReceive(spiHandle, &address, &i, 1, 50);
+    HAL_SPI_TransmitReceive(spiHandle, values, values, length, 300);
+
+    HAL_GPIO_WritePin(RFM22_SPI_CS_PORT, RFM22_SPI_CS_BIT, GPIO_PIN_SET);
+}
+
+#if 0
+void rfm22ports_burst(uint8_t address, uint8_t length, uint8_t *values)
+{
+    uint8_t i;
+    uint8_t ccr = _getCC_();
+
+    _sim_();
+
+    RFM22_SPI_PORT_ODR &= ~(1<<RFM22_SPI_BIT_CS);
+
+    RFM22_SPI_DR = address;
+
+    //TXE: 1 bit
+    while((RFM22_SPI_SR & (1 << 1)) == 0) {}
+    RFM22_SPI_DR = values[0];
+
+    //RxNE: 0 bit
+    while((RFM22_SPI_SR & (1 << 0)) == 0) {}
+    i = RFM22_SPI_DR; /*nieistotne dane*/
+
+    for (i = 1; i < length; i++)
+    {
+        //TXE: 1 bit
+        while((RFM22_SPI_SR & (1 << 1)) == 0) {}
+        RFM22_SPI_DR = values[i];
+
+        //RxNE: 0 bit
+        while((RFM22_SPI_SR & (1 << 0)) == 0) {}
+        values[i - 1] = RFM22_SPI_DR;
+    }
+
+    //RxNE: 0 bit
+    while((RFM22_SPI_SR & (1 << 0)) == 0) {}
+    values[i - 1] = RFM22_SPI_DR; /*ostatni odbierany bajt*/
+
+    //BSY: 7 bit, TXE: 1 bit
+    while((RFM22_SPI_SR & (1 << 1)) == 0 || (RFM22_SPI_SR & (1 << 7)) ) {}
+
+    RFM22_SPI_PORT_ODR |= (1<<RFM22_SPI_BIT_CS);
+
+    _setCC_(ccr);
+}
+#endif
+
+
+

@@ -8,6 +8,7 @@
 #include "Driver.h"
 #include "hardware.h"
 #include "stdlib.h"
+#include "wtp_address_gen.h"
 
 const uint8_t Driver::MINUTE = 60;
 const uint8_t Driver::TIME_UPDATE_MINUTES_EEPROM = 15;
@@ -17,20 +18,21 @@ void Driver::init() {
 	lcd.init();
 	lcd.clear();
 	alarm.init(BUZZER_PORT, BUZZER_PIN);
-
+	actualScreen = MOTOHOURS;
 	actualMotohours = controlerInfo.getMotohours();
 	actualMotominutes = controlerInfo.getMotominutes();
 
 	minuteTimer.start(MINUTE);
 
 	versionScreen.init(&lcd);
+	wtp_address_gen_init();
+	wtp3Driver.init(0, 1, wtp_address_gen_get_address(), 1, RECEIVE_MODE_CONTINUOUS, 170);
 }
 
 void Driver::update() {
 //	checkMotohours();
 	updateMinutes();
-//	printMotohour();
-	versionScreen.printVerison();
+	updateScreen();
 }
 
 void Driver::printMotohour() {
@@ -63,5 +65,17 @@ void Driver::updateMinutes() {
 			actualMotohours++;
 			controlerInfo.setMotohours(actualMotohours);
 		}
+	}
+}
+
+void Driver::updateScreen() {
+	switch(actualScreen){
+	case VERSION:
+		versionScreen.printVerison();
+		break;
+	case ADDRES:
+	case MOTOHOURS:
+		printMotohour();
+		break;
 	}
 }
