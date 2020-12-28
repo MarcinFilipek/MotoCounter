@@ -15,6 +15,7 @@
 #include "timer.h"
 #include "VersionScreen.h"
 #include "wtp3driver.h"
+#include "MotoCounter.h"
 
 class Driver {
 public:
@@ -35,6 +36,9 @@ private:
 	Lcd lcd;
 	Alarm alarm;
 	CTimer minuteTimer;
+
+	MotoCounter motoCounter;
+	IWtp3Device* wtp3Devices[1];
 	Wtp3Driver wtp3Driver;
 
 	ScreenType actualScreen;

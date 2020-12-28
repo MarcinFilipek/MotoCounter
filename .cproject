@@ -77,6 +77,7 @@
 									<listOptionValue builtIn="false" value="../src/Driver"/>
 									<listOptionValue builtIn="false" value="../src/Classes/EepromVar"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Lcd"/>
+									<listOptionValue builtIn="false" value="../src/Classes/MotoCounter"/>
 									<listOptionValue builtIn="false" value="../src/Classes/timer"/>
 									<listOptionValue builtIn="false" value="../src/Classes/HardwareInterrupt"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Interfaces"/>

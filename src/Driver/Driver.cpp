@@ -25,8 +25,12 @@ void Driver::init() {
 	minuteTimer.start(MINUTE);
 
 	versionScreen.init(&lcd);
+
+
+	wtp3Devices[0] = &motoCounter;
 	wtp_address_gen_init();
-	wtp3Driver.init(0, 1, wtp_address_gen_get_address(), 1, RECEIVE_MODE_CONTINUOUS, 170);
+	uint32_t address = wtp_address_gen_get_address();
+	wtp3Driver.init(wtp3Devices, 1, address, 1, RECEIVE_MODE_CONTINUOUS, 170);
 }
 
 void Driver::update() {

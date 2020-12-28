@@ -7,6 +7,8 @@
 
 #include "HardwareInterrupt.h"
 #include "hal.h"
+#include "rfm22HRD.h"
+#include "rfm22frame.h"
 
 /**
   * @brief This function handles Non maskable interrupt.
@@ -84,3 +86,14 @@ void SysTick_Handler(void)
 	HAL_IncTick();
 }
 
+void EXTI4_15_IRQHandler(void)
+{
+	if (__HAL_GPIO_EXTI_GET_IT(RFM22_INT_BIT) != RESET)
+	{
+		__HAL_GPIO_EXTI_CLEAR_IT (RFM22_INT_BIT);
+		HAL_NVIC_ClearPendingIRQ (RFM22_IRQ);
+
+		rfm22frame_isr();
+	}
+
+}
