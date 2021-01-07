@@ -10,16 +10,33 @@
 
 #include "IWtp3Device.h"
 
-class MotoCounter: public IWtp3Device {
+class MotoCounter: public IWtp3Device
+{
 public:
-	MotoCounter();
-	virtual ~MotoCounter();
-	void init(){}
-	void update(){}
-	uint16_t getDeviceNumber() { return 1; }
-	bool sendNeeded(){ return false; }
-	void createFrame(Wtp3Driver* driver){}
-	ERecFrameResult receiveFrame(Wtp3Driver* driver){ return REC_FRAME_NO_ANSWER; }
+	MotoCounter()
+	{
+	}
+	virtual ~MotoCounter()
+	{
+	}
+	void init()
+	{
+	}
+	void update()
+	{
+	}
+	uint16_t getDeviceNumber()
+	{
+		return 1;
+	}
+	bool sendNeeded()
+	{
+		return false;
+	}
+	void createFrame(Wtp3Driver* driver)
+	{
+	}
+	ERecFrameResult receiveFrame(Wtp3Driver* driver);
 };
 
 #endif /* CLASSES_MOTOCOUNTER_MOTOCOUNTER_H_ */

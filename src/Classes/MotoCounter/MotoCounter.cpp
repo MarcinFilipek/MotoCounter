@@ -7,12 +7,7 @@
 
 #include "MotoCounter.h"
 
-MotoCounter::MotoCounter() {
-	// TODO Auto-generated constructor stub
-
+ERecFrameResult MotoCounter::receiveFrame(Wtp3Driver* driver)
+{
+	return REC_FRAME_NO_ANSWER;
 }
-
-MotoCounter::~MotoCounter() {
-	// TODO Auto-generated destructor stub
-}
-

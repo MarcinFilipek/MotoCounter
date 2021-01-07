@@ -21,6 +21,7 @@ int main(void)
 	while(true){
 		driver.update();
 	}
+	return 0;
 }
 
 void SystemClock_Config() {

@@ -8,15 +8,13 @@
 #ifndef CLASSES_VERSIONSCREEN_VERSIONSCREEN_H_
 #define CLASSES_VERSIONSCREEN_VERSIONSCREEN_H_
 
-#include "Lcd.h"
+#include "Screen.h"
 
-class VersionScreen {
+class VersionScreen: public Screen
+{
 public:
 	static const uint16_t VERSION = 100;
-	void init(Lcd* lcd);
-	void printVerison();
-private:
-	Lcd* lcd;
+	void render(void);
 };
 
 #endif /* CLASSES_VERSIONSCREEN_VERSIONSCREEN_H_ */

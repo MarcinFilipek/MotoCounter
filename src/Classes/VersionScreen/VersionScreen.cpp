@@ -8,16 +8,15 @@
 #include "VersionScreen.h"
 #include "stdlib.h"
 
-void VersionScreen::init(Lcd* lcd) {
-	this->lcd = lcd;
-}
-
-void VersionScreen::printVerison() {
-	char buffer[Lcd::NUM_OF_DIG] = {0};
+void VersionScreen::render()
+{
+	char buffer[Lcd::NUM_OF_DIG] =
+	{ 0 };
 	itoa(VERSION, buffer, 10);
 	uint8_t i = 0;
-	while(buffer[i]) {
-		lcd->writeChar((uint8_t*)&buffer[i], i+5);
+	while (buffer[i])
+	{
+		lcd->writeChar((uint8_t*) &buffer[i], i + 5);
 		i++;
 	}
 	lcd->print2ndColon(true);

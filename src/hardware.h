@@ -12,6 +12,15 @@
 #define BUZZER_PIN GPIO_PIN_12
 
 // radio defined in rfm22HRD.h
+//spi
+#define SPI_1_SCK_PORT GPIOA
+#define SPI_1_SCK_PIN GPIO_PIN_5
+
+#define SPI_1_MISO_PORT GPIOA
+#define SPI_1_MISO_PIN GPIO_PIN_6
+
+#define SPI_1_MOSI_PORT GPIOA
+#define SPI_1_MOSI_PIN GPIO_PIN_7
 
 //lcd
 #define LCD_COM0_PORT GPIOA

@@ -36,7 +36,7 @@ void rfm22ports_initIntPort()
 
     GPIO_InitStruct.Pin = RFM22_INT_BIT;
     GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
     GPIO_InitStruct.Alternate = 0;
     HAL_GPIO_Init(RFM22_INT_PORT, &GPIO_InitStruct);

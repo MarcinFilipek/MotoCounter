@@ -1,5 +1,0 @@
-stm32l0xx_hal_firewall.c:99:19:HAL_FIREWALL_Config	16	static
-stm32l0xx_hal_firewall.c:180:6:HAL_FIREWALL_GetConfig	16	static
-stm32l0xx_hal_firewall.c:217:6:HAL_FIREWALL_EnableFirewall	8	static
-stm32l0xx_hal_firewall.c:242:6:HAL_FIREWALL_EnablePreArmFlag	8	static
-stm32l0xx_hal_firewall.c:268:6:HAL_FIREWALL_DisablePreArmFlag	8	static
