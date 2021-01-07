@@ -1,3 +1,0 @@
-main.cpp:55:6:void SystemClock_Config()	120	static
-main.cpp:84:6:void TurnOnWorkingClock()	16	static
-main.cpp:14:5:int main()	176	static

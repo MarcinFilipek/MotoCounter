@@ -1,5 +1,0 @@
-Lcd.cpp:45:6:void Lcd::pinInit()	48	static
-Lcd.cpp:23:6:void Lcd::init()	8	static
-Lcd.cpp:157:6:void Lcd::clear()	8	static
-Lcd.cpp:161:6:void Lcd::charToSeg(uint8_t*, uint8_t*)	8	static
-Lcd.cpp:185:6:void Lcd::writeChar(uint8_t*, uint8_t)	32	static
