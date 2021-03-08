@@ -48,12 +48,12 @@ private:
 	IWtp3Device* wtp3Devices[1];
 	Wtp3Driver wtp3Driver;
 
-	ScreenManager screenManager;
-	Screen* screens[3];
-
 	VersionScreen versionScreen;
 	AddresScreen addressScreen;
 	MotohoursScreen motohoursScreen;
+
+	ScreenManager screenManager;
+	Screen* screens[3];
 
 	void initCommunication(void);
 	void initRadioSpi(void);

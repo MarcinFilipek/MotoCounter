@@ -10,16 +10,16 @@
 uint32_t CControlerInfo::m_cpuid_1 = *(uint32_t *) 0x1FF80050;
 uint32_t CControlerInfo::m_cpuid_2 = *(uint32_t *) 0x1FF80054;
 uint32_t CControlerInfo::m_cpuid_3 = *(uint32_t *) 0x1FF80064;
-EEPROMVar CControlerInfo::m_eepromInitialization = EEPROMVar(sizeof(uint8_t));
-EEPROMVar CControlerInfo::m_eeppromMotominutes = EEPROMVar(sizeof(uint8_t));
+EEPROMVar CControlerInfo::m_eepromInitialization = EEPROMVar(sizeof(uint16_t));
+EEPROMVar CControlerInfo::m_eeppromMotominutes = EEPROMVar(sizeof(uint16_t));
 EEPROMVar CControlerInfo::m_eeppromMotohours = EEPROMVar(sizeof(MOTOHOUR));
 EEPROMVar CControlerInfo::m_eeppromMaxMotohours = EEPROMVar(sizeof(MOTOHOUR));
 
 CControlerInfo::CControlerInfo() {
 	if (getStatusInitialization() != INITIATED) {
-		m_eepromInitialization = (uint8_t) INITIATED;
+		m_eepromInitialization = (uint16_t) INITIATED;
 		m_eeppromMotohours = (MOTOHOUR)0;
-		m_eeppromMotominutes = (uint8_t)0;
+		m_eeppromMotominutes = (uint16_t)0;
 		m_eeppromMaxMotohours = (MOTOHOUR)400;
 	}
 }

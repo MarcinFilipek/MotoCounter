@@ -9,11 +9,12 @@
 #define CLASSES_MOTOCOUNTER_MOTOCOUNTER_H_
 
 #include "IWtp3Device.h"
+#include "CControlerInfo.h"
 
 class MotoCounter: public IWtp3Device
 {
 public:
-	MotoCounter()
+	MotoCounter(): controlerInfo(0)
 	{
 	}
 	virtual ~MotoCounter()
@@ -37,6 +38,10 @@ public:
 	{
 	}
 	ERecFrameResult receiveFrame(Wtp3Driver* driver);
+	void setControlerInfo(CControlerInfo* _controlerInfo);
+private:
+	CControlerInfo* controlerInfo;
+	void handlePackage(uint8_t command, uint32_t data);
 };
 
 #endif /* CLASSES_MOTOCOUNTER_MOTOCOUNTER_H_ */

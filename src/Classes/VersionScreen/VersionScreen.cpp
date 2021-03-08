@@ -21,5 +21,9 @@ void VersionScreen::render()
 	}
 	lcd->print2ndColon(true);
 	lcd->printDot(true);
+}
 
+void VersionScreen::exit(void)
+{
+	lcd->clean();
 }

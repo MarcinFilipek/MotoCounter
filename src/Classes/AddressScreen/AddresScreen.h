@@ -14,7 +14,8 @@
 class AddresScreen: public Screen
 {
 public:
-	AddresScreen()
+	AddresScreen() :
+			address(0)
 	{
 	}
 	virtual ~AddresScreen()
@@ -22,6 +23,12 @@ public:
 	}
 	void init(Lcd* lcd);
 	void render(void);
+	void exit(void)
+	{
+	}
+	void setAddress(uint32_t _address);
+private:
+	uint32_t address;
 };
 
 #endif /* CLASSES_ADDRESSSCREEN_ADDRESSCREEN_H_ */

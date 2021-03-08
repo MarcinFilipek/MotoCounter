@@ -10,6 +10,7 @@
 
 #include "Screen.h"
 #include "Lcd.h"
+#include "timer.h"
 
 class ScreenManager
 {
@@ -23,12 +24,13 @@ public:
 	virtual ~ScreenManager()
 	{
 	}
-	void init(Lcd* lcd, Screen* scArr, uint8_t numberOfSc);
+	void init(Lcd* lcd, Screen** scArr, uint8_t numberOfSc);
 	void update(void);
 private:
-	Screen* screenArr;
+	Screen** screenArr;
 	uint8_t numberOfScreens;
 	uint8_t actualScreenIndex;
+	CTimer screenTimer;
 };
 
 #endif /* CLASSES_SCREENMANAGER_SCREENMANAGER_H_ */

@@ -17,6 +17,7 @@ const uint8_t Driver::TIME_UPDATE_HOURS_EEPROM = 60;
 
 void Driver::init()
 {
+	motoCounter.setControlerInfo(&controlerInfo);
 	lcd.init();
 	lcd.clear();
 	alarm.init(BUZZER_PORT, BUZZER_PIN);
@@ -24,22 +25,25 @@ void Driver::init()
 	actualMotominutes = controlerInfo.getMotominutes();
 
 	minuteTimer.start(MINUTE);
-	screenManager.init(&lcd, screens[0], 3);
+	screenManager.init(&lcd, screens, 3);
 	initCommunication();
+	addressScreen.setAddress(wtp3Driver.getOwnAddress());
 }
 
 void Driver::update()
 {
-//	checkMotohours();
+	checkMotohours();
 	updateMinutes();
-	motohoursScreen.updateMotohours(actualMotohours);
+	motohoursScreen.updateMotohours(controlerInfo.getMotohours());
 	screenManager.update();
 	wtp3Driver.update();
 }
 
 void Driver::checkMotohours()
 {
-	if (controlerInfo.getMaxMotohours() < controlerInfo.getMotohours())
+	uint32_t maxMotohours = controlerInfo.getMaxMotohours();
+	uint32_t actualMotohours = controlerInfo.getMotohours();
+	if (maxMotohours <= actualMotohours)
 	{
 		alarm.on();
 	}
@@ -73,6 +77,7 @@ void Driver::initCommunication(void)
 	wtp3Devices[0] = &motoCounter;
 	wtp_address_gen_init();
 	uint32_t address = wtp_address_gen_get_address();
+	address = 123;
 	initRadioSpi();
 	wtp3Driver.init(wtp3Devices, 1, address, 1, RECEIVE_MODE_CONTINUOUS, 170);
 }

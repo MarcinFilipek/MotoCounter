@@ -15,6 +15,7 @@ class VersionScreen: public Screen
 public:
 	static const uint16_t VERSION = 100;
 	void render(void);
+	void exit(void);
 };
 
 #endif /* CLASSES_VERSIONSCREEN_VERSIONSCREEN_H_ */

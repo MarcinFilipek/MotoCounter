@@ -9,6 +9,7 @@ void SystemClock_Config();
 void TurnOnWorkingClock();
 void initPinBuzzer();
 
+
 int main(void)
 {
 	HAL_Init();

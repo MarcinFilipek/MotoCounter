@@ -21,6 +21,7 @@ public:
 	void print2ndColon(bool status);
 	void printDot(bool status);
 	void printHourglass(bool status);
+	void clean();
 private:
 	LCD_HandleTypeDef lcdHandler;
 	Digit dig[NUM_OF_DIG];

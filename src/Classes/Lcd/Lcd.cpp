@@ -193,3 +193,12 @@ void Lcd::printHourglass(bool status){
 	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, MASK & ~(status << 19), R0);
 	HAL_LCD_UpdateDisplayRequest (&lcdHandler);
 }
+
+void Lcd::clean()
+{
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER0, 0, 0);
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER2, 0, 0);
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER4, 0, 0);
+	HAL_LCD_Write(&lcdHandler, LCD_RAM_REGISTER6, 0, 0);
+	HAL_LCD_UpdateDisplayRequest(&lcdHandler);
+}

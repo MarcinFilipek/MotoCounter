@@ -9,7 +9,7 @@
 #define CCONTROLERINFO_H_
 
 #include "EEPROMVar.h"
-typedef uint16_t MOTOHOUR;
+#include "definition.h"
 
 class CControlerInfo {
 public:

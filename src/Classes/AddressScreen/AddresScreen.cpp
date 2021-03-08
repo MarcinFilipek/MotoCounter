@@ -7,18 +7,28 @@
 
 #include "AddresScreen.h"
 #include "stdlib.h"
+#include "string.h"
 
-void AddresScreen::init(Lcd* lcd) {
+void AddresScreen::init(Lcd* lcd)
+{
 	this->lcd = lcd;
+}
+
+void AddresScreen::setAddress(uint32_t _address)
+{
+	address = _address;
 }
 
 void AddresScreen::render(void)
 {
-	char buffer[Lcd::NUM_OF_DIG] = {0};
-	itoa(99999999, buffer, 10);
+	char buffer[Lcd::NUM_OF_DIG + 1] =
+	{ 0 };
+	itoa(address, buffer, 10);
+	uint8_t startPos = Lcd::NUM_OF_DIG - strlen(buffer);
 	uint8_t i = 0;
-	while(buffer[i]) {
-		lcd->writeChar((uint8_t*)&buffer[i], i);
+	while (buffer[i])
+	{
+		lcd->writeChar((uint8_t*) &buffer[i], i + startPos);
 		i++;
 	}
 }

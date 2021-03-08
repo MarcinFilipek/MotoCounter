@@ -9,6 +9,7 @@
 #define CLASSES_MOTOHOURSSCREEN_MOTOHOURSSCREEN_H_
 
 #include "Screen.h"
+#include "definition.h"
 
 class MotohoursScreen: public Screen
 {
@@ -20,10 +21,11 @@ public:
 	virtual ~MotohoursScreen()
 	{
 	}
-	void updateMotohours(uint16_t motohours);
+	void updateMotohours(MOTOHOUR motohours);
 	void render(void);
+	void exit(void){}
 private:
-	uint16_t actualMotohours;
+	MOTOHOUR actualMotohours;
 };
 
 #endif /* CLASSES_MOTOHOURSSCREEN_MOTOHOURSSCREEN_H_ */
