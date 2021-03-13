@@ -85,7 +85,6 @@ void Wtp3Driver::init(IWtp3Device *devicesArr[], uint16_t devicesArrSize, uint32
         uint16_t ownDevice, EReceiveMode receiveMode, uint8_t receivedCmdSizeMax)
 {
     uint16_t i;
-
     rfm22frame_init(1, sizeHeaderFirstCheck, SIZE_HEADER_SIZE);
     this->rfm22frameState = rfm22frame_get_state();
 

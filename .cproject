@@ -79,11 +79,13 @@
 									<listOptionValue builtIn="false" value="../src/ControlerInfo"/>
 									<listOptionValue builtIn="false" value="../src/Driver"/>
 									<listOptionValue builtIn="false" value="../src/Classes/EepromVar"/>
+									<listOptionValue builtIn="false" value="../src/Classes/CommVar"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Lcd"/>
 									<listOptionValue builtIn="false" value="../src/Classes/MotoCounter"/>
 									<listOptionValue builtIn="false" value="../src/Classes/timer"/>
 									<listOptionValue builtIn="false" value="../src/Classes/HardwareInterrupt"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Interfaces"/>
+									<listOptionValue builtIn="false" value="../src/Classes/Interfaces/icommvar"/>
 									<listOptionValue builtIn="false" value="../src/Classes/VersionScreen"/>
 									<listOptionValue builtIn="false" value="../src/Classes/button"/>
 									<listOptionValue builtIn="false" value="../src/Classes/Alarm"/>
