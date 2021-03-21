@@ -16,12 +16,12 @@ EEPROMVar CControlerInfo::m_eeppromMotohours = EEPROMVar(sizeof(MOTOHOUR));
 EEPROMVar CControlerInfo::m_eeppromMaxMotohours = EEPROMVar(sizeof(MOTOHOUR));
 
 CControlerInfo::CControlerInfo() {
-	if (getStatusInitialization() != INITIATED) {
+//	if (getStatusInitialization() != INITIATED) {
 		m_eepromInitialization = (uint16_t) INITIATED;
 		m_eeppromMotohours = (MOTOHOUR)0;
 		m_eeppromMotominutes = (uint16_t)0;
 		m_eeppromMaxMotohours = (MOTOHOUR)400;
-	}
+//	}
 }
 
 CControlerInfo::TStatusInitialization CControlerInfo::getStatusInitialization() {
